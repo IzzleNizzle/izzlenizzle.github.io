@@ -58,4 +58,7 @@ footer.page-footer {
 
 .logo {
   height: 30px;
+  position: relative;
+  top: 10px;
+  padding: 2px;
 }
