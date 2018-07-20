@@ -56,6 +56,10 @@ footer.page-footer {
   margin: 0;
 }
 
+.footer-button {
+  margin-top: 15px;
+}
+
 .logo {
   height: 30px;
   position: relative;
