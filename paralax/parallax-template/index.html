@@ -1,87 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Isaac Pehrson's Portfolio</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
+
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Isaac Pehrson</a>
+      <a id="logo-container" href="#" class="brand-logo">Isaac P.</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="https://github.com/IzzleNizzle">GitHub<img class='logo' src="assets/githubicon.png" alt="#" /></a></li>
+        <li>
+          <a href="https://github.com/IzzleNizzle">GitHub
+            <img class='logo' src="assets/githubicon.png" alt="#" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/-isaacp/">LinkedIn
+            <img class='logo' src="assets/linkedinicon.png" alt="#">
+          </a>
+        </li>
       </ul>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="https://www.linkedin.com/in/-isaacp/">LinkedIn<img class='logo' src="assets/linkedinicon.png" alt="#" ></a></li>
-      </ul>
-
-      <!-- href="https://www.linkedin.com/in/-isaacp/"><img className='logo' src="assets/linkedinicon.png" alt="#" /> -->
-
+      <!-- sidenav -->
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">GitHub<img class='logo' src="assets/githubicon.png" alt="#" /></a></li>
-        <li><a href="https://www.linkedin.com/in/-isaacp/">LinkedIn<img class='logo' src="assets/linkedinicon.png" alt="#" ></a></li>
+        <li>
+          <a href="https://github.com/IzzleNizzle">GitHub
+            <img class='logo' src="assets/githubicon.png" alt="#" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/-isaacp/">LinkedIn
+            <img class='logo' src="assets/linkedinicon.png" alt="#">
+          </a>
+        </li>
       </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
     </div>
   </nav>
-
+  <!-- First Paralax -->
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+        <br>
+        <br>
+        <h1 class="header center teal-text text-lighten-2">Isaac Pehrson</h1>
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h5 class="header col s12 light">Scroll to see my projects, or</h5>
         </div>
         <div class="row center">
-          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+          <a href="mailto:pehisaac@Gmail.com" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Email me</a>
         </div>
-        <br><br>
-
+        <br>
+        <br>
       </div>
     </div>
-    <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax">
+      <img src="./assets/arches-national-park-dark.jpg" alt="Narrow Slot Canyon">
+    </div>
   </div>
-
-
+  <!-- About Me Section -->
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <!-- meep mope meep -->
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <br/>
+            <br/>
+            <br/>
+            <h5 class="center grey-text">$ whoami</h5>
+            <h5 class="center grey-text">Web Developer</h5>
+            <br/>
+          </div>
+        </div>
+        <!-- About Me -->
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h4 class="center">About Me:</h4>
+            <p class="light">
+              I love working with React.js and the MERN Stack.
+            </p>
+            <p class="light">
+              Just finished the University of Utah's Full Stack Coding Bootcamp.
+            </p>
+            <p class="light">I code every day and I love it!
+            </p>
+          </div>
+        </div>
+        <!-- Profile Pic -->
+        <div class="col s12 m4">
+          <div class="icon-block center">
+            <img src="./assets/AmberAndI.jpg" id='profile-pic' alt='Me' />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Second Paralax -->
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Some Full Stack projects I've built/contributed to.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="./assets/dark-moon-star.jpg" alt="Light Board Game">
+    </div>
+  </div>
+  <!-- Projects Section -->
   <div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
+
+      <!-- Project 1 Sk8 -->
+
+      <!-- Picture and Description -->
       <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
+        <div class="col l8 m12 center">
+          <img src="./assets/Sk8.gif" class='project' alt="Sk8.gif">
         </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
+        <div class="col l4 m12 center">
 
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
+          <h4>
+            <a href="https://stark-savannah-69359.herokuapp.com/">Sk8</a>
+          </h4>
+          <p class="light">A mobile-designed app for skaters, skateboarders, and tricksters to share their tricks with people in their area.</p>
+          <p class="light">As a team of 3 we built this Full Stack Application, I was the Back-End Developer.
+          </p>
+
         </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
       </div>
+
+      <!-- Second Row for Tech Used -->
+      <div class="row">
+
+        <div class="col m12 center">
+
+          <p class="light">
+            <strong>Tech Used:</strong> MySQL, NodeJS, Express, Google Maps API, Geolocation, AJAX, jQuery, Heroku.
+          </p>
+          <a href="https://github.com/IzzleNizzle/SK8" class="btn-large waves-effect waves-light teal lighten-1">View on Github</a>
+
+        </div>
+
+      </div>
+
+      <hr/>
+
+      <!-- Project 2 Bazaar -->
+
+      <!-- Picture and Description -->
+      <div class="row">
+
+
+        <div class="col l4 m12 center">
+
+          <h4>
+            <a href="https://stark-tundra-37570.herokuapp.com/">Bazaar</a>
+          </h4>
+          <p class="light">
+            This is a site for bartering and trading in order to help bring people together and trade goods without the need for cash.
+          </p>
+          <p class='light'>
+            Built this as a team of 5 for our final project in my bootcamp.
+          </p>
+
+        </div>
+
+        <div class="col l8 m12 center">
+          <img src="./assets/Bazaar.gif" class='project' alt="Bazaar.gif">
+        </div>
+
+      </div>
+
+      <!-- Second Row for Tech Used -->
+      <div class="row">
+
+        <div class="col m12 center">
+
+          <p class="light">
+            <strong>Tech Used:</strong> MongoDB, Express, React.js, NodeJS, Mongoose, AJAX, jQuery, Heroku.
+          </p>
+          <a href="https://github.com/IzzleNizzle/bazaar" class="btn-large waves-effect waves-light teal lighten-1">View on Github</a>
+
+        </div>
+
+      </div>
+
+      <hr/>
+
+      <!-- Project 3 scrape2Mongo-->
+
+      <!-- Picture and Description -->
+      <div class="row">
+
+        <div class="col l8 m12 center">
+          <img src="./assets/Scrape2Mongo.gif" class='project' alt="Scrape2Mongo.gif">
+        </div>
+
+        <div class="col l4 m12 center">
+
+          <h4>
+            <a href="https://powerful-sierra-49515.herokuapp.com/">scrape2Mongo</a>
+          </h4>
+          <p class="light">Scraping tool to compile news articles, make custom lists and add comments.</p>
+          <p class="light">I built this Full Stack Application by myself.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- Second Row for Tech Used -->
+      <div class="row">
+
+        <div class="col m12 center">
+
+          <p class="light">
+            <strong>Tech Used:</strong> NodeJS, Express, MongoDB, Mongoose, AJAX, jQuery, Heroku.
+          </p>
+          <a href="https://github.com/IzzleNizzle/scrape2Mongo" class="btn-large waves-effect waves-light teal lighten-1">View on Github</a>
+
+        </div>
+
+      </div>
+
+
 
     </div>
   </div>
@@ -95,33 +253,9 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        </div>
-      </div>
-
+    <div class="parallax">
+      <img src="background3.jpg" alt="Unsplashed background img 3">
     </div>
-  </div>
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
   <footer class="page-footer teal">
@@ -129,33 +263,51 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support
+            and continue development on this project and is greatly appreciated.</p>
 
 
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Settings</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li>
+              <a class="white-text" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 4</a>
+            </li>
           </ul>
         </div>
         <div class="col l3 s12">
           <h5 class="white-text">Connect</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <li>
+              <a class="white-text" href="#!">Link 1</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 2</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 3</a>
+            </li>
+            <li>
+              <a class="white-text" href="#!">Link 4</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        Made by
+        <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
   </footer>
@@ -166,5 +318,6 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 
-  </body>
+</body>
+
 </html>

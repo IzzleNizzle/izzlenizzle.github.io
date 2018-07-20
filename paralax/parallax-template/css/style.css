@@ -60,5 +60,20 @@ footer.page-footer {
   height: 30px;
   position: relative;
   top: 10px;
-  padding: 2px;
+  margin-left: 12px;
 }
+
+.project {
+  height: 270px;
+  margin: 15px;
+  /* float: left; */
+}
+
+#profile-pic {
+  max-height: 360px;
+  max-width: 100%;
+  float: left;
+  border-radius: 36px;
+  margin-left: 19px;
+}
+
