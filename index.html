@@ -2,101 +2,312 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Custom styles for this template -->
-    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
-    <title>IzzleNizzle's Webpage</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Isaac Pehrson's Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
 
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Isaac P.</a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="https://github.com/IzzleNizzle">GitHub
+            <img class='logo' src="assets/githubicon.png" alt="#" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/-isaacp/">LinkedIn
+            <img class='logo' src="assets/linkedinicon.png" alt="#">
+          </a>
+        </li>
+      </ul>
+      <!-- sidenav -->
+      <ul id="nav-mobile" class="sidenav">
+        <li>
+          <a href="https://github.com/IzzleNizzle">GitHub
+            <img class='logo' src="assets/githubicon.png" alt="#" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/-isaacp/">LinkedIn
+            <img class='logo' src="assets/linkedinicon.png" alt="#">
+          </a>
+        </li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
 
-    <!-- Navbar Begin -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                    aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Iz</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#">Home</a>
-                    </li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
+  <!-- First Paralax -->
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br>
+        <br>
+        <h1 class="header center teal-text text-lighten-2">Isaac Pehrson</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Scroll to see my projects, or</h5>
         </div>
-    </nav>
-    <!-- Navbar End -->
+        <div class="row center">
+          <a href="mailto:pehisaac@Gmail.com" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Email me</a>
+        </div>
+        <br>
+        <br>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="./assets/arches-national-park-dark.jpg" alt="Narrow Slot Canyon">
+    </div>
+  </div>
 
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <div class="container">
-            <h1>IzzleNizzle</h1>
-            <p>Hello, feel free to review some of my personal projects:</p>
-            <p>
-
-
-                
-                <a class="btn btn-primary btn-lg" href="https://powerful-sierra-49515.herokuapp.com/" role="button">Just Scrapin' By &raquo; (nodeJS, Express, Mongo, Mongoose, AJAX, jQuery)</a>
-
-
-                <a class="btn btn-primary btn-lg" href="https://stark-savannah-69359.herokuapp.com/" role="button">Sk8 &raquo; (Google Maps, Geolocation, MySQL, nodeJS, Express, AJAX, jQuery, Heroku)</a>
-                <a class="btn btn-primary btn-lg" href="https://vast-springs-18172.herokuapp.com/" role="button">Eat Da Burger! &raquo; (Handlebars, MySQL, nodeJS, Express, AJAX, jQuery, Heroku)</a>
-                <a class="btn btn-primary btn-lg" href="https://lit-coast-80381.herokuapp.com/" role="button">FriendFinder &raquo; (nodeJS, Express, AJAX, jQuery)</a>
-                <a class="btn btn-primary btn-lg" href="productivity-timer/sign-in.html" role="button">"Productivity Timer" &raquo; (Bootstrap, JavaScript, jQuery, Google Firebase)</a>
-                <a class="btn btn-primary btn-lg" href="GifTastic/index.html" role="button">"Gif Freakin' Tastic!!!" &raquo; (HTML, CSS, JS, AJAX)</a>
-                <a class="btn btn-primary btn-lg" href="TriviaGame/index.html" role="button">"Trivia Game" &raquo; (HTML, CSS, Bootstrap, JS, AJAX)</a>
-                <a class="btn btn-primary btn-lg" href="week-4-game/index.html" role="button">"Week 4 Game's" &raquo; (HTML, CSS, JS, AJAX)</a>
-                <a class="btn btn-primary btn-lg" href="Bootstrap-Portfolio/index.html" role="button">"Bootstrap Portfolio" &raquo; (HTML, CSS, Bootstrap)</a>
-                <a class="btn btn-primary btn-lg" href="Responsive-Portfolio/index.html" role="button">"Responsive Portfolio" &raquo; (HTML, CSS, Responsive Web Design)</a>
-                <a class="btn btn-primary btn-lg" href="Basic-Portfolio/index.html" role="button">"Simple Portfolio" &raquo; (HTML, CSS)</a>
-
+  <!-- About Me Section -->
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <!-- meep mope meep -->
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <br/>
+            <br/>
+            <br/>
+            <h5 class="center grey-text">$ whoami</h5>
+            <h5 class="center grey-text">Web Developer</h5>
+            <br/>
+          </div>
+        </div>
+        <!-- About Me -->
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h4 class="center">About Me:</h4>
+            <p class="light">
+              I love working with React.js and the MERN Stack.
             </p>
+            <p class="light">
+              Just finished the University of Utah's Full Stack Coding Bootcamp.
+            </p>
+            <p class="light">I code every day and I love it!
+            </p>
+          </div>
         </div>
+        <!-- Profile Pic -->
+        <div class="col s12 m4">
+          <div class="icon-block center">
+            <img src="./assets/AmberAndI.jpg" id='profile-pic' alt='Me' />
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
+  <!-- Second Paralax -->
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">Some Full Stack projects I've built/contributed to.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="./assets/dark-moon-star.jpg" alt="Light Board Game">
+    </div>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="container">
+    <div class="section">
+
+      <!-- Project 1 Sk8 -->
+      <!-- Picture and Description -->
+      <div class="row">
+        <div class="col l8 m12 center">
+          <img src="./assets/Sk8.gif" class='project' alt="Sk8.gif">
+        </div>
+
+        <div class="col l4 m12 center">
+
+          <h4>
+            <a href="https://stark-savannah-69359.herokuapp.com/">Sk8</a>
+          </h4>
+          <p class="light">A mobile-designed app for skaters, skateboarders, and tricksters to share their tricks with people in their area.</p>
+          <p class="light">As a team of 3 we built this Full Stack Application, I was the Back-End Developer.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- Second Row for Tech Used -->
+      <div class="row">
+
+        <div class="col m12 center">
+
+          <p class="light">
+            <strong>Tech Used:</strong> MySQL, NodeJS, Express, Google Maps API, Geolocation, AJAX, jQuery, Heroku.
+          </p>
+          <a href="https://github.com/IzzleNizzle/SK8" class="btn-large waves-effect waves-light teal lighten-1">View on Github</a>
+
+        </div>
+
+      </div>
+
+      <hr/>
+
+      <!-- Project 2 Bazaar -->
+
+      <!-- Picture and Description -->
+      <div class="row">
+
+
+        <div class="col l4 m12 center">
+
+          <h4>
+            <a href="https://stark-tundra-37570.herokuapp.com/">Bazaar</a>
+          </h4>
+          <p class="light">
+            This is a site for bartering and trading in order to help bring people together and trade goods without the need for cash.
+          </p>
+          <p class='light'>
+            Built this as a team of 5 for our final project in my bootcamp.
+          </p>
+
+        </div>
+
+        <div class="col l8 m12 center">
+          <img src="./assets/Bazaar.gif" class='project' alt="Bazaar.gif">
+        </div>
+
+      </div>
+
+      <!-- Second Row for Tech Used -->
+      <div class="row">
+
+        <div class="col m12 center">
+
+          <p class="light">
+            <strong>Tech Used:</strong> MongoDB, Express, React.js, NodeJS, Mongoose, AJAX, jQuery, Heroku.
+          </p>
+          <a href="https://github.com/IzzleNizzle/bazaar" class="btn-large waves-effect waves-light teal lighten-1">View on Github</a>
+
+        </div>
+
+      </div>
+
+      <hr/>
+
+      <!-- Project 3 scrape2Mongo-->
+
+      <!-- Picture and Description -->
+      <div class="row">
+
+        <div class="col l8 m12 center">
+          <img src="./assets/Scrape2Mongo.gif" class='project' alt="Scrape2Mongo.gif">
+        </div>
+
+        <div class="col l4 m12 center">
+
+          <h4>
+            <a href="https://powerful-sierra-49515.herokuapp.com/">scrape2Mongo</a>
+          </h4>
+          <p class="light">Scraping tool to compile news articles, make custom lists and add comments.</p>
+          <p class="light">I built this Full Stack Application by myself.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- Second Row for Tech Used -->
+      <div class="row">
+
+        <div class="col m12 center">
+
+          <p class="light">
+            <strong>Tech Used:</strong> NodeJS, Express, MongoDB, Mongoose, AJAX, jQuery, Heroku.
+          </p>
+          <a href="https://github.com/IzzleNizzle/scrape2Mongo" class="btn-large waves-effect waves-light teal lighten-1">View on Github</a>
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <!-- Third Paralax -->
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="./assets/narrowcanyon.jpg" alt="Unsplashed background img 3">
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer teal">
     <div class="container">
-
-        <iframe src="https://free.timeanddate.com/countdown/i67pv3f8/n220/cf100/cm0/cu4/ct0/cs0/ca0/cr0/ss0/cac000/cpc000/pcfff/tceac8d5/fs100/szw320/szh135/tatTime%20left%20until%20Wedding!/tac000/tptYou're%20Married!!!/tpc000/matIsaac%20%26%20Shaley/mac000/mpc000/iso2018-08-22T15:11:00"
-            allowTransparency="true" frameborder="0" width="320" height="135"></iframe>
-
-    </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p>Choose your Theme!</p>
-
-
-            <!-- Boxes for CSS Styling Feature -->
-            <div class="box" id="box1"></div>
-            <div class="box" id="box2"></div>
-            <div class="box" id="box3"></div>
-            <div class="box" id="box4"></div>
-
-
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Isaac Pehrson</h5>
+          <p class="grey-text text-lighten-4">
+            Driven individual pursuing opportunities to build and improve the digital ecosystem.
+          </p>
+          <p class="grey-text text-lighten-4">
+            People centric, able to build with and learn from the experience of others.
+          </p>
+          <p class="grey-text text-lighten-4">
+            I am consistant, dedicated and ambitious.
+          </p>
         </div>
-    </footer>
+        <div class="col l3 s12">
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li class="footer-button">
+              <a class='btn-large waves-effect white teal-text lighten-1' href="https://github.com/IzzleNizzle">GitHub
+                <img class='logo' src="assets/githubicon.png" alt="#" />
+              </a>
+            </li>
+            <li class="footer-button">
+              <a class='btn-large waves-effect white teal-text lighten-1' href="https://www.linkedin.com/in/-isaacp/">LinkedIn
+                <img class='logo' src="assets/linkedinicon.png" alt="#">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      </div>
+    </div>
+  </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- <script src="js/npm.js"></script> -->
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 
 </body>
 
