@@ -81,3 +81,12 @@ footer.page-footer {
   margin-left: 19px;
 }
 
+.resume-container {
+  height: 22em;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+}
+
+#resume {
+  width: 100%;
+  height: 100%;
+}
