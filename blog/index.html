@@ -71,6 +71,7 @@
         </header>
 
         <section class="my_main_section">
+            <p id="loading">Loading blog posts...</p>
         </section>
 
     </main>
@@ -78,10 +79,42 @@
     <footer>
     </footer>
     <script>
+        // Load markdown-generated blog posts
+        function loadBlogPosts() {
+            fetch('./posts/list.json')
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Blog posts not yet generated');
+                    }
+                    return response.json();
+                })
+                .then((posts) => {
+                    const loading = document.getElementById('loading');
+                    if (loading) loading.remove();
+                    
+                    // Sort posts by date, newest first
+                    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    posts.forEach((post) => {
+                        const dateString = formatDateString(post.date);
+                        const url = `./posts/${post.filename}.html`;
+                        appendBlogPostHtml(post.title, '', url, dateString);
+                    });
+                })
+                .catch((error) => {
+                    console.log('Loading from markdown files failed, falling back to gists:', error);
+                    // Fallback to gists if markdown posts not available
+                    getGists("izzlenizzle");
+                });
+        }
+
         function getGists(username) {
             fetch(`https://api.github.com/users/${username}/gists`)
                 .then((response) => response.json())
                 .then((data) => {
+                    const loading = document.getElementById('loading');
+                    if (loading) loading.remove();
+                    
                     data.forEach((gist) => {
                         console.log(gist);
                         const files = gist.files;
@@ -102,7 +135,6 @@
                 })
                 .catch((error) => console.log(error));
         }
-        getGists("izzlenizzle");
 
         function appendBlogPostHtml(title, desc, url, dateString) {
             const domPointer = document.querySelector(".my_main_section");
@@ -112,18 +144,21 @@
             const smallElement = document.createElement("small");
             const sectionElement = document.createElement("section");
             const aElement = document.createElement("a");
-            const pElement = document.createElement("p");
 
             aElement.href = url;
             aElement.text = title;
             smallElement.textContent = dateString;
-            pElement.textContent = desc;
 
             headerElement.appendChild(aElement);
-            sectionElement.appendChild(pElement);
             articleElement.appendChild(headerElement);
             articleElement.appendChild(smallElement);
-            articleElement.appendChild(sectionElement);
+            
+            if (desc) {
+                const pElement = document.createElement("p");
+                pElement.textContent = desc;
+                sectionElement.appendChild(pElement);
+                articleElement.appendChild(sectionElement);
+            }
 
             domPointer.appendChild(articleElement);
         }
@@ -137,6 +172,8 @@
             return formattedDateString;
         }
 
+        // Load blog posts on page load
+        loadBlogPosts();
     </script>
 </body>
 

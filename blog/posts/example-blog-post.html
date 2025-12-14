@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Describe the issue - IzzleNizzle Blog</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #58a6ff;
+            margin: 0 0 10px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .content h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .content h3 {
+            color: #58a6ff;
+        }
+        .content a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .content code {
+            background: #0d1117;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .content pre {
+            background: #0d1117;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .content pre code {
+            padding: 0;
+        }
+        .date {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Blog</a>
+        <div class="header">
+            <h1>Describe the issue</h1>
+            <div class="date">2025-12-13 20:08:31 -0700</div>
+        </div>
+        <div class="content">
+<h2>Describe the issue</h2>
+<p>Right after the install, logging into the desktop it goes black screen right after logging in. I can see the log in screen, until i put my password in then it goes black screen</p>
+<p>Thankfully, GPT said this was a &quot;<strong>very common ... issue</strong>,... The good news: it’s almost always fixable in a few minutes.&quot;</p>
+<h2>Solution:</h2>
+<h3>Step 1: Get to a terminal (TTY)</h3>
+<p>I had a black blank screen, but i was able to get a terminal by pressing the following keys:</p>
+<p><code>Ctrl + Alt + F3</code></p>
+<p>I saw a text login prompt, logged in with:</p>
+<ul>
+<li>my <strong>username</strong></li>
+<li>my <strong>password</strong></li>
+</ul>
+<h3>Step 2: Install the proper NVIDIA driver</h3>
+<p>I ran the following commands:</p>
+<pre><code class="language-sh">sudo apt update
+sudo ubuntu-drivers devices
+</code></pre>
+<p>I was presented with al ist of driver options? GPT informed me to look for one with a &quot;recommended&quot; near it, there was one option like that:</p>
+<p><code>driver   : nvidia-driver-580-open - distro non-free recommended</code></p>
+<p>So i ran:</p>
+<p>`sudo apt install nvidia-driver-580-open</p>
+<h3>Step 3: Disable Wayland</h3>
+<pre><code class="language-sh">sudo nano /etc/gdm3/custom.conf
+# Find this line: 
+# WaylandEnable=false
+# Uncomment it so it becomes:
+WaylandEnable=false
+# Save and exit
+</code></pre>
+<h3>Step 4: Reboot</h3>
+<p>After i edited the file and while i waited the restart, i saw a bunch of lines on the screen repeating:</p>
+<p><code>NVRM: GPU 0000:01:00.0 is already bound to nouveau</code></p>
+<p>I was worried about that, but GPT said it's ok. And ever since that restart and subsequent restarts, i have not seen that screen repeated.</p>
+<h2>Conclusion</h2>
+<p>I have now been able to log in and everything seems to be working correctly. I have not made any further changes and I'm glad things are working. OBS Studio seems to work ok, as well as a video editor, Kdenlive</p>
+<h3>References</h3>
+<p><a href="https://chatgpt.com/share/693de519-5e8c-8008-813f-1da10f0962d8">GPT Chat</a></p>
+        </div>
+    </div>
+</body>
+</html>
