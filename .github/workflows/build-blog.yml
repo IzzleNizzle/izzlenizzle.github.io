@@ -43,6 +43,11 @@ jobs:
               # Get filename without extension
               filename=$(basename "$md_file" .md)
               
+              # Skip README files
+              if [ "$filename" = "README" ]; then
+                continue
+              fi
+              
               # Extract title - prioritize ## headings which are more common for markdown blog posts
               title=$(grep -m 1 "^## " "$md_file" | sed 's/^## //')
               if [ -z "$title" ]; then
