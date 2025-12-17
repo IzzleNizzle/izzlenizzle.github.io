@@ -21,7 +21,7 @@ Here if you want to rename `something` to another name, it'll keep the case pres
 Context for right click menu on directories. Allows you to open a directory in a new instance of VSC.
 
 `dsznajder.es7-react-js-snippets`
-React snippets. With AI tools today, i use this less than ever.
+React snippets. With AI tools today, I use this less than ever.
 
 `github.copilot
 github.copilot-chat`
