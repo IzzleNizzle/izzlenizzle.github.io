@@ -75,110 +75,33 @@
         </header>
 
         <section class="my_main_section">
-            <p id="loading">Loading blog posts...</p>
+            <article>
+      <header><a href="./posts/2025-12-15 -- My Choice Visual Studio Code Extensions.html">My Choice Visual Studio Code Extensions</a></header>
+      <small>December 15, 2025</small>
+  </article>
+              <article>
+      <header><a href="./posts/2025-12-13 -- Ubuntu 22 Clipboard Manager.html">Ubuntu 22 Clipboard Manager</a></header>
+      <small>December 13, 2025</small>
+  </article>
+              <article>
+      <header><a href="./posts/2025-12-13 -- Screenshot Selection to Clipboard - Ubuntu 22.html">Screenshot Selection To Clipboard Ubuntu 22</a></header>
+      <small>December 13, 2025</small>
+  </article>
+              <article>
+      <header><a href="./posts/2025-12-13 -- Git Rid of Code For Real.html">Git Rid Of Code For Real</a></header>
+      <small>December 13, 2025</small>
+  </article>
+              <article>
+      <header><a href="./posts/2025-12-13 -- Fresh Ubuntu 22 Desktop Install - Black Screen After Login - Nvidia 3060ti.html">Fresh Ubuntu 22 Desktop Install Black Screen After Login Nvidia 3060ti</a></header>
+      <small>December 13, 2025</small>
+  </article>
+  
         </section>
 
     </main>
 
     <footer>
     </footer>
-    <script>
-        // Load markdown-generated blog posts
-        function loadBlogPosts() {
-            fetch('./posts/list.json')
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error('Blog posts not yet generated');
-                    }
-                    return response.json();
-                })
-                .then((posts) => {
-                    const loading = document.getElementById('loading');
-                    if (loading) loading.remove();
-                    
-                    // Sort posts by date, newest first
-                    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-                    
-                    posts.forEach((post) => {
-                        const dateString = formatDateString(post.date);
-                        const url = `./posts/${post.filename}.html`;
-                        appendBlogPostHtml(post.title, '', url, dateString);
-                    });
-                })
-                .catch((error) => {
-                    console.log('Loading from markdown files failed, falling back to gists:', error);
-                    // Fallback to gists if markdown posts not available
-                    getGists("izzlenizzle");
-                });
-        }
-
-        function getGists(username) {
-            fetch(`https://api.github.com/users/${username}/gists`)
-                .then((response) => response.json())
-                .then((data) => {
-                    const loading = document.getElementById('loading');
-                    if (loading) loading.remove();
-                    
-                    data.forEach((gist) => {
-                        console.log(gist);
-                        const files = gist.files;
-                        for (const file in files) {
-                            const obj = {
-                                title: file.slice(0, -3),
-                                desc: gist.description,
-                                url: gist.html_url,
-                                created_date: gist.created_at,
-                                updated_date: formatDateString(gist.updated_at)
-                            };
-                            appendBlogPostHtml(obj.title, obj.desc, obj.url, obj.updated_date);
-                            console.log(obj);
-                            console.log(obj);
-                            console.log(file);
-                        }
-                    });
-                })
-                .catch((error) => console.log(error));
-        }
-
-        function appendBlogPostHtml(title, desc, url, dateString) {
-            const domPointer = document.querySelector(".my_main_section");
-
-            const articleElement = document.createElement("article");
-            const headerElement = document.createElement("header");
-            const smallElement = document.createElement("small");
-            const sectionElement = document.createElement("section");
-            const aElement = document.createElement("a");
-
-            aElement.href = url;
-            aElement.text = title;
-            smallElement.textContent = dateString;
-
-            headerElement.appendChild(aElement);
-            articleElement.appendChild(headerElement);
-            articleElement.appendChild(smallElement);
-            
-            if (desc) {
-                const pElement = document.createElement("p");
-                pElement.textContent = desc;
-                sectionElement.appendChild(pElement);
-                articleElement.appendChild(sectionElement);
-            }
-
-            domPointer.appendChild(articleElement);
-        }
-
-        function formatDateString(sourceDateString) {
-            const date = new Date(sourceDateString);
-            const options = { month: "long", day: "numeric", year: "numeric" };
-            const formattedDateString = new Intl.DateTimeFormat("en-US", options).format(
-                date
-            );
-            return formattedDateString;
-        }
-
-        // Load blog posts on page load
-        loadBlogPosts();
-    </script>
 </body>
 
 </html>
