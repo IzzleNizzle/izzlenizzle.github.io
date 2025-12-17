@@ -1,6 +1,6 @@
 ## Describe the issue
 
-In windows its `Windows Button + Shift + S`, on MacOS it's `Command+Shift+4`.
+In windows its `Windows Button+Shift+S`, on MacOS it's `Command+Shift+4`.
 
 These keyboard shortcuts enable you select a portion of your screen to be screenshot and then you can copy it your clipboard.
 
