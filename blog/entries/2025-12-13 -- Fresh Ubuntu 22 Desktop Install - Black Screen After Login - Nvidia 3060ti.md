@@ -4,11 +4,11 @@ Right after the install, logging into the desktop it goes black screen right aft
 
 Thankfully, GPT said this was a "**very common ... issue**,... The good news: it’s almost always fixable in a few minutes."
 
-## Solution: 
+## Solution:
 
 ### Step 1: Get to a terminal (TTY)
 
-I had a black blank screen, but i was able to get a terminal by pressing the following keys: 
+I had a black blank screen, but i was able to get a terminal by pressing the following keys:
 
 `Ctrl + Alt + F3`
 
@@ -30,7 +30,7 @@ I was presented with a list of driver options? GPT informed me to look for one w
 
 `driver   : nvidia-driver-580-open - distro non-free recommended`
 
-So i ran: 
+So i ran:
 
 `sudo apt install nvidia-driver-580-open`
 
@@ -38,7 +38,7 @@ So i ran:
 
 ```sh
 sudo nano /etc/gdm3/custom.conf
-# Find this line: 
+# Find this line:
 # WaylandEnable=false
 # Uncomment it so it becomes:
 WaylandEnable=false
@@ -47,11 +47,11 @@ WaylandEnable=false
 
 ### Step 4: Reboot
 
-After i edited the file and while i waited the restart, i saw a bunch of lines on the screen repeating: 
+After i edited the file and while i waited the restart, i saw a bunch of lines on the screen repeating:
 
 `NVRM: GPU 0000:01:00.0 is already bound to nouveau`
 
-I was worried about that, but GPT said it's ok. And ever since that restart and subsequent restarts, i have not seen that screen repeated. 
+I was worried about that, but GPT said it's ok. And ever since that restart and subsequent restarts, i have not seen that screen repeated.
 
 ## Conclusion
 
