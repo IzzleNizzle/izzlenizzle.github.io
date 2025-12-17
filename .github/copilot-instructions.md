@@ -35,9 +35,10 @@ The blog uses an automated build system defined in `.github/workflows/build-blog
 ### Blog Post Filename Convention
 
 Blog entries should follow this naming pattern:
-- Format: `YYYY-MM-DD -- title-with-hyphens.md` (with space-dash-dash-space separator)
-- Alternative: `YYYY-MM-DD-title-with-hyphens.md` (single dash separator)
+- **Preferred format**: `YYYY-MM-DD -- title-with-hyphens.md` (with space-dash-dash-space separator)
+- Alternative format: `YYYY-MM-DD-title-with-hyphens.md` (single dash separator, also supported)
 - The build system extracts the date and converts the title to proper case
+- Example: `2025-12-15 -- My Choice Visual Studio Code Extensions.md`
 
 ### Site Structure
 
