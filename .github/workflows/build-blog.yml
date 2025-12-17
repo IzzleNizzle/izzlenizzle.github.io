@@ -26,8 +26,10 @@ jobs:
         with:
           node-version: '20'
           
-      - name: Install markdown-it
-        run: npm install -g markdown-it
+      - name: Install dependencies
+        run: |
+          npm install -g markdown-it
+          sudo apt-get update && sudo apt-get install -y jq
         
       - name: Convert Markdown to HTML
         run: |
@@ -219,12 +221,16 @@ jobs:
             filename=$(echo "$post" | jq -r '.filename')
             date=$(echo "$post" | jq -r '.date')
             
+            # Escape HTML special characters
+            title_escaped=$(echo "$title" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
+            filename_escaped=$(echo "$filename" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
+            
             # Format the date
             formatted_date=$(date -d "$date" '+%B %-d, %Y' 2>/dev/null || date -j -f "%Y-%m-%d" "$date" '+%B %-d, %Y' 2>/dev/null || echo "$date")
             
             # Append article HTML
             blog_posts_html+="            <article>
-                <header><a href=\"./posts/${filename}.html\">${title}</a></header>
+                <header><a href=\"./posts/${filename_escaped}.html\">${title_escaped}</a></header>
                 <small>${formatted_date}</small>
             </article>
 "
