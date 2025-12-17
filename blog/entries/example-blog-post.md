@@ -1,4 +1,4 @@
-## Describe the issue
+# Describe the issue
 
 Right after the install, logging into the desktop it goes black screen right after logging in. I can see the log in screen, until i put my password in then it goes black screen
 

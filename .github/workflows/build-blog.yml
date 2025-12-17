@@ -50,8 +50,8 @@ jobs:
                 continue
               fi
               
-              # Extract title - prioritize ## headings which are more common for markdown blog posts
-              title=$(grep -m 1 "^## " "$md_file" | sed 's/^## //')
+              # Extract title - prioritize # headings (h1) for blog post titles
+              title=$(grep -m 1 "^# " "$md_file" | sed 's/^# //')
               if [ -z "$title" ]; then
                 # Fallback to filename
                 title="$filename"

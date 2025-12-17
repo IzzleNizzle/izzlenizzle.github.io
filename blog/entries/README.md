@@ -5,7 +5,7 @@ This directory contains markdown files that are automatically converted to HTML 
 ## How to Add a New Blog Post
 
 1. Create a new markdown (`.md`) file in this directory
-2. Start your blog post with a `##` heading (this will be used as the title)
+2. Start your blog post with a `#` heading (this will be used as the title)
 3. Write your content using standard markdown syntax
 4. Commit and push the file to the `main` branch
 5. The GitHub Action will automatically:
@@ -16,15 +16,15 @@ This directory contains markdown files that are automatically converted to HTML 
 ## Example
 
 ```markdown
-## My Awesome Blog Post
+# My Awesome Blog Post
 
 This is the introduction to my blog post.
 
-### Section 1
+## Section 1
 
 Content for section 1...
 
-### Section 2
+## Section 2
 
 More content here...
 ```
@@ -41,7 +41,7 @@ More content here...
 
 ## Notes
 
-- The first `##` heading in your markdown file will be used as the blog post title
-- If no `##` heading is found, the filename will be used as the title
+- The first `#` heading in your markdown file will be used as the blog post title
+- If no `#` heading is found, the filename will be used as the title
 - Blog posts are sorted by date, newest first
 - The date is taken from the git commit history
