@@ -50,15 +50,21 @@ jobs:
                 continue
               fi
               
-              # Extract title - prioritize # headings (h1) for blog post titles
-              title=$(grep -m 1 "^# " "$md_file" | sed 's/^# //')
-              if [ -z "$title" ]; then
-                # Fallback to filename
-                title="$filename"
+              # Extract date and title from filename
+              # Expected format: YYYY-MM-DD-title-with-hyphens.md
+              if [[ "$filename" =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.+)$ ]]; then
+                # Extract date from filename (YYYY-MM-DD format)
+                date="${BASH_REMATCH[1]}"
+                # Extract title part (everything after the date and first hyphen)
+                title_part="${BASH_REMATCH[2]}"
+                # Convert hyphens to spaces and capitalize words
+                title=$(echo "$title_part" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
+              else
+                # Fallback: no date in filename, use git commit date and filename as title
+                date=$(git log -1 --format="%Y-%m-%d" -- "$md_file" 2>/dev/null || date -r "$md_file" +"%Y-%m-%d")
+                # Convert hyphens/underscores to spaces and capitalize
+                title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
               fi
-              
-              # Get file modification date
-              date=$(git log -1 --format="%ai" -- "$md_file" 2>/dev/null || date -r "$md_file" +"%Y-%m-%d")
               
               # Convert markdown to HTML
               markdown-it "$md_file" > "blog/posts/${filename}.html.tmp"
