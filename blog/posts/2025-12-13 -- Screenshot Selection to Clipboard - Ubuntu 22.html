@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 12 13 Screenshot Selection To Clipboard Ubuntu 22 - IzzleNizzle Blog</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #58a6ff;
+            margin: 0 0 10px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .content h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .content h3 {
+            color: #58a6ff;
+        }
+        .content a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .content code {
+            background: #0d1117;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .content pre {
+            background: #0d1117;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .content pre code {
+            padding: 0;
+        }
+        .date {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Blog</a>
+        <div class="header">
+            <h1>2025 12 13 Screenshot Selection To Clipboard Ubuntu 22</h1>
+            <div class="date">%Y->-</div>
+        </div>
+        <div class="content">
+<h2>Describe the issue</h2>
+<p>In windows its <code>Windows Button + Shift + S</code>, on MacOS it's <code>Command+Shift+4</code>.</p>
+<p>These keyboard shortcuts enable you select a portion of your screen to be screenshot and then you can copy it your clipboard.</p>
+<p>You have to take an extra step to get it to your clipboard, so i think i've found an even easier option on Ubuntu linux, however a bit more technical.</p>
+<p>The problem I was running into was I'm also running OBS studio, and it was catching all the <code>Print Screen</code> commands and making it not work.</p>
+<p>After doing a bit of online research, i found a workaround for this specific use case.</p>
+<h2>Solution</h2>
+<p>After searching and trying a few options that did not serve me well, I found this solution:</p>
+<p>A few things to install, install gnome-screenshot &amp; xclip:</p>
+<pre><code class="language-sh">sudo apt install gnome-screenshot xclip
+</code></pre>
+<p>Now navigate to the GUI for your Ubuntu settings,</p>
+<p><code>Settings → Keyboard → Keyboard Shortcuts</code></p>
+<p>At the bottom there is an option for <code>Custom Shortcuts</code>. Click on that and click Add, you'll have a few options to fill out:</p>
+<p>Name: give it whatever name you wish, mine is:</p>
+<p><code>Screenshot Selection to Clipboard</code></p>
+<p>Command:</p>
+<p><code>bash -c 'gnome-screenshot -a --file=/tmp/foo.png &amp;&amp; xclip -selection clipboard -t image/png -i /tmp/foo.png'</code></p>
+<p>Essentially this saves the screenshot to a temp directory, then pulls that file and adds it to your clipboard.</p>
+<h3>One Enhancement:</h3>
+<p>How can i enhance this so that it saves the screenshot with a dated name in my <code>~/Pictures</code> directory, and also applies it to the clipboard?</p>
+<p>If your feeling comfortable with how far we've come already, you may enhance things a bit like this:</p>
+<pre><code class="language-sh">bash -c '
+file=&quot;$HOME/Pictures/Screenshot-$(date +&quot;%Y-%m-%d_%H-%M-%S&quot;).png&quot; &amp;&amp;
+gnome-screenshot -a --file=&quot;$file&quot; &amp;&amp;
+xclip -selection clipboard -t image/png -i &quot;$file&quot;
+'
+</code></pre>
+<p>Here is a one liner that is easier to paste into the dialog box. I kept the above code for readability, so you can see and understand what steps it is taking:</p>
+<p><code>bash -c 'file=&quot;$HOME/Pictures/Screenshot-$(date +&quot;%Y-%m-%d_%H-%M-%S&quot;).png&quot; &amp;&amp; gnome-screenshot -a --file=&quot;$file&quot; &amp;&amp; xclip -selection clipboard -t image/png -i &quot;$file&quot;'</code></p>
+<h2>Conclusion</h2>
+<p>The last command gives great functionality improvement, saving the selected area screenshot to disk and also to clipboard.</p>
+<p>You may want to customize this behavior, maybe removing the clipboard, or removing the file storage. You can edit the command as you wish. I like it to save to disk and clipboard, I find that especially useful if you're saving many subsequent screenshots at a time.</p>
+<h2>References</h2>
+<p><a href="https://www.reddit.com/r/Ubuntu/comments/vkrolx/how_to_screenshot_area_and_copy_to_clipboard/">Reddit Post</a></p>
+        </div>
+    </div>
+</body>
+</html>

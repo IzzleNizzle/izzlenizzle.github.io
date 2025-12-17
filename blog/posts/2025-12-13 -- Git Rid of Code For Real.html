@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 12 13 Git Rid Of Code For Real - IzzleNizzle Blog</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #58a6ff;
+            margin: 0 0 10px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .content h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .content h3 {
+            color: #58a6ff;
+        }
+        .content a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .content code {
+            background: #0d1117;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .content pre {
+            background: #0d1117;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .content pre code {
+            padding: 0;
+        }
+        .date {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Blog</a>
+        <div class="header">
+            <h1>2025 12 13 Git Rid Of Code For Real</h1>
+            <div class="date">%Y->- (HEAD -> main, origin/main)</div>
+        </div>
+        <div class="content">
+<h2>Describe the issue</h2>
+<p>I think we've all committed by accident a secret to a git repository, and then found it to be non-trivial to remove that from the entire git history.</p>
+<p>In git, if you commit a secret or a key, it's there forever. You can remove it, but it will always live in your git history. So it's just covered up, it's not really gone.</p>
+<p>For my example, i needed to remove all links of ebay.com from a particular repo. I wanted to just simply search for that domain, and if it matched on a line, i wanted that entire line deleted.</p>
+<p>Not just simply deleted, but removed from all git history. Here's how i did that:</p>
+<h2>Solution</h2>
+<p>There are many ways to accomplish this, this is not the only way to do this, nor may all think it is the <em>correct</em> way to do this. But it did for me what i wanted.</p>
+<h3>Step 1 - Clone a git mirror</h3>
+<p>Since it's wise to keep a backup while we are performing this, I did all the work in a mirrored clone.</p>
+<pre><code>git clone --mirror &lt;repository-url&gt; repo-mirror.git
+cd repo-mirror.git
+</code></pre>
+<h3>Step 2 - Remove Files/Directories/String matches</h3>
+<h4>When i wanted to remove directories completely:</h4>
+<pre><code>git filter-repo --path src/components/UnwantedComponent --invert-paths
+</code></pre>
+<h4>When i wanted to remove by a string match:</h4>
+<p>The normal syntax for this string-replace is something like</p>
+<p><code>search-string==&gt;replace-string</code></p>
+<p>And then the command would be:</p>
+<p><code>git filter-repo --replace-text ./replacements.txt</code></p>
+<p><code>replacements.txt</code> being a simple text file i created with the string match syntax.</p>
+<p>I wanted to do something a little tricky, i wasn't simply finding and replacing strings. Instead I wanted to look for matches of 'ebay.com' and then remove the entire line. In order to do this i used a regex approach:</p>
+<p><code>regex:.*secret.example.com.*\n==&gt;</code></p>
+<p>What this does
+.*secret.example.com.* → matches the entire line containing the secret</p>
+<p>\n → includes the newline so the whole line disappears cleanly</p>
+<p>==&gt; with nothing on the right → deletes it</p>
+<h3>Step 4 - Push Changes to Remote</h3>
+<p><code>git push --force</code></p>
+<h3>Step 4 - Confirm removals worked</h3>
+<p>Search repo and ensure string was removed:</p>
+<p><code>git rev-list --all | xargs -n 1 git grep -n &quot;ebay.com&quot; || echo &quot;Not found&quot;</code></p>
+<p>I did find that i had to repeat the &quot;clone/delete/push&quot; steps a couple times to entirely remove everything. But after a few clones, i can now confirm all matches of said string have been removed.</p>
+<h2>Conclusion</h2>
+<p>Yeah so there are likely hundreds of ways to do this, and those that have done this several times may be able to point out more proper ways of performing this. But I found these steps to work for me and it performed a difficult Git task that comes up sometimes.</p>
+        </div>
+    </div>
+</body>
+</html>
