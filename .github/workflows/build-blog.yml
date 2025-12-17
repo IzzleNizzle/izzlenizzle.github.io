@@ -26,8 +26,10 @@ jobs:
         with:
           node-version: '20'
           
-      - name: Install markdown-it
-        run: npm install -g markdown-it
+      - name: Install dependencies
+        run: |
+          npm install -g markdown-it
+          sudo apt-get update && sudo apt-get install -y jq
         
       - name: Convert Markdown to HTML
         run: |
@@ -51,9 +53,17 @@ jobs:
               fi
               
               # Extract date and title from filename
-              # Expected format: YYYY-MM-DD-title-with-hyphens.md
-              if [[ "$filename" =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.+)$ ]]; then
-                # Extract date from filename (YYYY-MM-DD format)
+              # Expected format: YYYY-MM-DD -- title-with-hyphens.md (with space-dash-dash-space separator)
+              # Also support: YYYY-MM-DD-title-with-hyphens.md (single dash separator)
+              if [[ "$filename" =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})\ --\ (.+)$ ]]; then
+                # Extract date from filename (YYYY-MM-DD format) - space-dash-dash-space format
+                date="${BASH_REMATCH[1]}"
+                # Extract title part (everything after the date and separator)
+                title_part="${BASH_REMATCH[2]}"
+                # Convert hyphens to spaces and capitalize words
+                title=$(echo "$title_part" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
+              elif [[ "$filename" =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.+)$ ]]; then
+                # Extract date from filename (YYYY-MM-DD format) - single dash format
                 date="${BASH_REMATCH[1]}"
                 # Extract title part (everything after the date and first hyphen)
                 title_part="${BASH_REMATCH[2]}"
@@ -61,7 +71,7 @@ jobs:
                 title=$(echo "$title_part" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
               else
                 # Fallback: no date in filename, use git commit date and filename as title
-                date=$(git log -1 --format="%Y-%m-%d" -- "$md_file" 2>/dev/null || date -r "$md_file" +"%Y-%m-%d")
+                date=$(git log -1 --format="%Y-%m-%d" -- "$md_file" 2>/dev/null || echo "1970-01-01")
                 # Convert hyphens/underscores to spaces and capitalize
                 title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
               fi
@@ -197,11 +207,68 @@ jobs:
           
           echo ']' >> blog/posts/list.json
           
+      - name: Pre-render blog index page
+        run: |
+          # Read the list.json and pre-render the blog posts in index.html
+          # This eliminates the need for client-side JavaScript to load posts
+          
+          # Use jq and a while loop to properly handle the JSON
+          blog_posts_html=""
+          
+          # Process each post from the sorted JSON array
+          while IFS= read -r post; do
+            title=$(echo "$post" | jq -r '.title')
+            filename=$(echo "$post" | jq -r '.filename')
+            date=$(echo "$post" | jq -r '.date')
+            
+            # Escape HTML special characters
+            title_escaped=$(echo "$title" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
+            filename_escaped=$(echo "$filename" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
+            
+            # Format the date
+            formatted_date=$(date -d "$date" '+%B %-d, %Y' 2>/dev/null || date -j -f "%Y-%m-%d" "$date" '+%B %-d, %Y' 2>/dev/null || echo "$date")
+            
+            # Append article HTML
+            blog_posts_html+="            <article>
+                <header><a href=\"./posts/${filename_escaped}.html\">${title_escaped}</a></header>
+                <small>${formatted_date}</small>
+            </article>
+"
+          done < <(jq -c 'sort_by(.date) | reverse | .[]' blog/posts/list.json)
+          
+          # Update the blog/index.html with pre-rendered posts
+          # Replace the loading message and script section with pre-rendered HTML
+          awk -v posts="$blog_posts_html" '
+            BEGIN { in_section=0; in_script=0; }
+            /<section class="my_main_section">/ { 
+              print; 
+              print posts;
+              in_section=1;
+              next;
+            }
+            /<\/section>/ && in_section {
+              print;
+              in_section=0;
+              next;
+            }
+            /<script>/ {
+              in_script=1;
+              next;
+            }
+            /<\/script>/ && in_script {
+              in_script=0;
+              next;
+            }
+            !in_section && !in_script { print; }
+          ' blog/index.html > blog/index.html.tmp
+          
+          mv blog/index.html.tmp blog/index.html
+          
       - name: Commit and push if changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add blog/posts/
+          git add blog/posts/ blog/index.html
           if ! git diff --staged --quiet; then
             git commit -m "Auto-generate blog posts from markdown"
             git push origin HEAD:${GITHUB_REF#refs/heads/}
