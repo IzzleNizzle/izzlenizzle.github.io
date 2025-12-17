@@ -80,19 +80,12 @@ jobs:
               # Convert markdown to HTML
               markdown-it "$md_file" > "blog/posts/${filename}.html.tmp"
               
-              # Read the template file and replace CONTENT_PLACEHOLDER with the markdown content
-              # First, read the converted markdown content
-              content=$(cat "blog/posts/${filename}.html.tmp")
+              # Use sed to replace CONTENT_PLACEHOLDER with the markdown content
+              # First, copy the template to the output file
+              cp blog/templates/post-template.html "blog/posts/${filename}.html"
               
-              # Read the template and create the final HTML
-              # Use awk to replace CONTENT_PLACEHOLDER with the actual content
-              awk -v content="$content" '{
-                if ($0 ~ /CONTENT_PLACEHOLDER/) {
-                  print content
-                } else {
-                  print $0
-                }
-              }' blog/templates/post-template.html > "blog/posts/${filename}.html"
+              # Use sed with file insertion to replace CONTENT_PLACEHOLDER
+              sed -i -e '/CONTENT_PLACEHOLDER/r blog/posts/'"${filename}"'.html.tmp' -e '/CONTENT_PLACEHOLDER/d' "blog/posts/${filename}.html"
 
               # Replace placeholders - escape special characters in title for sed
               title_escaped=$(echo "$title" | sed 's/[&/\]/\\&/g')
