@@ -1,4 +1,4 @@
-## Describe the issue
+# Describe the issue
 
 Right after the install, logging into the desktop it goes black screen right after logging in. I can see the log in screen, until i put my password in then it goes black screen
 
@@ -26,13 +26,13 @@ sudo apt update
 sudo ubuntu-drivers devices
 ```
 
-I was presented with al ist of driver options? GPT informed me to look for one with a "recommended" near it, there was one option like that:
+I was presented with a list of driver options? GPT informed me to look for one with a "recommended" near it, there was one option like that:
 
 `driver   : nvidia-driver-580-open - distro non-free recommended`
 
 So i ran: 
 
-`sudo apt install nvidia-driver-580-open
+`sudo apt install nvidia-driver-580-open`
 
 ### Step 3: Disable Wayland
 
