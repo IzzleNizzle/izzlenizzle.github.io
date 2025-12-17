@@ -19,7 +19,7 @@ There are many ways to accomplish this, this is not the only way to do this, nor
 Since it's wise to keep a backup while we are performing this, I did all the work in a mirrored clone.
 
 ```
-git clone --mirror git@github.com:IzzleNizzle/noteTool.git repo-mirror.git
+git clone --mirror <repository-url> repo-mirror.git
 cd repo-mirror.git
 ```
 
