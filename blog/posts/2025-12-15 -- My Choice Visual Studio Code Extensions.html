@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 12 15 My Choice Visual Studio Code Extensions - IzzleNizzle Blog</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #58a6ff;
+            margin: 0 0 10px 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .content h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .content h3 {
+            color: #58a6ff;
+        }
+        .content a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .content code {
+            background: #0d1117;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .content pre {
+            background: #0d1117;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .content pre code {
+            padding: 0;
+        }
+        .date {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Blog</a>
+        <div class="header">
+            <h1>2025 12 15 My Choice Visual Studio Code Extensions</h1>
+            <div class="date">%Y->-</div>
+        </div>
+        <div class="content">
+<p>I've been working inside Visual Studio Code (VSC) for about 6 years now, and roughly 3k hours. I'm not claiming that I've tried every single extension out there and tested each one, but I do believe that I've come across some really neat ones that I'd like to share today.</p>
+<p>So here are the active VSC extensions that I currently use today:</p>
+<h2>Choice VSC Extensions</h2>
+<p><code>bierner.markdown-emoji</code>
+I like being able to bring in emojis with this syntax <code>:joy:</code></p>
+<p><code>cardinal90.multi-cursor-case-preserve</code>
+When you have hightlited/selected multiple copies of the same word, and they may be capitalized differently, this ensures that if you replace those strings, the case is preserved. This is quite  helpful in a scenario like hte following:</p>
+<pre><code class="language-js">const something = ''
+Class Something = ...
+</code></pre>
+<p>Here if you want to rename <code>something</code> to another name, it'll keep the case preservation choice.</p>
+<p><code>chrisdias.vscode-opennewinstance</code>
+Context for right click menu on directories. Allows you to open a directory in a new instance of VSC.</p>
+<p><code>dsznajder.es7-react-js-snippets</code>
+React snippets. With AI tools today, i use this less than ever.</p>
+<p><code>github.copilot github.copilot-chat</code>
+I use the Github copilot extensions, but I'm not thrilled that they're installed whether you want them or not.</p>
+<p><code>golang.go</code>
+Golang niceties like formatting and a few other helpful features.</p>
+<p><code>mrmlnc.vscode-duplicate</code>
+Quickly duplicate files/directories with the right click context menu.</p>
+<p><code>ms-azuretools.vscode-containers</code>
+This basically replaces Docker Desktop app for me. I manage my docker containers/images/volumes/networks at a glance with this tool.</p>
+<p><code>ms-python.black-formatter ms-python.debugpy ms-python.flake8 ms-python.isort ms-python.python ms-python.vscode-pylance ms-python.vscode-python-envs ms-toolsai.jupyter ms-toolsai.jupyter-keymap ms-toolsai.jupyter-renderers ms-toolsai.vscode-jupyter-cell-tags ms-toolsai.vscode-jupyter-slideshow</code>
+These are all lumped into Python/Jupyter tools. They make developing in python easier. From formatting to linting to sorting imports.</p>
+<p><code>ritwickdey.liveserver</code>
+This is helpful for being able to startup a quick web server to host the html files in the directory that is currently opened for the VSC window.</p>
+<p><code>wakatime.vscode-wakatime</code>
+Wakatime is a tool for keeping track of your time usage in VSC. It has a few extensions for tools like Chrome or Obsidian as well. Ultimately i keep track of the time i spend coding with it.</p>
+<h3>FWIW</h3>
+<p>Here's the full list as it came from the terminal</p>
+<pre><code class="language-sh">$ code --list-extensions
+
+bierner.markdown-emoji
+cardinal90.multi-cursor-case-preserve
+chrisdias.vscode-opennewinstance
+dsznajder.es7-react-js-snippets
+github.copilot
+github.copilot-chat
+golang.go
+mrmlnc.vscode-duplicate
+ms-azuretools.vscode-containers
+ms-python.black-formatter
+ms-python.debugpy
+ms-python.flake8
+ms-python.isort
+ms-python.python
+ms-python.vscode-pylance
+ms-python.vscode-python-envs
+ms-toolsai.jupyter
+ms-toolsai.jupyter-keymap
+ms-toolsai.jupyter-renderers
+ms-toolsai.vscode-jupyter-cell-tags
+ms-toolsai.vscode-jupyter-slideshow
+ritwickdey.liveserver
+wakatime.vscode-wakatime
+</code></pre>
+        </div>
+    </div>
+</body>
+</html>
