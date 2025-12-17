@@ -233,7 +233,7 @@ jobs:
                 <header><a href=\"./posts/${filename_escaped}.html\">${title_escaped}</a></header>
                 <small>${formatted_date}</small>
             </article>
-"
+            "
           done < <(jq -c 'sort_by(.date) | reverse | .[]' blog/posts/list.json)
           
           # Update the blog/index.html with pre-rendered posts
