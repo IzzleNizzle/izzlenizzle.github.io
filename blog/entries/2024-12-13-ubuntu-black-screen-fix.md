@@ -26,13 +26,13 @@ sudo apt update
 sudo ubuntu-drivers devices
 ```
 
-I was presented with al ist of driver options? GPT informed me to look for one with a "recommended" near it, there was one option like that:
+I was presented with a list of driver options? GPT informed me to look for one with a "recommended" near it, there was one option like that:
 
 `driver   : nvidia-driver-580-open - distro non-free recommended`
 
 So i ran: 
 
-`sudo apt install nvidia-driver-580-open
+`sudo apt install nvidia-driver-580-open`
 
 ### Step 3: Disable Wayland
 
