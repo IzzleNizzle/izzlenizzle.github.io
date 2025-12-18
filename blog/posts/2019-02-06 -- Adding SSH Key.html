@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Ssh Key - IzzleNizzle Blog</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../favicon-512.png">
+    <link rel="apple-touch-icon" href="../../favicon-192.png">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #58a6ff;
+            margin: 0 0 10px 0;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .content {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .content h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .content h3 {
+            color: #58a6ff;
+        }
+        .content a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .content code {
+            background: #0d1117;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        .content pre {
+            background: #0d1117;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .content pre code {
+            padding: 0;
+        }
+        .date {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <img src="../greenBeanie.png" alt="">
+            ← Back to Blog
+        </a>
+        <div class="header">
+            <h1>Adding Ssh Key</h1>
+            <div class="date">2019-02-06</div>
+        </div>
+        <div class="content">
+<h2>Adding SSH Key</h2>
+<p>Generating SSH keys allows developers to interface with certain remote services without having to constantly type out login information. You're going to set up an SSH key for GitHub.</p>
+<p>Without a key, you won’t be able to push your code to GitHub without entering a password each time; trust us, that would be as irritating as needing a key to open every door in your home.</p>
+<ol>
+<li>
+<p>Sign up for an account on https://github.com.</p>
+</li>
+<li>
+<p>Open up Terminal.</p>
+</li>
+<li>
+<p>We need to set up SSH keys. First, let’s make sure you don’t already have a set of keys on your computer. Type this into your Terminal window (copying and pasting will not work)</p>
+</li>
+</ol>
+<p><code>ls -al ~/.ssh</code></p>
+<p>If no keys pop up, move on to step 4.</p>
+<p>If keys do pop up, check that none of them are listed under id_rsa, like in this image:</p>
+<p><img src="../assets/SSHInstructions1.png" alt="SSH Instructions 1" title="SSH Instructions 1"></p>
+<p>If you do find a key with a matching name, then you can either overwrite it by following steps 4 to 6, or you can use the same key in steps 10 and beyond. Be advised that you'll have to remember the password tied to your key if you decide not to overwrite it.</p>
+<ol start="4">
+<li>Type in this command along with your email to generate your keys:</li>
+</ol>
+<p><code>ssh-keygen -t rsa -b 4096 -C &quot;YOURGITHUBEMAIL@PLACEHOLDER.NET&quot;</code></p>
+<ol start="5">
+<li>When asked to enter a file to save the key, just hit return.</li>
+</ol>
+<ul>
+<li>
+<p>Also enter a passphrase for your key.</p>
+</li>
+<li>
+<p>Note: You shouldn’t see any characters appear in the window while typing the password.</p>
+</li>
+</ul>
+<ol start="6">
+<li>When you’re finished, your window should look like this:</li>
+</ol>
+<p><img src="../assets/SSHInstructions2.png" alt="SSH Instructions 2" title="SSH Instructions 2"></p>
+<ol start="7">
+<li>For the next step, we need to use a tool called an ssh agent. Let’s test whether that’s working on your machine. Run this command in Terminal:</li>
+</ol>
+<ul>
+<li>
+<p><code>eval &quot;$(ssh-agent -s)&quot;</code></p>
+</li>
+<li>
+<p>If your Terminal window looks like the image below, move onto the next step.</p>
+</li>
+<li>
+<p>If this did not work, ignore it for now.</p>
+</li>
+</ul>
+<p><img src="../assets/SSHInstructions3.png" alt="SSH Instructions 3" title="SSH Instructions 3"></p>
+<ol start="8">
+<li>Now run this command:</li>
+</ol>
+<ul>
+<li><code>ssh-add ~/.ssh/id_rsa</code></li>
+</ul>
+<ol start="9">
+<li>When prompted for a passphrase, enter the one associated with the key.</li>
+</ol>
+<ul>
+<li>If you’ve forgotten this key, just go through step 4 to create a new one.</li>
+</ul>
+<ol start="10">
+<li>We need to add the key to GitHub. Copy the key to your clipboard by entering this command:</li>
+</ol>
+<ul>
+<li>
+<p>For Mac Users:</p>
+<ul>
+<li><code>pbcopy &lt; ~/.ssh/id_rsa.pub</code></li>
+</ul>
+</li>
+<li>
+<p>For Windows Users:</p>
+<ul>
+<li><code>clip &lt; ~/.ssh/id_rsa.pub</code></li>
+</ul>
+</li>
+<li>
+<p>If you're running Linux, you'll need to install xclip and then copy.</p>
+<ul>
+<li><code>sudo apt-get install xclip</code></li>
+<li><code>xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></li>
+</ul>
+</li>
+<li>
+<p>You shouldn’t see any kind of message when you run this command. If you do, make sure you entered it correctly.</p>
+</li>
+<li>
+<p>Do not copy anything else until you finish the next steps. Otherwise, you’ll have to enter the copy command again.</p>
+</li>
+</ul>
+<ol start="11">
+<li>Go to https://github.com/settings/ssh. Click the “New SSH key button.”</li>
+</ol>
+<p><img src="../assets/SSHInstructions4.png" alt="SSH Instructions 4" title="SSH Instructions 4"></p>
+<ol start="12">
+<li>When the form pops up, enter a name for your computer in the Title input. In the Key input, paste the SSH key you copied in Step 10.</li>
+</ol>
+<p><img src="../assets/SSHInstructions5.png" alt="SSH Instructions 5" title="SSH Instructions 5"></p>
+<ul>
+<li>Ignore step 13 if your SSH Agent didn't work (Step 7)</li>
+</ul>
+<ol start="13">
+<li>Now we just need to add GitHub to your computer’s list of acceptable SSH hosts. Go back to your Terminal window. Type in this command: <code>ssh -T git@github.com</code></li>
+</ol>
+<ul>
+<li>You should see an RSA fingerprint in your window. Only enter “yes” if it matches the one highlighted in the image below:</li>
+</ul>
+<p><img src="../assets/SSHInstructions6.png" alt="SSH Instructions 6" title="SSH Instructions 6"></p>
+<ol start="14">
+<li>You may now need to change the git settings to use SSH instead of url as it usually is done.</li>
+</ol>
+<ul>
+<li>run <code>git remote set-url origin git@github.com:USERNAME/REPOSITORY.git</code></li>
+</ul>
+        </div>
+    </div>
+</body>
+</html>
