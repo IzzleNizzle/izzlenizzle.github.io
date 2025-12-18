@@ -1,7 +1,5 @@
 ## Adding SSH Key
 
-SSH Key
-
 Generating SSH keys allows developers to interface with certain remote services without having to constantly type out login information. You're going to set up an SSH key for GitHub.
 
 Without a key, you won’t be able to push your code to GitHub without entering a password each time; trust us, that would be as irritating as needing a key to open every door in your home.
@@ -61,7 +59,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 * For Windows Users: 
   * ```clip < ~/.ssh/id_rsa.pub``` 
-* If you're running linux, you'll need to install xclip and then copy.
+* If you're running Linux, you'll need to install xclip and then copy.
   * ```sudo apt-get install xclip```
   * ```xclip -sel clip < ~/.ssh/id_rsa.pub```
 
@@ -82,7 +80,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 13. Now we just need to add GitHub to your computer’s list of acceptable SSH hosts. Go back to your Terminal window. Type in this command: ```ssh -T git@github.com```
 
-* You should see an RSA fingerprint in your window. Only enter “yes” If it matches the one highlighted in the image below:
+* You should see an RSA fingerprint in your window. Only enter “yes” if it matches the one highlighted in the image below:
 
 ![SSH Instructions 6](../assets/SSHInstructions6.png "SSH Instructions 6")
 
