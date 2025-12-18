@@ -10,7 +10,7 @@ Thankfully, GPT said this was a "**very common ... issue**,... The good news: it
 
 I had a black blank screen, but i was able to get a terminal by pressing the following keys:
 
-`Ctrl + Alt + F3`
+`Ctrl+Alt+F3`
 
 I saw a text login prompt, logged in with:
 
