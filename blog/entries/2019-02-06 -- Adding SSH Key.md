@@ -38,7 +38,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 7. For the next step, we need to use a tool called an ssh agent. Let’s test whether that’s working on your machine. Run this command in Terminal:
 
-* ```eval "$(ssh-agent –s)"```
+* ```eval "$(ssh-agent -s)"```
 
 * If your Terminal window looks like the image below, move onto the next step.
 
