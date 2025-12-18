@@ -18,7 +18,7 @@ If no keys pop up, move on to step 4.
 
 If keys do pop up, check that none of them are listed under id_rsa, like in this image:
 
-![SSH Instructions 1](./assets/SSHInstructions1.png "SSH Instructions 1")
+![SSH Instructions 1](../assets/SSHInstructions1.png "SSH Instructions 1")
 
 If you do find a key with a matching name, then you can either overwrite it by following steps 4 to 6, or you can use the same key in steps 10 and beyond. Be advised that you'll have to remember the password tied to your key if you decide not to overwrite it.
 
@@ -34,7 +34,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 6. When you’re finished, your window should look like this: 
 
-![SSH Instructions 2](./assets/SSHInstructions2.png "SSH Instructions 2")
+![SSH Instructions 2](../assets/SSHInstructions2.png "SSH Instructions 2")
 
 7. For the next step, we need to use a tool called an ssh agent. Let’s test whether that’s working on your machine. Run this command in Terminal:
 
@@ -44,7 +44,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 * If this did not work, ignore it for now.
 
-![SSH Instructions 3](./assets/SSHInstructions3.png "SSH Instructions 3")
+![SSH Instructions 3](../assets/SSHInstructions3.png "SSH Instructions 3")
 
 8. Now run this command:
 
@@ -71,12 +71,12 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 11. Go to https://GitHub.com/settings/ssh. Click the “New SSH key button.”
 
-![SSH Instructions 4](./assets/SSHInstructions4.png "SSH Instructions 4")
+![SSH Instructions 4](../assets/SSHInstructions4.png "SSH Instructions 4")
 
 
 12. When the form pops up, enter a name for your computer in the Title input. In the Key input, paste the SSH key you copied in Step 10.
 
-![SSH Instructions 5](./assets/SSHInstructions5.png "SSH Instructions 5")
+![SSH Instructions 5](../assets/SSHInstructions5.png "SSH Instructions 5")
 
 * Ignore step 13 if your SSH Agent didn't work (Step 7)
 
@@ -84,7 +84,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 * You should see an RSA fingerprint in your window. Only enter “yes” If it matches the one highlighted in the image below:
 
-![SSH Instructions 6](./assets/SSHInstructions6.png "SSH Instructions 6")
+![SSH Instructions 6](../assets/SSHInstructions6.png "SSH Instructions 6")
 
 14. You may now need to change the git settings to use SSH instead of url as it usually is done.
 
