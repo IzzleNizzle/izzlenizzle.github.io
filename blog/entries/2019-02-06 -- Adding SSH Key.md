@@ -61,7 +61,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 * For Windows Users: 
   * ```clip < ~/.ssh/id_rsa.pub``` 
-* If your running linux, you'll need to isntall xclip and then copy.
+* If you're running linux, you'll need to install xclip and then copy.
   * ```sudo apt-get install xclip```
   * ```xclip -sel clip < ~/.ssh/id_rsa.pub```
 
