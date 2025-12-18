@@ -30,13 +30,20 @@
             margin: 0 0 10px 0;
         }
         .back-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             margin-bottom: 20px;
             color: #58a6ff;
             text-decoration: none;
         }
         .back-link:hover {
             text-decoration: underline;
+        }
+        .back-link img {
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            margin-right: 0.5rem;
         }
         .content {
             background: #161b22;
@@ -82,7 +89,10 @@
 </head>
 <body>
     <div class="container">
-        <a href="../index.html" class="back-link">← Back to Blog</a>
+        <a href="../index.html" class="back-link">
+            <img src="../greenBeanie.png" alt="IzzleNizzle Logo">
+            ← Back to Blog
+        </a>
         <div class="header">
             <h1>TITLE_PLACEHOLDER</h1>
             <div class="date">DATE_PLACEHOLDER</div>
