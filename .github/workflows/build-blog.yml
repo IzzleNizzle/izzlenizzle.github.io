@@ -97,6 +97,7 @@ jobs:
               
               # Add to JSON list (for blog index) - escape for JSON
               title_json=$(echo "$title" | sed 's/"/\\"/g')
+              filename_json=$(echo "$filename" | sed 's/"/\\"/g')
               
               if [ "$first" = true ]; then
                 first=false
@@ -104,7 +105,7 @@ jobs:
                 echo ',' >> blog/posts/list.json
               fi
               
-              echo "{\"title\":\"${title_json}\",\"filename\":\"${filename}\",\"date\":\"${date}\"}" >> blog/posts/list.json
+              echo "{\"title\":\"${title_json}\",\"filename\":\"${filename_json}\",\"date\":\"${date}\"}" >> blog/posts/list.json
             fi
           done
           
