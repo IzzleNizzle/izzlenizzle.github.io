@@ -62,7 +62,6 @@ Here's the full list as it came from the terminal
 
 ```sh
 $ code --list-extensions
-
 bierner.markdown-emoji
 cardinal90.multi-cursor-case-preserve
 chrisdias.vscode-opennewinstance
