@@ -63,6 +63,8 @@ jobs:
                 title_part="${BASH_REMATCH[2]}"
                 # Convert hyphens to spaces and capitalize words
                 title=$(echo "$title_part" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
+                # Create URL-friendly slug from title_part (lowercase, keep hyphens, remove special chars)
+                slug=$(echo "$title_part" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//')
               elif [[ "$filename" =~ ^([0-9]{4}-[0-9]{2}-[0-9]{2})-(.+)$ ]]; then
                 # Extract date from filename (YYYY-MM-DD format) - single dash format
                 date="${BASH_REMATCH[1]}"
@@ -70,34 +72,39 @@ jobs:
                 title_part="${BASH_REMATCH[2]}"
                 # Convert hyphens to spaces and capitalize words
                 title=$(echo "$title_part" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
+                # Create URL-friendly slug from title_part (lowercase, keep hyphens, remove special chars)
+                slug=$(echo "$title_part" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//')
               else
                 # Fallback: no date in filename, use git commit date and filename as title
                 date=$(git log -1 --format="%Y-%m-%d" -- "$md_file" 2>/dev/null || echo "1970-01-01")
                 # Convert hyphens/underscores to spaces and capitalize
                 title=$(echo "$filename" | sed 's/[-_]/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
+                # Create URL-friendly slug from filename (lowercase, keep hyphens, remove special chars)
+                slug=$(echo "$filename" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//')
               fi
               
               # Convert markdown to HTML
-              markdown-it "$md_file" > "blog/posts/${filename}.html.tmp"
+              markdown-it "$md_file" > "blog/posts/${slug}.html.tmp"
               
               # Use sed to replace CONTENT_PLACEHOLDER with the markdown content
               # First, copy the template to the output file
-              cp blog/templates/post-template.html "blog/posts/${filename}.html"
+              cp blog/templates/post-template.html "blog/posts/${slug}.html"
               
               # Use sed with file insertion to replace CONTENT_PLACEHOLDER
-              sed -i -e '/CONTENT_PLACEHOLDER/r blog/posts/'"${filename}"'.html.tmp' -e '/CONTENT_PLACEHOLDER/d' "blog/posts/${filename}.html"
+              sed -i -e '/CONTENT_PLACEHOLDER/r blog/posts/'"${slug}"'.html.tmp' -e '/CONTENT_PLACEHOLDER/d' "blog/posts/${slug}.html"
 
               # Replace placeholders - escape special characters in title for sed
               title_escaped=$(echo "$title" | sed 's/[&/\]/\\&/g')
-              sed -i "s|TITLE_PLACEHOLDER|${title_escaped}|g" "blog/posts/${filename}.html"
-              sed -i "s|DATE_PLACEHOLDER|${date}|g" "blog/posts/${filename}.html"
+              sed -i "s|TITLE_PLACEHOLDER|${title_escaped}|g" "blog/posts/${slug}.html"
+              sed -i "s|DATE_PLACEHOLDER|${date}|g" "blog/posts/${slug}.html"
               
               # Clean up temp file
-              rm "blog/posts/${filename}.html.tmp"
+              rm "blog/posts/${slug}.html.tmp"
               
               # Add to JSON list (for blog index) - escape for JSON
               title_json=$(echo "$title" | sed 's/"/\\"/g')
               filename_json=$(echo "$filename" | sed 's/"/\\"/g')
+              slug_json=$(echo "$slug" | sed 's/"/\\"/g')
               
               if [ "$first" = true ]; then
                 first=false
@@ -105,7 +112,7 @@ jobs:
                 echo ',' >> blog/posts/list.json
               fi
               
-              echo "{\"title\":\"${title_json}\",\"filename\":\"${filename_json}\",\"date\":\"${date}\"}" >> blog/posts/list.json
+              echo "{\"title\":\"${title_json}\",\"filename\":\"${filename_json}\",\"slug\":\"${slug_json}\",\"date\":\"${date}\"}" >> blog/posts/list.json
             fi
           done
           
@@ -122,19 +129,19 @@ jobs:
           # Process each post from the sorted JSON array
           while IFS= read -r post; do
             title=$(echo "$post" | jq -r '.title')
-            filename=$(echo "$post" | jq -r '.filename')
+            slug=$(echo "$post" | jq -r '.slug')
             date=$(echo "$post" | jq -r '.date')
             
             # Escape HTML special characters
             title_escaped=$(echo "$title" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
-            filename_escaped=$(echo "$filename" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
+            slug_escaped=$(echo "$slug" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
             
             # Format the date
             formatted_date=$(date -d "$date" '+%B %-d, %Y' 2>/dev/null || date -j -f "%Y-%m-%d" "$date" '+%B %-d, %Y' 2>/dev/null || echo "$date")
             
             # Append article HTML
             blog_posts_html+="            <article>
-                <header><a href=\"./posts/${filename_escaped}.html\">${title_escaped}</a></header>
+                <header><a href=\"./posts/${slug_escaped}.html\">${title_escaped}</a></header>
                 <small>${formatted_date}</small>
             </article>
             "
