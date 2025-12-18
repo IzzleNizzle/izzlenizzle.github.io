@@ -69,7 +69,7 @@ If you do find a key with a matching name, then you can either overwrite it by f
 
 * Do not copy anything else until you finish the next steps. Otherwise, you’ll have to enter the copy command again.
 
-11. Go to https://GitHub.com/settings/ssh. Click the “New SSH key button.”
+11. Go to https://github.com/settings/ssh. Click the “New SSH key button.”
 
 ![SSH Instructions 4](../assets/SSHInstructions4.png "SSH Instructions 4")
 
