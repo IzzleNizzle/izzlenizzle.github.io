@@ -1,0 +1,7 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <rect width="256" height="256" rx="24" fill="#0B0F1A"/>
+  <rect x="32" y="32" width="192" height="192" rx="28" fill="none" stroke="#5EEAD4" stroke-width="8"/>
+  <text x="128" y="150" text-anchor="middle" font-size="120" fill="#E6E8EB"
+        font-family="Inter, Space Grotesk, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+        font-weight="600">I</text>
+</svg>

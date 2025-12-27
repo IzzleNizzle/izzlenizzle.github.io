@@ -1,0 +1,6 @@
+<svg width="1400" height="320" viewBox="0 0 1400 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="40" y="40" width="1320" height="240" rx="28" fill="none" stroke="#5EEAD4" stroke-width="4"/>
+  <text x="700" y="205" text-anchor="middle" fill="#E6E8EB"
+        font-family="Inter, Space Grotesk, system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="128" font-weight="500" letter-spacing="0.5">IsaacPCodes</text>
+</svg>

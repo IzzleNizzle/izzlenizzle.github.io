@@ -4,352 +4,239 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Isaac Pehrson's Portfolio</title>
+  <title>IsaacPCodes - Software Developer & Systems Builder</title>
+  <meta name="description" content="Isaac Pehrson - Building clean, scalable software systems. Full-stack development, cloud architecture, and system design.">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
-  <link rel="apple-touch-icon" href="assets/favicon-192.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="css/isaacpcodes.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
 
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Isaac P.</a>
-      <ul class="right hide-on-med-and-down">
-        <li>
-          <a href="https://github.com/IzzleNizzle">GitHub
-            <img class='logo' src="assets/githubicon.png" alt="#" />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/isaac-p/">LinkedIn
-            <img class='logo' src="assets/linkedinicon.png" alt="#">
-          </a>
-        </li>
-        <li>
-          <a href="./blog/index.html">Blog
-            <img class="logo" src="blog/assets/greenBeanie.png" alt="Blog">
-          </a>
-        </li>
-        <li>
-          <a href="support.html">Support ❤️</a>
-        </li>
-      </ul>
-      <!-- sidenav -->
-      <ul id="nav-mobile" class="sidenav">
-        <li>
-          <a href="https://github.com/IzzleNizzle">GitHub
-            <img class='logo' src="assets/githubicon.png" alt="#" />
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/isaac-p/">LinkedIn
-            <img class='logo' src="assets/linkedinicon.png" alt="#">
-          </a>
-        </li>
-        <li>
-          <a href="./blog/index.html">Blog
-            <img class="logo" src="blog/assets/greenBeanie.png" alt="Blog">
-          </a>
-        </li>
-        <li>
-          <a href="support.html">Support ❤️</a>
-        </li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-        <i class="material-icons">menu</i>
-      </a>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" aria-label="IsaacPCodes Home">
+          <img src="assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
+        </a>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="./blog/index.html">Blog</a></li>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- First Paralax -->
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br>
-        <br>
-        <h1 class="header center teal-text text-lighten-2">Isaac Pehrson</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">Scroll to see my projects, or</h5>
-        </div>
-        <div class="row center">
-          <a href="mailto:pehisaac@Gmail.com" id="download-button"
-            class="btn-large waves-effect waves-light teal lighten-1">Email
-            me</a>
-        </div>
-        <br>
-        <br>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <img src="assets/isaacpcodes-wordmark-framed.svg" alt="IsaacPCodes" class="hero-wordmark">
+      <p class="hero-subtitle">Building clean, scalable software systems with a focus on thoughtful design and reliable architecture.</p>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
       </div>
     </div>
-    <div class="parallax">
-      <img src="./assets/arches-national-park-dark.jpg" alt="Narrow Slot Canyon">
-    </div>
-  </div>
+  </section>
 
-  <!-- About Me Section -->
-  <div class="container">
-    <div class="section">
-      <div class="row">
-        <!-- meep mope meep -->
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <br />
-            <br />
-            <br />
-            <h5 class="center grey-text">$ whoami</h5>
-            <h5 class="center grey-text">Developer</h5>
-            <br />
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="about-content">
+        <p>
+          I'm Isaac Pehrson, a software developer passionate about building systems that work well and make sense. 
+          I believe in clean code, thoughtful architecture, and technology that serves real human needs.
+        </p>
+        <p>
+          My work spans the full stack—from crafting intuitive frontend experiences to designing robust backend systems and cloud infrastructure. 
+          I approach each project with a systems-thinking mindset, always considering how pieces fit together and how to build for scale and maintainability.
+        </p>
+        <p>
+          When I'm not coding, you'll find me tinkering with new technologies, exploring the outdoors, or diving deep into how things work. 
+          I'm constantly learning and always excited to tackle new challenges.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-grid">
+        
+        <!-- Project 1: Business Readout Assistant -->
+        <article class="project-card">
+          <h3 class="project-title">Business Readout Assistant</h3>
+          <p class="project-description">
+            A Single Page Application built at eBay to automate internal reporting workflows, 
+            saving agents 10-15 minutes per report through intelligent automation.
+          </p>
+          <div class="project-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">ES6</span>
+            <span class="tag">Axios</span>
+            <span class="tag">XLSX</span>
+            <span class="tag">Bootstrap</span>
+            <span class="tag">PHP</span>
           </div>
-        </div>
-        <!-- About Me -->
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h4 class="center">About Me:</h4>
-            <p class="light">
-              I love working with React.js and the MERN Stack.
-            </p>
-            <p class="light">
-              Just finished the University of Utah's Full Stack Coding Bootcamp.
-            </p>
-            <p class="light">I code every day and I love it!
-            </p>
+          <div class="project-links">
+            <a href="https://izzlenizzle.github.io/ReadoutAssistant/" target="_blank" rel="noopener">View Live →</a>
+            <a href="https://github.com/IzzleNizzle/ReadoutAssistant" target="_blank" rel="noopener">Source Code →</a>
           </div>
-        </div>
-        <!-- Profile Pic -->
-        <div class="col s12 m4">
-          <div class="icon-block center">
-            <img src="./assets/AmberAndI.jpg" id='profile-pic' alt='Me' />
+        </article>
+
+        <!-- Project 2: Bazaar -->
+        <article class="project-card">
+          <h3 class="project-title">Bazaar</h3>
+          <p class="project-description">
+            A collaborative trading platform that enables bartering and goods exchange without cash, 
+            bringing communities together through peer-to-peer commerce.
+          </p>
+          <div class="project-tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">Express</span>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Mongoose</span>
           </div>
+          <div class="project-links">
+            <a href="https://stark-tundra-37570.herokuapp.com/" target="_blank" rel="noopener">View Live →</a>
+            <a href="https://github.com/IzzleNizzle/bazaar" target="_blank" rel="noopener">Source Code →</a>
+          </div>
+        </article>
+
+        <!-- Project 3: Sk8 -->
+        <article class="project-card">
+          <h3 class="project-title">Sk8</h3>
+          <p class="project-description">
+            A mobile-first social platform for skaters to discover and share tricks with their local community, 
+            featuring geolocation-based content and interactive mapping.
+          </p>
+          <div class="project-tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">Google Maps API</span>
+            <span class="tag">Geolocation</span>
+          </div>
+          <div class="project-links">
+            <a href="https://stark-savannah-69359.herokuapp.com/" target="_blank" rel="noopener">View Live →</a>
+            <a href="https://github.com/IzzleNizzle/SK8" target="_blank" rel="noopener">Source Code →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Skills & Tooling</h2>
+      </div>
+      <div class="skills-grid">
+        
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <ul class="skill-list">
+            <li>React.js & Modern JavaScript (ES6+)</li>
+            <li>HTML5 & CSS3</li>
+            <li>Responsive Design & Mobile-First</li>
+            <li>UI/UX Best Practices</li>
+            <li>Bootstrap & Modern CSS Frameworks</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <ul class="skill-list">
+            <li>Node.js & Express</li>
+            <li>RESTful API Design</li>
+            <li>MongoDB & Mongoose</li>
+            <li>MySQL & SQL Databases</li>
+            <li>PHP & Server-Side Logic</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Cloud & DevOps</h3>
+          <ul class="skill-list">
+            <li>Git & GitHub Workflows</li>
+            <li>Heroku Deployment</li>
+            <li>CI/CD Pipelines</li>
+            <li>Cloud Infrastructure</li>
+            <li>System Architecture</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Tooling</h3>
+          <ul class="skill-list">
+            <li>VS Code & Development Tools</li>
+            <li>npm & Package Management</li>
+            <li>Webpack & Build Tools</li>
+            <li>API Testing & Debugging</li>
+            <li>Version Control & Collaboration</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-content">
+        <p class="text-muted">
+          I'm always interested in hearing about new projects and opportunities. 
+          Whether you have a question or just want to say hello, feel free to reach out.
+        </p>
+        <a href="mailto:isaacpcodes@gmail.com" class="contact-email">isaacpcodes@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://github.com/IzzleNizzle" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/isaac-p/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="./blog/index.html">Blog</a>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Second Paralax -->
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">Some Full Stack projects I've built.</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax">
-      <img src="./assets/dark-moon-star.jpg" alt="Light Board Game">
-    </div>
-  </div>
-
-  <!-- Projects & Resume Section -->
-  <div class="container">
-    <div class="section">
-
-      <!-- Project 1 BusinessReadout -->
-
-      <!-- Picture and Description -->
-      <div class="row">
-
-        <div class="col l8 m12 center">
-          <img src="./assets/BusinessReadout.gif" class='project' alt="Bazaar.gif">
-        </div>
-
-        <div class="col l4 m12 center">
-
-          <h4>
-            <a href="https://izzlenizzle.github.io/ReadoutAssistant/">Business Readout Assistant</a>
-          </h4>
-          <p class="light">
-            This is a Single Page Application I build at eBay to help automate an internal report we build for our
-            members. For every report that it automates it helps save agents at least 10-15 minutes.
-          </p>
-
-        </div>
-
-      </div>
-
-      <!-- Second Row for Tech Used -->
-      <div class="row">
-
-        <div class="col m12 center">
-
-          <p class="light">
-            <strong>Tech Used:</strong> React.js, ES6 syntax, Generators and Async / Await functions, Axios, <a
-              href="https://www.npmjs.com/package/xlsx-populate" target="_blank">XLSX-populate</a>, Bootstrap 4, PHP.
-          </p>
-          <a href="https://github.com/IzzleNizzle/ReadoutAssistant"
-            class="btn-large waves-effect waves-light teal lighten-1">View
-            on Github</a>
-
-        </div>
-
-      </div>
-
-
-      <hr />
-
-      <!-- Project 2 Bazaar -->
-      <!-- Picture and Description -->
-      <div class="row">
-
-        <div class="col l4 m12 center">
-
-          <h4>
-            <a href="https://stark-tundra-37570.herokuapp.com/">Bazaar</a>
-          </h4>
-          <p class="light">
-            This is a site for bartering and trading in order to help bring people together and trade goods without the
-            need for cash.
-          </p>
-          <p class='light'>
-            Built this as a team of 5 for our final project in my bootcamp.
-          </p>
-
-        </div>
-
-        <div class="col l8 m12 center">
-          <img src="./assets/Bazaar.gif" class='project' alt="Bazaar.gif">
-        </div>
-
-      </div>
-
-      <!-- Second Row for Tech Used -->
-      <div class="row">
-
-        <div class="col m12 center">
-
-          <p class="light">
-            <strong>Tech Used:</strong> MongoDB, Express, React.js, NodeJS, Mongoose, AJAX, jQuery, Heroku.
-          </p>
-          <a href="https://github.com/IzzleNizzle/bazaar" class="btn-large waves-effect waves-light teal lighten-1">View
-            on Github</a>
-
-        </div>
-
-      </div>
-
-
-      <hr />
-
-      <!-- Project 3 Sk8-->
-
-      <!-- Picture and Description -->
-      <div class="row">
-
-        <div class="col l8 m12 center">
-          <img src="./assets/Sk8.gif" class='project' alt="Sk8.gif">
-        </div>
-
-        <div class="col l4 m12 center">
-
-          <h4>
-            <a href="https://stark-savannah-69359.herokuapp.com/">Sk8</a>
-          </h4>
-          <p class="light">A mobile-designed app for skaters, skateboarders, and tricksters to share their tricks with
-            people in their area.</p>
-          <p class="light">As a team of 3 we built this Full Stack Application, I was the Back-End Developer.
-          </p>
-
-        </div>
-
-      </div>
-
-      <!-- Second Row for Tech Used -->
-      <div class="row">
-
-        <div class="col m12 center">
-
-          <p class="light">
-            <strong>Tech Used:</strong> MySQL, NodeJS, Express, Google Maps API, Geolocation, AJAX, jQuery, Heroku.
-          </p>
-          <a href="https://github.com/IzzleNizzle/SK8" class="btn-large waves-effect waves-light teal lighten-1">View
-            on Github</a>
-
-        </div>
-
-      </div>
-
-
-
-    </div>
-  </div>
-
-  <!-- Third Paralax -->
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-        </div>
-      </div>
-    </div>
-    <div class="parallax">
-      <img src="./assets/narrowcanyon.jpg" alt="Unsplashed background img 3">
-    </div>
-  </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="page-footer teal">
+  <footer>
     <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Isaac Pehrson</h5>
-          <p class="grey-text text-lighten-4">
-            Driven individual pursuing opportunities to build and improve the digital ecosystem.
-          </p>
-          <p class="grey-text text-lighten-4">
-            People centric, able to build with and learn from the experience of others.
-          </p>
-          <p class="grey-text text-lighten-4">
-            I am consistant, dedicated and ambitious.
-          </p>
+      <div class="footer-content">
+        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
+        <div class="footer-links">
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="#" onclick="window.open('https://trailfront.dev/note-tool/#', 'isaacpNoteToolPopout', 'height=800px,width=400px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;">Note Tool</a>
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Quick Links</h5>
-          <ul>
-            <li><a class="white-text" href="index.html">Home</a></li>
-            <li><a class="white-text" href="blog/index.html">Blog</a></li>
-            <li><a class="white-text" href="support.html">Support</a></li>
-            <li><a class="white-text" href="privacy.html">Privacy Policy</a></li>
-            <li><a class="white-text" href="#" onclick="window.open('https://trailfront.dev/note-tool/#', 'isaacpNoteToolPopout', 'height=800px,width=400px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;">My Note Tool</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li class="footer-button">
-              <a class='btn-large waves-effect white teal-text lighten-1' href="https://github.com/IzzleNizzle">GitHub
-                <img class='logo' src="assets/githubicon.png" alt="#" />
-              </a>
-            </li>
-            <li class="footer-button">
-              <a class='btn-large waves-effect white teal-text lighten-1'
-                href="https://www.linkedin.com/in/isaac-p/">LinkedIn
-                <img class='logo' src="assets/linkedinicon.png" alt="#">
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
       </div>
     </div>
   </footer>
-
-
-  <!--  Scripts -->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
 
 </body>
 
