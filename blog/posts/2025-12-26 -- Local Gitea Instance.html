@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Gitea Instance - IzzleNizzle Blog</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/favicon-512.png">
+    <link rel="apple-touch-icon" href="../../assets/favicon-192.png">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            margin: 0;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #58a6ff;
+            margin: 0 0 10px 0;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .back-link img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+        .content {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .content h2 {
+            color: #58a6ff;
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+        .content h3 {
+            color: #58a6ff;
+        }
+        .content a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        .content a:hover {
+            text-decoration: underline;
+        }
+        .content code {
+            background: #0d1117;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        .content pre {
+            background: #0d1117;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .content pre code {
+            padding: 0;
+        }
+        .date {
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <img src="../assets/greenBeanie.png" alt="">
+            ← Back to Blog
+        </a>
+        <div class="header">
+            <h1>Local Gitea Instance</h1>
+            <div class="date">2025-12-26</div>
+        </div>
+        <div class="content">
+<p>Hope you had a great holiday season this year. I'm back at home and ready to get back into coding. I've setup a local Gitea instance on my development machine so that my future git work happens faster and backed it all up with Github.</p>
+<h2>Gitea Local Installation</h2>
+<p>I went ahead and installed Gitea locally and got a few runners going for doing some action workflows.</p>
+<p>I've got a perfectly private installation, local to my machine, that runs super fast and super durable.</p>
+<p>I've decided to go this route and to get a little further from Github. One benefit i really enjoy is the speed of navigating the site. Every single link and click you do is almost instantaneous, and after using that for awhile it's hard to go back to Github, it feels super slow.</p>
+<h3>Repository Strategy</h3>
+<p>My strategy is going to be a Gitea first strategy, with a Github backup. I've created repo's for the projects that I want to work on this year, and i've set up a &quot;Push Mirror&quot; on commit so that when updates come into Gitea, it will also update Github automatically.</p>
+<p>I'm really excited about this setup, i think this is a clean setup that will keep my coding process fast locally, as well as keeping a very strong and durable backup on Github.</p>
+<h3>Setting up Gitea Locally</h3>
+<p>This process was very smooth in fact. I went through the trouble and issues so that you don't have to. You can simply just use this <code>docker-compose.yml</code> file and it'll get you started. All the configuration is there for a Gitea instance with two action runners.</p>
+<p>I've not yet gone into the details of doing package storing. I'm hoping one day to do docker images and things like that, but I don't yet have a cloud image store that I like. So i'm not going to tackle that problem today.</p>
+<p>But for my needs, I wanted a super fast local private git platform, that i could ssh clone with, and have some action runners for some workflows.</p>
+<p>I hope that this will set the foundation for my local development environment for a fast future building process.</p>
+<p>Here's my <a href="https://gist.github.com/IzzleNizzle/56a68e883fc229db3b52b4d3c88c5fcc">gist</a> that has the docker compose information.</p>
+<h3>Setting up Github as a &quot;Push Mirror&quot;</h3>
+<p>There's two distinct approaches for this.</p>
+<ol>
+<li>You already have a Github repository created with code in it</li>
+<li>Starting from scratch</li>
+</ol>
+<p>Either way, you're going to need a Create a GitHub Personal Access Token (PAT) created for the miror.</p>
+<h3>Create a GitHub Personal Access Token (PAT)</h3>
+<p>Navigate <a href="https://github.com/settings/personal-access-tokens">here</a> and create a new token. You can select all your repositories or just some select ones. I just selected the few projects i'm working on this year.</p>
+<p>Under the permissions, make sure to add the &quot;Content&quot; permissions,and give it read and write. This will allow it to push and pull from your repository.</p>
+<p>Then with that token, lets address the two different directions you may be headed:</p>
+<h4>You already have a Github repository created with code in it</h4>
+<p>Go into Gitea and create a new repository. There will be a link at the top right that says &quot;Migrate repository&quot;.  Click that, then click from Github. Now you'll see some options, one for &quot;This repository will be a mirror&quot;. This will set up a &quot;Pull Mirror&quot;, that's not the approach I want, so I don't recommend that. Your desires may vary.</p>
+<p>You'll need to paste in the url for your repository (I had to use the HTTPS url), then put your PAT where it asks for your &quot;Access Token&quot;.</p>
+<p>Once that's created, you go into the repository settings inside the Gitea repository and add a new push mirror. You'll need to paste in the url for your repository again and then for authentication you use your Github username and the PAT for the password.</p>
+<h4>Starting from scratch</h4>
+<p>Create a brand new repository in both Gitea and Github. They don't have to match names, but I do on mine.</p>
+<p>Then make sure that your Github PAT has that repo under it's scope for permissions. Meaning, when you created your PAT, if you selected only a few repo's, you will need to go and update the list to add the new repo.</p>
+<p>Now back in Gitea, go into the repository settings again and add the Push Mirror. You'll need to paste in the url for your Github repository (I had to use the HTTPS url), then for authentication you use your Github username and the PAT for the password.</p>
+<h3>Conclusion</h3>
+<p>This setup should get you to a solid local instance of Gitea, backed up by Github.</p>
+<p>I see Github as a long term backup location with superb durability. But I really enjoy having my primary tool that I'll be interfacing with mostly being Gitea. The gitea instance will run super fast, almost no latency as it's running locally, and I'll have a perfect backup that takes no effort to keep. It's all automatic.</p>
+<p>Enjoy!</p>
+        </div>
+    </div>
+</body>
+</html>
