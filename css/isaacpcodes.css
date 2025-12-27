@@ -405,6 +405,11 @@ footer {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+  /* Increase container padding on mobile */
+  .container {
+    padding: 0 var(--space-lg);
+  }
+  
   h1 {
     font-size: 2.25rem;
   }
@@ -413,62 +418,151 @@ footer {
     font-size: 1.75rem;
   }
   
+  /* Better nav spacing on tablet */
   nav ul {
     gap: var(--space-md);
   }
   
   nav a {
     font-size: 0.875rem;
-    padding: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
   }
   
+  /* Hero adjustments for better mobile spacing */
   .hero {
-    padding: var(--space-2xl) 0;
-    min-height: 60vh;
+    padding: var(--space-xl) 0 var(--space-2xl);
+    min-height: auto;
+  }
+  
+  .hero-wordmark {
+    margin-bottom: var(--space-xl);
   }
   
   .hero-subtitle {
     font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
   }
   
+  /* Consistent section spacing */
   .section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-xl) 0;
   }
   
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+  
+  /* CTA buttons with better spacing */
   .cta-buttons {
     flex-direction: column;
     width: 100%;
+    gap: var(--space-md);
   }
   
   .btn {
     width: 100%;
   }
   
+  /* Projects grid with proper spacing */
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-xl);
   }
   
+  .project-card {
+    padding: var(--space-md);
+  }
+  
+  /* Skills grid with better spacing */
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .skill-category {
+    padding: var(--space-md);
+  }
+  
+  /* Contact section spacing */
+  .contact-links {
+    margin-top: var(--space-lg);
+    gap: var(--space-md);
   }
 }
 
 @media (max-width: 480px) {
+  /* Even more padding on very small screens */
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
   .logo {
-    height: 32px;
+    height: 28px;
+  }
+  
+  /* Reduce nav spacing on small phones */
+  nav {
+    padding: var(--space-sm) 0;
   }
   
   nav ul {
-    gap: var(--space-sm);
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    font-size: 0.8rem;
+    padding: var(--space-xs);
   }
   
   h1 {
     font-size: 1.75rem;
   }
   
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  /* Hero adjustments for tiny screens */
+  .hero {
+    padding: var(--space-lg) 0 var(--space-xl);
+  }
+  
+  .hero-wordmark {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: var(--space-lg);
+  }
+  
+  /* Tighter sections on small screens */
+  .section {
+    padding: var(--space-lg) 0;
+  }
+  
+  .section-header {
+    margin-bottom: var(--space-lg);
+  }
+  
+  /* Project and skill cards */
+  .projects-grid {
+    gap: var(--space-lg);
+  }
+  
+  .skills-grid {
+    gap: var(--space-lg);
+  }
+  
   .contact-email {
     font-size: 1.1rem;
     word-break: break-all;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    gap: var(--space-sm);
   }
 }
 
