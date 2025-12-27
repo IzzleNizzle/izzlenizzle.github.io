@@ -117,6 +117,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: var(--space-md) 0;
+  position: relative;
 }
 
 .logo {
@@ -124,14 +125,28 @@ nav {
   display: block;
 }
 
-nav ul {
+.logo-link {
+  z-index: 1001;
+  position: relative;
+}
+
+/* Hide mobile menu toggle by default */
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.nav-menu {
   display: flex;
   list-style: none;
   gap: var(--space-lg);
   align-items: center;
 }
 
-nav a {
+.nav-menu a {
   font-weight: 500;
   font-size: 0.95rem;
   padding: var(--space-xs) var(--space-sm);
@@ -139,7 +154,7 @@ nav a {
   transition: all 0.2s ease;
 }
 
-nav a:hover {
+.nav-menu a:hover {
   background-color: rgba(94, 234, 212, 0.05);
 }
 
@@ -418,14 +433,107 @@ footer {
     font-size: 1.75rem;
   }
   
-  /* Better nav spacing on tablet */
-  nav ul {
-    gap: var(--space-md);
+  /* Mobile Navigation - Hamburger Menu */
+  .logo {
+    height: 36px;
   }
   
-  nav a {
-    font-size: 0.875rem;
-    padding: var(--space-xs) var(--space-sm);
+  nav {
+    padding: var(--space-md) 0;
+  }
+  
+  /* Show hamburger icon */
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+  }
+  
+  .menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--accent);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hide menu by default on mobile */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: rgba(11, 15, 26, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    transition: right 0.3s ease;
+    border-left: 1px solid rgba(94, 234, 212, 0.2);
+  }
+  
+  .nav-menu li {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .nav-menu a {
+    font-size: 1.25rem;
+    padding: var(--space-sm) var(--space-lg);
+    display: block;
+  }
+  
+  /* Show menu when checkbox is checked */
+  .menu-toggle:checked ~ .nav-menu {
+    right: 0;
+  }
+  
+  .menu-toggle:checked ~ .nav-menu li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .menu-toggle:checked ~ .nav-menu li:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  
+  .menu-toggle:checked ~ .nav-menu li:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  
+  .menu-toggle:checked ~ .nav-menu li:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  
+  .menu-toggle:checked ~ .nav-menu li:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+  
+  .menu-toggle:checked ~ .nav-menu li:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+  
+  /* Animate hamburger to X when open */
+  .menu-toggle:checked ~ .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  
+  .menu-toggle:checked ~ .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle:checked ~ .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
   }
   
   /* Hero adjustments for better mobile spacing */
@@ -497,22 +605,28 @@ footer {
   }
   
   .logo {
-    height: 28px;
+    height: 32px;
   }
   
-  /* Reduce nav spacing on small phones */
   nav {
     padding: var(--space-sm) 0;
   }
   
-  nav ul {
-    gap: var(--space-xs);
-    flex-wrap: wrap;
+  .menu-icon {
+    width: 26px;
+    height: 22px;
   }
   
-  nav a {
-    font-size: 0.8rem;
-    padding: var(--space-xs);
+  .menu-icon span {
+    height: 2.5px;
+  }
+  
+  .nav-menu {
+    width: 80%;
+  }
+  
+  .nav-menu a {
+    font-size: 1.1rem;
   }
   
   h1 {
