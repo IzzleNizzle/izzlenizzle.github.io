@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IsaacP Web Tools - Handy utilities and tools</title>
+  <meta name="description" content="A collection of web-based tools and utilities built by Isaac Pehrson. Simple, elegant tools for productivity and fun.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="../css/isaacpcodes.css" type="text/css" rel="stylesheet" />
+  
+  <style>
+    /* Additional styles specific to web tools page */
+    .tools-hero {
+      text-align: center;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+    
+    .tools-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-md);
+    }
+    
+    .tools-hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+    
+    .tool-card {
+      background-color: rgba(94, 234, 212, 0.02);
+      border: 1px solid rgba(94, 234, 212, 0.1);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .tool-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(94, 234, 212, 0.05) 0%, rgba(94, 234, 212, 0) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .tool-card:hover {
+      border-color: rgba(94, 234, 212, 0.3);
+      transform: translateY(-4px);
+    }
+    
+    .tool-card:hover::before {
+      opacity: 1;
+    }
+    
+    .tool-card:active {
+      transform: translateY(-2px);
+    }
+    
+    .tool-title {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-sm);
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tool-description {
+      color: var(--text-muted);
+      margin-bottom: var(--space-md);
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tool-tag {
+      font-size: 0.875rem;
+      padding: 0.25rem 0.75rem;
+      background-color: rgba(94, 234, 212, 0.1);
+      color: var(--accent);
+      border-radius: 6px;
+      border: 1px solid rgba(94, 234, 212, 0.2);
+    }
+    
+    .tool-link-icon {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      color: var(--accent);
+      opacity: 0.5;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+    
+    .tool-card:hover .tool-link-icon {
+      opacity: 1;
+      transform: translate(4px, -4px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../index.html" aria-label="IsaacPCodes Home" class="logo-link">
+          <img src="../assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
+        </a>
+        
+        <!-- Mobile menu toggle -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
+        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        
+        <ul class="nav-menu">
+          <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+          <li><a href="./index.html" class="nav-link">Web Tools</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="tools-hero">
+    <div class="container">
+      <h1>IsaacP Web Tools</h1>
+      <p>A collection of handy web-based utilities and tools. Simple, elegant, and always available in your browser.</p>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section class="section">
+    <div class="container">
+      <div class="tools-grid">
+        <article class="tool-card" onclick="window.open('https://trailfront.dev/note-tool/#', 'Note_ToolPopout', 'height=800px,width=400px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;">
+          <span class="tool-link-icon">→</span>
+          <h3 class="tool-title">Note Tool</h3>
+          <p class="tool-description">A simple, elegant note-taking tool that lives in your browser. Create, edit, and organize your thoughts with automatic saving.</p>
+          <div class="tool-tags"><span class="tool-tag">Productivity</span><span class="tool-tag">Notes</span><span class="tool-tag">Browser Tool</span></div>
+        </article>
+        <article class="tool-card" onclick="window.open('https://trailfront.dev/h3-power-timer/', 'H3_Power_TimerPopout', 'height=800px,width=400px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;">
+          <span class="tool-link-icon">→</span>
+          <h3 class="tool-title">H3 Power Timer</h3>
+          <p class="tool-description">Track power node timers for Halo 3 multiplayer maps. Perfect for competitive players who want to optimize their gameplay.</p>
+          <div class="tool-tags"><span class="tool-tag">Gaming</span><span class="tool-tag">Halo 3</span><span class="tool-tag">Timer</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="../support.html">Support</a>
+          <a href="../privacy.html">Privacy Policy</a>
+          <a href="../blog/index.html">Blog</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script to close mobile menu when clicking nav links -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all nav links
+      const navLinks = document.querySelectorAll('.nav-link');
+      const menuToggle = document.getElementById('menu-toggle');
+      
+      // Add click event to each nav link
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          // Uncheck the menu toggle to close the menu
+          if (menuToggle.checked) {
+            menuToggle.checked = false;
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
