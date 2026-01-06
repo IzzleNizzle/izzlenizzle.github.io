@@ -71,12 +71,12 @@ jobs:
             
             # Append tool card HTML
             tools_html+="        <article class=\"tool-card\" ${onclick}>
-          <span class=\"tool-link-icon\">→</span>
-          <h3 class=\"tool-title\">${title_escaped}</h3>
-          <p class=\"tool-description\">${description_escaped}</p>
-          <div class=\"tool-tags\">${tags_html}</div>
-        </article>
-"
+              <span class=\"tool-link-icon\">→</span>
+              <h3 class=\"tool-title\">${title_escaped}</h3>
+              <p class=\"tool-description\">${description_escaped}</p>
+              <div class=\"tool-tags\">${tags_html}</div>
+            </article>
+            "
           done < <(jq -c '.[]' web-tools/tools.json)
           
           # Replace the TOOLS_PLACEHOLDER with pre-rendered HTML
