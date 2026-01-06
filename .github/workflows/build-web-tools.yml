@@ -76,17 +76,14 @@ jobs:
           <p class=\"tool-description\">${description_escaped}</p>
           <div class=\"tool-tags\">${tags_html}</div>
         </article>
-        "
+"
           done < <(jq -c '.[]' web-tools/tools.json)
-          
-          # Copy template to output file
-          cp web-tools/templates/tools-template.html web-tools/index.html
           
           # Replace the TOOLS_PLACEHOLDER with pre-rendered HTML
           # Using awk to handle multi-line replacement
           awk -v tools="$tools_html" '
             /TOOLS_PLACEHOLDER/ {
-              print tools;
+              printf "%s", tools;
               next;
             }
             { print; }
