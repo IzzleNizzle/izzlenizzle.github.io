@@ -20,3 +20,14 @@ The generated blog posts will be available at:
 - Individual posts: `/blog/posts/{filename}.html`
 
 See `blog/entries/README.md` for more details.
+
+## About This Repository
+
+This repository hosts the built artifacts for my personal website and tools.
+
+The source code for each project lives in separate repositories and is
+compiled and deployed here via CI.
+
+### Source Repositories
+- h3-power-timer Tool: https://github.com/IzzleNizzle/h3-power-timer
+- Note Tool: https://github.com/IzzleNizzle/noteTool
