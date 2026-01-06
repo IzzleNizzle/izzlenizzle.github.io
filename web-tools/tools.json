@@ -2,7 +2,7 @@
   {
     "title": "Note Tool",
     "description": "A simple, elegant note-taking tool that lives in your browser. Create, edit, and organize your thoughts with automatic saving.",
-    "url": "https://trailfront.dev/note-tool/#",
+    "url": "./note-tool/",
     "openInPopup": true,
     "popupWidth": 400,
     "popupHeight": 800,
@@ -11,7 +11,7 @@
   {
     "title": "H3 Power Timer",
     "description": "Track power node timers for Halo 3 multiplayer maps. Perfect for competitive players who want to optimize their gameplay.",
-    "url": "https://trailfront.dev/h3-power-timer/",
+    "url": "./h3-power-timer/",
     "openInPopup": true,
     "popupWidth": 400,
     "popupHeight": 800,
