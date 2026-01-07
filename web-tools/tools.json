@@ -16,5 +16,12 @@
     "popupWidth": 400,
     "popupHeight": 800,
     "tags": ["Gaming", "Halo 3", "Timer"]
+  },
+  {
+    "title": "Base64 Tools",
+    "description": "Convert images to Base64 encoding and preview Base64-encoded images. Simple tools for working with Base64 image data.",
+    "url": "./base64-tools/",
+    "openInPopup": false,
+    "tags": ["Utility", "Image", "Encoding"]
   }
 ]

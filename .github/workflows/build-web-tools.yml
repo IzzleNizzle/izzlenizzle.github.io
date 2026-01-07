@@ -64,9 +64,10 @@ jobs:
             
             # Build onclick handler
             if [ "$openInPopup" = "true" ]; then
-              onclick="onclick=\"window.open('${url_escaped}', '$(echo $title | tr ' ' '_')Popout', 'height=${popupHeight}px,width=${popupWidth}px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;\""
+              onclick="onclick=\"window.open('${url_escaped}', '$(echo $title | tr ' ' '_')Popout', 'height=${popupHeight}px,width=${popupWidth}px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false.\""
             else
-              onclick=""
+              # For non-popup tools, open in a new tab
+              onclick="onclick=\"window.open('${url_escaped}', '_blank'); return false.\""
             fi
             
             # Append tool card HTML
