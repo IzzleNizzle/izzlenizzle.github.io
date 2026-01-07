@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Base64 Tools - IsaacP Web Tools</title>
+  <meta name="description" content="Convert images to Base64 encoding and preview Base64-encoded images. Simple, elegant tools for working with Base64 image data.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="../../css/isaacpcodes.css" type="text/css" rel="stylesheet" />
+  
+  <style>
+    /* Tool-specific styles */
+    .tool-section {
+      background-color: rgba(94, 234, 212, 0.02);
+      border: 1px solid rgba(94, 234, 212, 0.1);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    
+    .tool-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-md);
+      color: var(--accent);
+    }
+    
+    .tool-section h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+      color: var(--text);
+    }
+    
+    label {
+      display: block;
+      margin-bottom: var(--space-xs);
+      color: var(--text);
+      font-weight: 500;
+    }
+    
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: var(--space-sm);
+      font-family: monospace;
+      font-size: 0.875rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      margin-bottom: var(--space-md);
+      resize: vertical;
+    }
+    
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    textarea::placeholder {
+      color: var(--text-muted);
+    }
+    
+    input[type="file"] {
+      display: block;
+      margin-bottom: var(--space-md);
+      padding: var(--space-sm);
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      cursor: pointer;
+      width: 100%;
+    }
+    
+    input[type="file"]:hover {
+      border-color: var(--accent);
+    }
+    
+    .preview-container {
+      margin-top: var(--space-md);
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(94, 234, 212, 0.1);
+      border-radius: var(--radius-sm);
+      padding: var(--space-md);
+    }
+    
+    .preview-container img {
+      max-width: 100%;
+      max-height: 400px;
+      display: block;
+      border-radius: var(--radius-sm);
+    }
+    
+    .preview-container:empty::after {
+      content: 'Preview will appear here';
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    
+    .tools-hero {
+      text-align: center;
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+    
+    .tools-hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-md);
+    }
+    
+    .tools-hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="../../index.html" aria-label="IsaacPCodes Home" class="logo-link">
+          <img src="../../assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
+        </a>
+        
+        <!-- Mobile menu toggle -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
+        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        
+        <ul class="nav-menu">
+          <li><a href="../../index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="../../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+          <li><a href="../index.html" class="nav-link">Web Tools</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="tools-hero">
+    <div class="container">
+      <h1>Base64 Tools</h1>
+      <p>Convert images to Base64 encoding and preview Base64-encoded images in your browser.</p>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section class="section">
+    <div class="container">
+      
+      <!-- Tool 1: Image to Base64 -->
+      <div class="tool-section">
+        <h2>Image to Base64</h2>
+        <p style="color: var(--text-muted); margin-bottom: var(--space-md);">Upload an image file to convert it to Base64 encoding.</p>
+        
+        <label for="file-input">Select an image file:</label>
+        <input type="file" id="file-input" accept="image/*">
+        
+        <div class="preview-container" id="upload-preview-container">
+          <img id="upload-preview" alt="Image preview will appear here" style="display: none;">
+        </div>
+        
+        <label for="data-uri" style="margin-top: var(--space-md);">Base64 Data URI:</label>
+        <textarea id="data-uri" readonly placeholder="Your base64 Data URI will appear here…"></textarea>
+      </div>
+
+      <!-- Tool 2: Base64 to Image Preview -->
+      <div class="tool-section">
+        <h2>Base64 to Image Preview</h2>
+        <p style="color: var(--text-muted); margin-bottom: var(--space-md);">Paste a Base64 string to preview the image.</p>
+        
+        <label for="b64-input">Paste your Base64 string here:</label>
+        <textarea id="b64-input" placeholder="Either &#10;data:image/png;base64,iVBORw0KGgo…&#10;or just iVBORw0KGgo…"></textarea>
+        
+        <div class="preview-container" id="b64-preview-container">
+          <img id="b64-preview" alt="Your image will appear here" style="display: none;">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
+        <div class="footer-links">
+          <a href="../../index.html">Home</a>
+          <a href="../../support.html">Support</a>
+          <a href="../../privacy.html">Privacy Policy</a>
+          <a href="../../blog/index.html">Blog</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Tool 1: Image to Base64
+    const fileInput = document.getElementById('file-input');
+    const uploadPreview = document.getElementById('upload-preview');
+    const dataUriOutput = document.getElementById('data-uri');
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const dataUrl = reader.result;
+        uploadPreview.src = dataUrl;
+        uploadPreview.style.display = 'block';
+        dataUriOutput.value = dataUrl;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // Tool 2: Base64 to Image Preview
+    const b64Input = document.getElementById('b64-input');
+    const b64Preview = document.getElementById('b64-preview');
+
+    b64Input.addEventListener('input', () => {
+      let val = b64Input.value.trim();
+
+      if (!val) {
+        b64Preview.src = '';
+        b64Preview.style.display = 'none';
+        return;
+      }
+
+      // If they didn't include the data:… prefix, assume PNG
+      if (!val.startsWith('data:')) {
+        val = 'data:image/png;base64,' + val;
+      }
+
+      b64Preview.src = val;
+      b64Preview.style.display = 'block';
+    });
+
+    // Mobile menu toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const menuToggle = document.getElementById('menu-toggle');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (menuToggle.checked) {
+            menuToggle.checked = false;
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
