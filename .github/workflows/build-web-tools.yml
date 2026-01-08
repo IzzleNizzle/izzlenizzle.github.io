@@ -85,7 +85,7 @@ jobs:
               "
             elif [ "$openInNewTab" = "true" ]; then
               # For non-popup tools that should open in a new tab
-              onclick="onclick=\"window.open('${url_escaped}', '_blank'); return false.\""
+              onclick="onclick=\"window.open('${url_escaped}', '_blank'); return false;\""
               # Append tool card HTML with onclick
               tools_html+="        <article class=\"tool-card\" ${onclick}>
               <span class=\"tool-link-icon\">→</span>
