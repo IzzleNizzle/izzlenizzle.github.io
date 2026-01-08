@@ -214,10 +214,12 @@
     .pricing-badge::before {
       content: '★';
       font-size: 0.875rem;
+      aria-hidden: true;
     }
 
     .pricing-badge.freemium::before {
       content: '◆';
+      aria-hidden: true;
     }
     
     .tool-link-icon {
@@ -389,7 +391,7 @@
       });
       
       // Create filter buttons for each category
-      const categoriesArray = Array.from(categories).sort();
+      const categoriesArray = Array.from(categories).sort((a, b) => a.localeCompare(b));
       categoriesArray.forEach(category => {
         if (category !== 'all') {
           const button = document.createElement('button');
@@ -404,7 +406,8 @@
       function updateToolCount() {
         const visibleTools = document.querySelectorAll('.tool-card:not(.hidden)').length;
         const totalTools = toolCards.length;
-        toolCount.textContent = `Showing ${visibleTools} of ${totalTools} tools`;
+        const toolWord = visibleTools === 1 ? 'tool' : 'tools';
+        toolCount.textContent = `Showing ${visibleTools} of ${totalTools} ${toolWord}`;
       }
       
       // Filter tools by category
