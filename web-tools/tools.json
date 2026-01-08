@@ -6,7 +6,8 @@
     "openInPopup": true,
     "popupWidth": 400,
     "popupHeight": 800,
-    "tags": ["Productivity", "Notes", "Browser Tool"]
+    "tags": ["Productivity", "Notes", "Browser Tool"],
+    "pricing": "free"
   },
   {
     "title": "H3 Power Timer",
@@ -15,7 +16,8 @@
     "openInPopup": true,
     "popupWidth": 400,
     "popupHeight": 800,
-    "tags": ["Gaming", "Halo 3", "Timer"]
+    "tags": ["Gaming", "Halo 3", "Timer"],
+    "pricing": "free"
   },
   {
     "title": "Base64 Tools",
@@ -23,6 +25,25 @@
     "url": "./base64-tools/",
     "openInPopup": false,
     "openInNewTab": true,
-    "tags": ["Utility", "Image", "Encoding"]
+    "tags": ["Utility", "Image", "Encoding"],
+    "pricing": "free"
+  },
+  {
+    "title": "Pro Analytics Dashboard",
+    "description": "Advanced analytics and insights dashboard with real-time data visualization, custom reports, and team collaboration features.",
+    "url": "#",
+    "openInPopup": false,
+    "openInNewTab": true,
+    "tags": ["Analytics", "Business", "Dashboard"],
+    "pricing": "paid"
+  },
+  {
+    "title": "Cloud Storage Manager",
+    "description": "Powerful cloud storage solution with 5GB free tier. Upgrade for unlimited storage, advanced sharing, and priority support.",
+    "url": "#",
+    "openInPopup": false,
+    "openInNewTab": true,
+    "tags": ["Storage", "Cloud", "Productivity"],
+    "pricing": "freemium"
   }
 ]
