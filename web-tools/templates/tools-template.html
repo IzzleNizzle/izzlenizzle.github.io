@@ -22,12 +22,12 @@
     /* Additional styles specific to web tools page */
     .tools-hero {
       text-align: center;
-      padding: var(--space-2xl) 0 var(--space-xl);
+      padding: var(--space-lg) 0 var(--space-md);
     }
     
     .tools-hero h1 {
       font-size: 2.5rem;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
     }
     
     .tools-hero p {
@@ -39,8 +39,8 @@
 
     /* Filter Section */
     .tools-filter {
-      margin-bottom: var(--space-xl);
-      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      padding: var(--space-md);
       background-color: rgba(94, 234, 212, 0.02);
       border: 1px solid rgba(94, 234, 212, 0.1);
       border-radius: var(--radius-md);
@@ -50,7 +50,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
       flex-wrap: wrap;
       gap: var(--space-sm);
     }
@@ -237,19 +237,37 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
+      .tools-hero h1 {
+        font-size: 2rem;
+      }
+
+      .tools-hero p {
+        font-size: 1rem;
+      }
+
+      .tools-filter {
+        padding: var(--space-sm);
+      }
+
       .filter-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: var(--space-xs);
+      }
+
+      .filter-header h3 {
+        font-size: 1rem;
       }
 
       .filter-buttons {
         width: 100%;
+        gap: 0.5rem;
       }
 
       .filter-btn {
-        flex: 1;
-        min-width: 0;
-        justify-content: center;
+        font-size: 0.75rem;
+        padding: 0.375rem 0.625rem;
+        white-space: nowrap;
       }
     }
   </style>
