@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'web-tools/tools.json'
+      - 'web-tools/tools.jsonc'
       - 'web-tools/templates/tools-template.html'
   workflow_dispatch:
 
@@ -30,10 +30,12 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update && sudo apt-get install -y jq
+          npm install -g strip-json-comments-cli
         
       - name: Pre-render web tools page
         run: |
-          # Read the tools.json and pre-render the tools in index.html
+          # Read the tools.jsonc and pre-render the tools in index.html
+          # First strip comments from JSONC, then process with jq
           tools_html=""
           
           # Process each tool from the JSON array
@@ -107,7 +109,7 @@ jobs:
               "
             fi
             
-          done < <(jq -c '.[]' web-tools/tools.json)
+          done < <(strip-json-comments web-tools/tools.jsonc | jq -c '.[]')
           
           # Replace the TOOLS_PLACEHOLDER with pre-rendered HTML
           # Using awk to handle multi-line replacement
