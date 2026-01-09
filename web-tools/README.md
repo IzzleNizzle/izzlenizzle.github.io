@@ -4,13 +4,13 @@ This directory contains the IsaacP Web Tools page, which showcases a collection 
 
 ## Directory Structure
 
-- `tools.json` - **Source of truth** for all web tools (edit this to add/remove tools)
+- `tools.jsonc` - **Source of truth** for all web tools (edit this to add/remove tools)
 - `templates/tools-template.html` - HTML template for the web tools page
 - `index.html` - **Generated file** (do not edit manually, it will be overwritten)
 
 ## How to Add a New Tool
 
-1. Edit `web-tools/tools.json`
+1. Edit `web-tools/tools.jsonc`
 2. Add a new entry with the following structure:
 
 ```json
@@ -44,7 +44,7 @@ This directory contains the IsaacP Web Tools page, which showcases a collection 
 
 The build process is automated via GitHub Actions (`.github/workflows/build-web-tools.yml`):
 
-1. Triggered when `tools.json` or `tools-template.html` is changed
+1. Triggered when `tools.jsonc` or `tools-template.html` is changed
 2. Reads the JSON file and generates HTML cards for each tool
 3. Injects the cards into the template at the `TOOLS_PLACEHOLDER` marker
 4. Commits the updated `index.html` back to the repository
@@ -55,6 +55,9 @@ To manually build the page locally:
 
 ```bash
 cd /path/to/izzlenizzle.github.io
+
+# Install strip-json-comments-cli if not already installed
+npm install -g strip-json-comments-cli
 
 # Run the build script
 bash <<'SCRIPT'
@@ -100,7 +103,7 @@ while IFS= read -r tool; do
           <div class=\"tool-tags\">${tags_html}</div>
         </article>
         "
-done < <(jq -c '.[]' web-tools/tools.json)
+done < <(strip-json-comments web-tools/tools.jsonc | jq -c '.[]')
 
 # Replace the TOOLS_PLACEHOLDER with pre-rendered HTML
 awk -v tools="$tools_html" '
