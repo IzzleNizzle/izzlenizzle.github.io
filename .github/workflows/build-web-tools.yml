@@ -45,11 +45,20 @@ jobs:
             openInNewTab=$(echo "$tool" | jq -r '.openInNewTab // "false"')
             popupWidth=$(echo "$tool" | jq -r '.popupWidth // "400"')
             popupHeight=$(echo "$tool" | jq -r '.popupHeight // "800"')
+            pricing=$(echo "$tool" | jq -r '.pricing // "free"')
             
             # Escape HTML special characters
             title_escaped=$(echo "$title" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
             description_escaped=$(echo "$description" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
             url_escaped=$(echo "$url" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
+            
+            # Build pricing badge HTML
+            pricing_badge=""
+            if [ "$pricing" = "paid" ]; then
+              pricing_badge="<span class=\"pricing-badge paid\">Paid</span>"
+            elif [ "$pricing" = "freemium" ]; then
+              pricing_badge="<span class=\"pricing-badge freemium\">Free Trial</span>"
+            fi
             
             # Build tags HTML
             tags_html=""
@@ -65,22 +74,22 @@ jobs:
             
             # Build onclick handler and card HTML
             if [ "$openInPopup" = "true" ]; then
-              onclick="onclick=\"window.open('${url_escaped}', '$(echo $title | tr ' ' '_')Popout', 'height=${popupHeight}px,width=${popupWidth}px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false.\""
+              onclick="onclick=\"window.open('${url_escaped}', '$(echo $title | tr ' ' '_')Popout', 'height=${popupHeight}px,width=${popupWidth}px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;\""
               # Append tool card HTML with onclick
               tools_html+="        <article class=\"tool-card\" ${onclick}>
               <span class=\"tool-link-icon\">→</span>
-              <h3 class=\"tool-title\">${title_escaped}</h3>
+              <h3 class=\"tool-title\">${title_escaped}${pricing_badge}</h3>
               <p class=\"tool-description\">${description_escaped}</p>
               <div class=\"tool-tags\">${tags_html}</div>
               </article>
               "
             elif [ "$openInNewTab" = "true" ]; then
               # For non-popup tools that should open in a new tab
-              onclick="onclick=\"window.open('${url_escaped}', '_blank'); return false.\""
+              onclick="onclick=\"window.open('${url_escaped}', '_blank'); return false;\""
               # Append tool card HTML with onclick
               tools_html+="        <article class=\"tool-card\" ${onclick}>
               <span class=\"tool-link-icon\">→</span>
-              <h3 class=\"tool-title\">${title_escaped}</h3>
+              <h3 class=\"tool-title\">${title_escaped}${pricing_badge}</h3>
               <p class=\"tool-description\">${description_escaped}</p>
               <div class=\"tool-tags\">${tags_html}</div>
               </article>
@@ -90,7 +99,7 @@ jobs:
               tools_html+="        <a href=\"${url_escaped}\" style=\"text-decoration: none; color: inherit;\">
               <article class=\"tool-card\">
               <span class=\"tool-link-icon\">→</span>
-              <h3 class=\"tool-title\">${title_escaped}</h3>
+              <h3 class=\"tool-title\">${title_escaped}${pricing_badge}</h3>
               <p class=\"tool-description\">${description_escaped}</p>
               <div class=\"tool-tags\">${tags_html}</div>
               </article>

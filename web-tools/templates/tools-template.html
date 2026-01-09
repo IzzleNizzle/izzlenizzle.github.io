@@ -22,12 +22,12 @@
     /* Additional styles specific to web tools page */
     .tools-hero {
       text-align: center;
-      padding: var(--space-2xl) 0 var(--space-xl);
+      padding: var(--space-lg) 0 var(--space-md);
     }
     
     .tools-hero h1 {
       font-size: 2.5rem;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
     }
     
     .tools-hero p {
@@ -35,6 +35,71 @@
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto;
+    }
+
+    /* Filter Section */
+    .tools-filter {
+      margin-bottom: var(--space-lg);
+      padding: var(--space-md);
+      background-color: rgba(94, 234, 212, 0.02);
+      border: 1px solid rgba(94, 234, 212, 0.1);
+      border-radius: var(--radius-md);
+    }
+
+    .filter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-sm);
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .filter-header h3 {
+      font-size: 1.125rem;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .filter-count {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .filter-btn {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba(94, 234, 212, 0.05);
+      color: var(--text-muted);
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-main);
+    }
+
+    .filter-btn:hover {
+      background-color: rgba(94, 234, 212, 0.1);
+      color: var(--text);
+      border-color: rgba(94, 234, 212, 0.3);
+    }
+
+    .filter-btn.active {
+      background-color: rgba(94, 234, 212, 0.2);
+      color: var(--accent);
+      border-color: var(--accent);
+      font-weight: 500;
+    }
+
+    .filter-btn:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
     
     .tools-grid {
@@ -53,6 +118,10 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
+    }
+
+    .tool-card.hidden {
+      display: none;
     }
     
     .tool-card::before {
@@ -86,6 +155,10 @@
       color: var(--text);
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      flex-wrap: wrap;
     }
     
     .tool-description {
@@ -112,6 +185,40 @@
       border-radius: 6px;
       border: 1px solid rgba(94, 234, 212, 0.2);
     }
+
+    /* Pricing Badges */
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-badge.paid {
+      background-color: rgba(251, 191, 36, 0.15);
+      color: #FCD34D;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .pricing-badge.freemium {
+      background-color: rgba(139, 92, 246, 0.15);
+      color: #C4B5FD;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .pricing-badge::before {
+      content: '★';
+      font-size: 0.875rem;
+    }
+
+    .pricing-badge.freemium::before {
+      content: '◆';
+    }
     
     .tool-link-icon {
       position: absolute;
@@ -126,6 +233,42 @@
     .tool-card:hover .tool-link-icon {
       opacity: 1;
       transform: translate(4px, -4px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .tools-hero h1 {
+        font-size: 2rem;
+      }
+
+      .tools-hero p {
+        font-size: 1rem;
+      }
+
+      .tools-filter {
+        padding: var(--space-sm);
+      }
+
+      .filter-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+      }
+
+      .filter-header h3 {
+        font-size: 1rem;
+      }
+
+      .filter-buttons {
+        width: 100%;
+        gap: var(--space-xs);
+      }
+
+      .filter-btn {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.625rem;
+        white-space: nowrap;
+      }
     }
   </style>
 </head>
@@ -171,7 +314,18 @@
   <!-- Tools Section -->
   <section class="section">
     <div class="container">
-      <div class="tools-grid">
+      <!-- Category Filter -->
+      <div class="tools-filter">
+        <div class="filter-header">
+          <h3>Filter by Category</h3>
+          <span class="filter-count" id="tool-count"></span>
+        </div>
+        <div class="filter-buttons" id="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All Tools</button>
+        </div>
+      </div>
+
+      <div class="tools-grid" id="tools-grid">
         <!-- TOOLS_PLACEHOLDER -->
       </div>
     </div>
@@ -208,6 +362,77 @@
           }
         });
       });
+
+      // === Category Filter Functionality ===
+      const toolCards = document.querySelectorAll('.tool-card');
+      const filterButtons = document.getElementById('filter-buttons');
+      const toolCount = document.getElementById('tool-count');
+      
+      // Extract all unique categories from tool cards
+      const categories = new Set(['all']);
+      toolCards.forEach(card => {
+        const tags = card.querySelectorAll('.tool-tag');
+        tags.forEach(tag => {
+          categories.add(tag.textContent.trim());
+        });
+      });
+      
+      // Create filter buttons for each category
+      const categoriesArray = Array.from(categories).sort((a, b) => a.localeCompare(b));
+      categoriesArray.forEach(category => {
+        if (category !== 'all') {
+          const button = document.createElement('button');
+          button.className = 'filter-btn';
+          button.setAttribute('data-filter', category);
+          button.textContent = category;
+          filterButtons.appendChild(button);
+        }
+      });
+      
+      // Update tool count display
+      function updateToolCount() {
+        const visibleTools = document.querySelectorAll('.tool-card:not(.hidden)').length;
+        const totalTools = toolCards.length;
+        const toolWord = visibleTools === 1 ? 'tool' : 'tools';
+        toolCount.textContent = `Showing ${visibleTools} of ${totalTools} ${toolWord}`;
+      }
+      
+      // Filter tools by category
+      function filterTools(category) {
+        toolCards.forEach(card => {
+          if (category === 'all') {
+            card.classList.remove('hidden');
+          } else {
+            const tags = Array.from(card.querySelectorAll('.tool-tag')).map(tag => tag.textContent.trim());
+            if (tags.includes(category)) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        });
+        updateToolCount();
+      }
+      
+      // Add click event to filter buttons
+      filterButtons.addEventListener('click', function(e) {
+        if (e.target.classList.contains('filter-btn')) {
+          // Remove active class from all buttons
+          document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          
+          // Add active class to clicked button
+          e.target.classList.add('active');
+          
+          // Filter tools
+          const category = e.target.getAttribute('data-filter');
+          filterTools(category);
+        }
+      });
+      
+      // Initialize tool count
+      updateToolCount();
     });
   </script>
 

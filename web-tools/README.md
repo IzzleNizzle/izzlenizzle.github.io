@@ -21,7 +21,8 @@ This directory contains the IsaacP Web Tools page, which showcases a collection 
   "openInPopup": true,
   "popupWidth": 400,
   "popupHeight": 800,
-  "tags": ["Tag1", "Tag2", "Tag3"]
+  "tags": ["Tag1", "Tag2", "Tag3"],
+  "pricing": "free"
 }
 ```
 
@@ -33,7 +34,8 @@ This directory contains the IsaacP Web Tools page, which showcases a collection 
 - **openInPopup** (optional): Set to `true` to open in a popup window, `false` to open in the same tab (default: `false`)
 - **popupWidth** (optional): Width of the popup window in pixels (default: 400)
 - **popupHeight** (optional): Height of the popup window in pixels (default: 800)
-- **tags** (optional): Array of tags to categorize the tool
+- **tags** (optional): Array of tags to categorize the tool (used for filtering)
+- **pricing** (optional): Pricing model - `"free"` (default), `"paid"`, or `"freemium"` (displays badge on card)
 
 3. Commit and push your changes to the `main` branch
 4. The GitHub Actions workflow will automatically regenerate `index.html`
