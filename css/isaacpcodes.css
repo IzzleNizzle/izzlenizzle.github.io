@@ -418,6 +418,21 @@ footer {
   font-size: 0.9rem;
 }
 
+.footer-badge {
+  margin-top: var(--space-md);
+  display: flex;
+  justify-content: center;
+}
+
+.footer-badge a {
+  display: inline-flex;
+}
+
+.footer-badge img {
+  height: 20px;
+  width: auto;
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
   /* Increase container padding on mobile */
