@@ -10,7 +10,11 @@
 
 .blog-hero {
   padding-top: var(--space-3xl);
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+}
+
+.blog-hero + .section {
+  padding-top: var(--space-lg);
 }
 
 .blog-hero .container {
@@ -265,7 +269,7 @@
 @media (max-width: 768px) {
   .blog-hero {
     padding-top: var(--space-xl);
-    padding-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
   }
 
   .blog-title {
@@ -278,6 +282,10 @@
 
   .blog-card {
     padding: var(--space-md);
+  }
+
+  .blog-hero + .section {
+    padding-top: var(--space-md);
   }
 
   .blog-post-title {
