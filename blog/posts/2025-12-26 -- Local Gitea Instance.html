@@ -1,281 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Local Gitea Instance - IsaacPCodes Blog</title>
-    <meta name="description" content="Local Gitea Instance - Blog post by Isaac Pehrson">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* IsaacPCodes Brand System - Blog Post Variant */
-        :root {
-            --bg: #0B0F1A;
-            --text: #E6E8EB;
-            --accent: #5EEAD4;
-            --text-muted: #9CA3AF;
-            --code-bg: rgba(94, 234, 212, 0.05);
-            
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            
-            --radius-sm: 12px;
-            --radius-md: 16px;
-            
-            --font-main: Inter, "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: var(--font-main);
-            font-size: 16px;
-            line-height: 1.7;
-            font-weight: 400;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: var(--space-md);
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            margin-bottom: var(--space-lg);
-            transition: color 0.2s ease;
-            padding: var(--space-sm) 0;
-        }
-        
-        .back-link:hover {
-            color: var(--accent);
-        }
-        
-        .back-link::before {
-            content: "←";
-            margin-right: var(--space-xs);
-            color: var(--accent);
-        }
-        
-        .back-link:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-        
-        .header {
-            border-bottom: 1px solid rgba(94, 234, 212, 0.1);
-            padding-bottom: var(--space-lg);
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: var(--space-sm);
-            line-height: 1.3;
-            letter-spacing: -0.02em;
-        }
-        
-        .date {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-        
-        .content {
-            color: var(--text);
-        }
-        
-        .content h2 {
-            font-size: 1.75rem;
-            font-weight: 500;
-            margin-top: var(--space-xl);
-            margin-bottom: var(--space-md);
-            padding-bottom: var(--space-sm);
-            border-bottom: 1px solid rgba(94, 234, 212, 0.1);
-            color: var(--text);
-        }
-        
-        .content h3 {
-            font-size: 1.35rem;
-            font-weight: 500;
-            margin-top: var(--space-lg);
-            margin-bottom: var(--space-sm);
-            color: var(--text);
-        }
-        
-        .content h4 {
-            font-size: 1.15rem;
-            font-weight: 500;
-            margin-top: var(--space-md);
-            margin-bottom: var(--space-sm);
-            color: var(--text);
-        }
-        
-        .content p {
-            margin-bottom: var(--space-md);
-            line-height: 1.8;
-        }
-        
-        .content ul,
-        .content ol {
-            margin-bottom: var(--space-md);
-            padding-left: var(--space-lg);
-        }
-        
-        .content li {
-            margin-bottom: var(--space-xs);
-            line-height: 1.7;
-        }
-        
-        .content a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease;
-        }
-        
-        .content a:hover {
-            border-bottom-color: var(--accent);
-        }
-        
-        .content a:focus {
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-        }
-        
-        .content code {
-            background: var(--code-bg);
-            color: var(--accent);
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            font-family: var(--font-mono);
-            font-size: 0.9em;
-            border: 1px solid rgba(94, 234, 212, 0.15);
-        }
-        
-        .content pre {
-            background: var(--code-bg);
-            padding: var(--space-md);
-            border-radius: var(--radius-sm);
-            overflow-x: auto;
-            margin-bottom: var(--space-md);
-            border: 1px solid rgba(94, 234, 212, 0.15);
-        }
-        
-        .content pre code {
-            padding: 0;
-            background: transparent;
-            border: none;
-            color: var(--text);
-        }
-        
-        .content blockquote {
-            border-left: 3px solid var(--accent);
-            padding-left: var(--space-md);
-            margin: var(--space-md) 0;
-            color: var(--text-muted);
-            font-style: italic;
-        }
-        
-        .content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius-sm);
-            margin: var(--space-md) 0;
-            border: 1px solid rgba(94, 234, 212, 0.1);
-        }
-        
-        .content hr {
-            border: none;
-            border-top: 1px solid rgba(94, 234, 212, 0.1);
-            margin: var(--space-xl) 0;
-        }
-        
-        .content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: var(--space-md);
-        }
-        
-        .content table th,
-        .content table td {
-            padding: var(--space-sm);
-            border: 1px solid rgba(94, 234, 212, 0.1);
-            text-align: left;
-        }
-        
-        .content table th {
-            background: var(--code-bg);
-            font-weight: 500;
-        }
-        
-        footer {
-            border-top: 1px solid rgba(94, 234, 212, 0.1);
-            margin-top: var(--space-2xl);
-            padding-top: var(--space-xl);
-            text-align: center;
-        }
-        
-        .footer-content {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .container {
-                padding: var(--space-sm);
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Gitea Instance - IsaacPCodes Blog</title>
+  <meta name="description" content="Local Gitea Instance - Blog post by Isaac Pehrson">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="../../css/isaacpcodes.css" type="text/css" rel="stylesheet">
+  <link href="../../css/blog.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body class="blog-page">
+  <header>
     <div class="container">
-        <a href="../index.html" class="back-link">Back to Blog</a>
-        <div class="header">
-            <h1>Local Gitea Instance</h1>
-            <div class="date">2025-12-26</div>
+      <nav>
+        <a href="../../index.html" aria-label="IsaacPCodes Home" class="logo-link">
+          <img src="../../assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
+        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-menu">
+          <li><a href="../../index.html#projects" class="nav-link">Projects</a></li>
+          <li><a href="../../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="../index.html" aria-current="page">Blog</a></li>
+          <li><a href="../../web-tools/index.html">Web Tools</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section blog-post-hero">
+      <div class="container blog-container">
+        <div class="blog-post-header">
+          <a href="../index.html" class="btn btn-secondary blog-back-link">Back to Blog</a>
+          <h1 class="blog-post-title">Local Gitea Instance</h1>
+          <div class="blog-post-meta">2025-12-26</div>
         </div>
-        <article class="content">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container blog-container">
+        <article class="blog-post-content">
 <p>Hope you had a great holiday season this year. I'm back at home and ready to get back into coding. I've setup a local Gitea instance on my development machine so that my future git work happens faster and backed it all up with Github.</p>
 <h2>Gitea Local Installation</h2>
 <p>I went ahead and installed Gitea locally and got a few runners going for doing some action workflows.</p>
@@ -314,11 +97,36 @@
 <p>I see Github as a long term backup location with superb durability. But I really enjoy having my primary tool that I'll be interfacing with mostly being Gitea. The gitea instance will run super fast, almost no latency as it's running locally, and I'll have a perfect backup that takes no effort to keep. It's all automatic.</p>
 <p>Enjoy!</p>
         </article>
-        <footer>
-            <div class="footer-content">
-                <p>&copy; 2025 IsaacPCodes. Built with care.</p>
-            </div>
-        </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
+        <div class="footer-links">
+          <a href="../../support.html">Support</a>
+          <a href="../../privacy.html">Privacy Policy</a>
+          <a href="../../web-tools/index.html">Web Tools</a>
+        </div>
+      </div>
     </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const menuToggle = document.getElementById('menu-toggle');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (menuToggle.checked) {
+            menuToggle.checked = false;
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
