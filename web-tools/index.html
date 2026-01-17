@@ -159,6 +159,7 @@
       align-items: center;
       gap: var(--space-xs);
       flex-wrap: wrap;
+      padding-right: 3rem;
     }
     
     .tool-description {
@@ -224,15 +225,26 @@
       position: absolute;
       top: var(--space-md);
       right: var(--space-md);
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      background-color: rgba(94, 234, 212, 0.08);
       color: var(--accent);
-      opacity: 0.5;
-      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      opacity: 0.8;
+      transition: all 0.2s ease;
       z-index: 1;
     }
     
     .tool-card:hover .tool-link-icon {
       opacity: 1;
-      transform: translate(4px, -4px);
+      background-color: rgba(94, 234, 212, 0.15);
+      border-color: rgba(94, 234, 212, 0.4);
+      transform: translateY(-2px);
     }
 
     /* Responsive adjustments */
