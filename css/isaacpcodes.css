@@ -422,10 +422,18 @@ footer {
   margin-top: var(--space-md);
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
 }
 
 .footer-badge a {
   display: inline-flex;
+}
+
+.footer-badge-link {
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
 .footer-badge img {
