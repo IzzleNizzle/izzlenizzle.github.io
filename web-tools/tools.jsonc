@@ -1,5 +1,13 @@
 [
   {
+    "title": "Copy Selected Tabs URLs",
+    "description": "Copy URLs from selected Chrome tabs in one click for easy sharing and quick organization.",
+    "url": "https://chromewebstore.google.com/detail/copy-selected-tabs-urls/eoibojgifhgghnidcpapddnfbpgbdnkd",
+    "openInNewTab": true,
+    "tags": ["Chrome Extension", "Productivity", "Browser"],
+    "pricing": "free"
+  },
+  {
     "title": "Note Tool",
     "description": "A simple, elegant note-taking tool that lives in your browser. Create, edit, and organize your thoughts with automatic saving.",
     "url": "./note-tool/",
@@ -26,6 +34,54 @@
     "openInPopup": false,
     "openInNewTab": true,
     "tags": ["Utility", "Image", "Encoding"],
+    "pricing": "free"
+  },
+  {
+    "title": "Vibe Todo",
+    "description": "A lightweight todo app for quick task capture and daily focus.",
+    "url": "https://vibe-todo.cap.trailfront.dev/",
+    "openInNewTab": true,
+    "tags": ["Productivity", "Todo", "Tasks"],
+    "pricing": "free"
+  },
+  {
+    "title": "Vibe Django Template",
+    "description": "A Django starter template with a ready-to-use project layout.",
+    "url": "https://vibe-django-template.cap.trailfront.dev/",
+    "openInNewTab": true,
+    "tags": ["Django", "Template", "Starter"],
+    "pricing": "free"
+  },
+  {
+    "title": "Vibe Ephemeral Notes",
+    "description": "A scratchpad for quick notes that are meant to be temporary.",
+    "url": "https://vibe-ephemeral-notes.cap.trailfront.dev/",
+    "openInNewTab": true,
+    "tags": ["Notes", "Productivity", "Scratchpad"],
+    "pricing": "free"
+  },
+  {
+    "title": "Vibe Time Tracker",
+    "description": "Track time spent on tasks with a simple, focused timer.",
+    "url": "https://vibe-time-tracker.cap.trailfront.dev/",
+    "openInNewTab": true,
+    "tags": ["Productivity", "Time Tracking", "Timer"],
+    "pricing": "free"
+  },
+  {
+    "title": "Vibe Bad Thing",
+    "description": "A small experimental Vibe app built for quick demos.",
+    "url": "https://vibe-bad-thing.cap.trailfront.dev/",
+    "openInNewTab": true,
+    "tags": ["Experimental", "Vibe", "Demo"],
+    "pricing": "free"
+  },
+  {
+    "title": "Vibe HEIC to PNG",
+    "description": "Convert HEIC images to PNG directly in your browser.",
+    "url": "https://vibe-heic-to-png.cap.trailfront.dev/",
+    "openInNewTab": true,
+    "tags": ["Utility", "Image", "Conversion"],
     "pricing": "free"
   }
   // Example entries (commented out - not displayed on website):
