@@ -159,7 +159,6 @@
       align-items: center;
       gap: var(--space-xs);
       flex-wrap: wrap;
-      padding-right: 3rem;
     }
     
     .tool-description {
@@ -225,26 +224,15 @@
       position: absolute;
       top: var(--space-md);
       right: var(--space-md);
-      width: 34px;
-      height: 34px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      border: 1px solid rgba(94, 234, 212, 0.2);
-      background-color: rgba(94, 234, 212, 0.08);
       color: var(--accent);
-      font-size: 1.1rem;
-      opacity: 0.8;
-      transition: all 0.2s ease;
+      opacity: 0.5;
+      transition: all 0.3s ease;
       z-index: 1;
     }
     
     .tool-card:hover .tool-link-icon {
       opacity: 1;
-      background-color: rgba(94, 234, 212, 0.15);
-      border-color: rgba(94, 234, 212, 0.4);
-      transform: translateY(-2px);
+      transform: translate(4px, -4px);
     }
 
     /* Responsive adjustments */
@@ -339,12 +327,12 @@
 
       <div class="tools-grid" id="tools-grid">
         <article class="tool-card" onclick="window.open('https://chromewebstore.google.com/detail/copy-selected-tabs-urls/eoibojgifhgghnidcpapddnfbpgbdnkd', '_blank'); return false;">
-          <span class="tool-link-icon">→</span>
-          <h3 class="tool-title">Copy Selected Tabs URLs</h3>
-          <p class="tool-description">Copy URLs from selected Chrome tabs in one click for easy sharing and quick organization.</p>
-          <div class="tool-tags"><span class="tool-tag">Chrome Extension</span><span class="tool-tag">Productivity</span><span class="tool-tag">Browser</span></div>
-        </article>
-        <article class="tool-card" onclick="window.open('./note-tool/', 'Note_ToolPopout', 'height=800px,width=400px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;">
+    <span class="tool-link-icon">→</span>
+    <h3 class="tool-title">Copy Selected Tabs URLs</h3>
+    <p class="tool-description">Copy URLs from selected Chrome tabs in one click for easy sharing and quick organization.</p>
+    <div class="tool-tags"><span class="tool-tag">Chrome Extension</span><span class="tool-tag">Productivity</span><span class="tool-tag">Browser</span></div>
+    </article>
+            <article class="tool-card" onclick="window.open('./note-tool/', 'Note_ToolPopout', 'height=800px,width=400px,scrollbars=no,menubar=no,location=no,titlebar=no,status=no,toolbar=no,top=500,left=500'); return false;">
     <span class="tool-link-icon">→</span>
     <h3 class="tool-title">Note Tool</h3>
     <p class="tool-description">A simple, elegant note-taking tool that lives in your browser. Create, edit, and organize your thoughts with automatic saving.</p>
@@ -417,7 +405,7 @@
           <a href="https://wakatime.com/@32870911-52df-4de0-abe7-3ed3cf8fb97d">
             <img src="https://wakatime.com/badge/user/32870911-52df-4de0-abe7-3ed3cf8fb97d.svg" alt="Total time coded since Feb 28 2019" />
           </a>
-          <a class="footer-badge-link" href="https://wakatime.com/a-look-back-at-2025/32870911-52df-4de0-abe7-3ed3cf8fb97d/tvylwxgfsz" target="_blank" rel="noopener">WakaTime 2025 recap</a>
+        <a class="footer-badge-link" href="https://wakatime.com/a-look-back-at-2025/32870911-52df-4de0-abe7-3ed3cf8fb97d/tvylwxgfsz" target="_blank" rel="noopener">WakaTime 2025 recap</a>
         </div>
       </div>
     </div>
