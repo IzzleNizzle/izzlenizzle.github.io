@@ -271,23 +271,7 @@
   </footer>
 
   <!-- Script to close mobile menu when clicking nav links -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get all nav links that are anchor links (not external)
-      const navLinks = document.querySelectorAll('.nav-link');
-      const menuToggle = document.getElementById('menu-toggle');
-      
-      // Add click event to each nav link
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          // Uncheck the menu toggle to close the menu
-          if (menuToggle.checked) {
-            menuToggle.checked = false;
-          }
-        });
-      });
-    });
-  </script>
+  <script src="js/nav-menu.js"></script>
 
 </body>
 
