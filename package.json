@@ -4,6 +4,7 @@
   "private": true,
   "description": "IsaacPCodes portfolio site",
   "scripts": {
+    "dev": "npx serve . -l 3000",
     "test": "npx playwright test",
     "test:update-snapshots": "npx playwright test --update-snapshots",
     "test:report": "npx playwright show-report"
