@@ -7,6 +7,18 @@ test.describe('Visual Regression - Full Page', () => {
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(500);
 
+    // On mobile/tablet viewports, the off-screen nav menu (position: fixed; right: -100%)
+    // expands the page's scroll width beyond the viewport, distorting full-page screenshots.
+    // Hide it and clip overflow so the screenshot captures the true layout.
+    await page.evaluate(() => {
+      document.documentElement.style.overflowX = 'hidden';
+      document.body.style.overflowX = 'hidden';
+      const navMenu = document.querySelector('.nav-menu') as HTMLElement;
+      if (navMenu && getComputedStyle(navMenu).position === 'fixed') {
+        navMenu.style.display = 'none';
+      }
+    });
+
     await expect(page).toHaveScreenshot('full-page.png', {
       fullPage: true,
       maxDiffPixelRatio: 0.01,
