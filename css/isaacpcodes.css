@@ -122,6 +122,7 @@ nav {
 
 .logo {
   height: 40px;
+  width: auto;
   display: block;
 }
 
@@ -172,6 +173,7 @@ nav {
 .hero-wordmark {
   max-width: 600px;
   width: 100%;
+  height: auto;
   margin-bottom: var(--space-lg);
 }
 
@@ -439,6 +441,7 @@ footer {
 .footer-badge img {
   height: 20px;
   width: auto;
+  max-width: 100%;
 }
 
 /* ===== Responsive Design ===== */

@@ -13,7 +13,9 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 
   <!-- CSS -->
   <link href="css/isaacpcodes.css" type="text/css" rel="stylesheet" />
@@ -26,7 +28,7 @@
     <div class="container">
       <nav>
         <a href="#" aria-label="IsaacPCodes Home" class="logo-link">
-          <img src="assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
+          <img src="assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo" width="1200" height="240">
         </a>
         
         <!-- Mobile menu toggle -->
@@ -49,10 +51,12 @@
     </div>
   </header>
 
+  <main>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <img src="assets/isaacpcodes-wordmark-framed.svg" alt="IsaacPCodes" class="hero-wordmark">
+      <img src="assets/isaacpcodes-wordmark-framed.svg" alt="IsaacPCodes" class="hero-wordmark" width="1400" height="320">
       <p class="hero-subtitle">Building clean, scalable software systems with a focus on thoughtful design and reliable architecture.</p>
       <div class="cta-buttons">
         <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -250,6 +254,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -262,7 +268,7 @@
         </div>
         <div class="footer-badge">
           <a href="https://wakatime.com/@32870911-52df-4de0-abe7-3ed3cf8fb97d">
-            <img src="https://wakatime.com/badge/user/32870911-52df-4de0-abe7-3ed3cf8fb97d.svg" alt="Total time coded since Feb 28 2019" />
+            <img src="https://wakatime.com/badge/user/32870911-52df-4de0-abe7-3ed3cf8fb97d.svg" alt="Total time coded since Feb 28 2019" width="190" height="20" />
           </a>
           <a class="footer-badge-link" href="https://wakatime.com/a-look-back-at-2025/32870911-52df-4de0-abe7-3ed3cf8fb97d/tvylwxgfsz" target="_blank" rel="noopener">WakaTime 2025 recap</a>
         </div>
