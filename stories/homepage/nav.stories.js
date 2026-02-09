@@ -54,8 +54,10 @@ Desktop.args = {
   menuOpen: false,
   withTargets: false,
 };
+Desktop.globals = {
+  viewport: { value: 'desktop', isRotated: false },
+};
 Desktop.parameters = {
-  viewport: { defaultViewport: 'desktop' },
   docs: {
     description: {
       story: 'Desktop layout shows the nav links inline with no hamburger icon.',
@@ -68,8 +70,10 @@ MobileClosed.args = {
   menuOpen: false,
   withTargets: false,
 };
+MobileClosed.globals = {
+  viewport: { value: 'mobile1', isRotated: false },
+};
 MobileClosed.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
   docs: {
     description: {
       story: 'Mobile layout with the menu closed (hamburger visible, panel off-screen).',
@@ -82,8 +86,10 @@ MobileOpen.args = {
   menuOpen: true,
   withTargets: false,
 };
+MobileOpen.globals = {
+  viewport: { value: 'mobile1', isRotated: false },
+};
 MobileOpen.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
   docs: {
     description: {
       story: 'Menu opened state showing the slide-in panel and X icon.',
@@ -96,8 +102,10 @@ MobileOpenWithTargets.args = {
   menuOpen: true,
   withTargets: true,
 };
+MobileOpenWithTargets.globals = {
+  viewport: { value: 'mobile1', isRotated: false },
+};
 MobileOpenWithTargets.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
   docs: {
     description: {
       story:
