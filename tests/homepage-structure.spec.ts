@@ -41,7 +41,7 @@ test.describe('Homepage Structure & Content', () => {
     const navLinks = page.locator('.nav-menu li');
     await expect(navLinks).toHaveCount(6);
 
-    const expectedLinks = ['Projects', 'About', 'Skills', 'Contact', 'Blog', 'Web Tools'];
+    const expectedLinks = ['About', 'Projects', 'Skills', 'Contact', 'Blog', 'Web Tools'];
     for (let i = 0; i < expectedLinks.length; i++) {
       await expect(navLinks.nth(i)).toContainText(expectedLinks[i]);
     }

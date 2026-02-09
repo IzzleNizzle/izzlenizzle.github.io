@@ -1,6 +1,6 @@
 const navLinks = [
-  { text: 'Projects', href: '#projects', className: 'nav-link' },
   { text: 'About', href: '#about', className: 'nav-link' },
+  { text: 'Projects', href: '#projects', className: 'nav-link' },
   { text: 'Skills', href: '#skills', className: 'nav-link' },
   { text: 'Contact', href: '#contact', className: 'nav-link' },
   { text: 'Blog', href: './blog/index.html' },
@@ -115,26 +115,13 @@ const renderNavLinks = () =>
     })
     .join('');
 
-export const renderHeaderNav = ({ menuOpen = false } = {}) => `
+export const renderHeaderNav = () => `
   <header>
     <div class="container">
       <nav>
         <a href="#" aria-label="IsaacPCodes Home" class="logo-link">
           <img src="assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
         </a>
-
-        <input
-          type="checkbox"
-          id="menu-toggle"
-          class="menu-toggle"
-          aria-label="Toggle navigation menu"
-          ${menuOpen ? 'checked' : ''}
-        >
-        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
 
         <ul class="nav-menu">
           ${renderNavLinks()}
@@ -294,8 +281,8 @@ export const renderFooter = () => `
   </footer>
 `;
 
-export const renderFullPage = ({ menuOpen = false } = {}) => `
-  ${renderHeaderNav({ menuOpen })}
+export const renderFullPage = () => `
+  ${renderHeaderNav()}
   <main>
     ${renderHero()}
     ${renderAbout()}

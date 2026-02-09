@@ -7,8 +7,8 @@ import {
   renderContact,
 } from './templates';
 
-const renderNavDemo = ({ menuOpen = false, withTargets = false } = {}) => `
-  ${renderHeaderNav({ menuOpen })}
+const renderNavDemo = ({ withTargets = false } = {}) => `
+  ${renderHeaderNav()}
   ${
     withTargets
       ? `
@@ -27,10 +27,6 @@ const renderNavDemo = ({ menuOpen = false, withTargets = false } = {}) => `
 export default {
   title: 'Homepage/Navigation',
   argTypes: {
-    menuOpen: {
-      control: 'boolean',
-      description: 'Opens the mobile menu by toggling the #menu-toggle checkbox.',
-    },
     withTargets: {
       control: 'boolean',
       description: 'Includes section targets to demonstrate anchor scrolling.',
@@ -41,7 +37,7 @@ export default {
     docs: {
       description: {
         component:
-          'The nav bar uses a checkbox toggle for the mobile menu and a small JS helper (js/nav-menu.js) to close the menu when an anchor link is clicked.',
+          'The nav bar uses a CSS-only stacking layout on mobile. Nav links wrap below the centered logo on narrow viewports.',
       },
     },
   },
@@ -51,7 +47,6 @@ const Template = (args) => renderNavDemo(args);
 
 export const Desktop = Template.bind({});
 Desktop.args = {
-  menuOpen: false,
   withTargets: false,
 };
 Desktop.globals = {
@@ -60,56 +55,38 @@ Desktop.globals = {
 Desktop.parameters = {
   docs: {
     description: {
-      story: 'Desktop layout shows the nav links inline with no hamburger icon.',
+      story: 'Desktop layout shows the nav links inline, logo left, links right.',
     },
   },
 };
 
-export const MobileClosed = Template.bind({});
-MobileClosed.args = {
-  menuOpen: false,
+export const Mobile = Template.bind({});
+Mobile.args = {
   withTargets: false,
 };
-MobileClosed.globals = {
+Mobile.globals = {
   viewport: { value: 'mobile1', isRotated: false },
 };
-MobileClosed.parameters = {
+Mobile.parameters = {
   docs: {
     description: {
-      story: 'Mobile layout with the menu closed (hamburger visible, panel off-screen).',
+      story: 'Mobile layout with nav links stacked below the centered logo.',
     },
   },
 };
 
-export const MobileOpen = Template.bind({});
-MobileOpen.args = {
-  menuOpen: true,
-  withTargets: false,
-};
-MobileOpen.globals = {
-  viewport: { value: 'mobile1', isRotated: false },
-};
-MobileOpen.parameters = {
-  docs: {
-    description: {
-      story: 'Menu opened state showing the slide-in panel and X icon.',
-    },
-  },
-};
-
-export const MobileOpenWithTargets = Template.bind({});
-MobileOpenWithTargets.args = {
-  menuOpen: true,
+export const MobileWithTargets = Template.bind({});
+MobileWithTargets.args = {
   withTargets: true,
 };
-MobileOpenWithTargets.globals = {
+MobileWithTargets.globals = {
   viewport: { value: 'mobile1', isRotated: false },
 };
-MobileOpenWithTargets.parameters = {
+MobileWithTargets.parameters = {
   docs: {
     description: {
       story:
-        'Open menu with section targets included so anchor clicks can demonstrate the JS close behavior.',
+        'Mobile layout with section targets included so anchor clicks can demonstrate scrolling.',
     },
   },
 };

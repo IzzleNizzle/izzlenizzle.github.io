@@ -26,16 +26,9 @@
           <img src="../../assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
         </a>
 
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
-        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-
         <ul class="nav-menu">
-          <li><a href="../../index.html#projects" class="nav-link">Projects</a></li>
           <li><a href="../../index.html#about" class="nav-link">About</a></li>
+          <li><a href="../../index.html#projects" class="nav-link">Projects</a></li>
           <li><a href="../../index.html#skills" class="nav-link">Skills</a></li>
           <li><a href="../../index.html#contact" class="nav-link">Contact</a></li>
           <li><a href="../index.html" aria-current="page">Blog</a></li>
@@ -84,19 +77,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('.nav-link');
-      const menuToggle = document.getElementById('menu-toggle');
 
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          if (menuToggle.checked) {
-            menuToggle.checked = false;
-          }
-        });
-      });
-    });
-  </script>
 </body>
 </html>
