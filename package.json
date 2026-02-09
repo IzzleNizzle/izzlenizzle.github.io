@@ -7,10 +7,16 @@
     "dev": "npx serve . -l 3000",
     "test": "npx playwright test",
     "test:update-snapshots": "npx playwright test --update-snapshots",
-    "test:report": "npx playwright show-report"
+    "test:report": "npx playwright show-report",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@playwright/test": "^1.50.0",
-    "serve": "^14.2.4"
+    "@storybook/html": "^10.2.7",
+    "@storybook/html-vite": "^10.2.7",
+    "serve": "^14.2.4",
+    "storybook": "^10.2.7",
+    "@storybook/addon-docs": "^10.2.7"
   }
 }
