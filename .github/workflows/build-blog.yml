@@ -116,10 +116,9 @@ jobs:
           # Read the list.json and pre-render the blog posts in index.html
           # This eliminates the need for client-side JavaScript to load posts
           
-          # Use jq and a while loop to properly handle the JSON
+          # Build the card HTML for each blog post using unified card markup
           blog_posts_html=""
           
-          # Process each post from the sorted JSON array
           while IFS= read -r post; do
             title=$(echo "$post" | jq -r '.title')
             filename=$(echo "$post" | jq -r '.filename')
@@ -129,41 +128,32 @@ jobs:
             title_escaped=$(echo "$title" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
             filename_escaped=$(echo "$filename" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'\''/\&#39;/g')
             
-            # Format the date
+            # Format the date for display
             formatted_date=$(date -d "$date" '+%B %-d, %Y' 2>/dev/null || date -j -f "%Y-%m-%d" "$date" '+%B %-d, %Y' 2>/dev/null || echo "$date")
             
-            # Append article HTML
-            blog_posts_html+="            <article>
-                <header><a href=\"./posts/${filename_escaped}.html\">${title_escaped}</a></header>
-                <small>${formatted_date}</small>
-            </article>
-            "
+            # Generate card HTML matching the unified card pattern
+            blog_posts_html+="          <a class=\"card\" href=\"./posts/${filename_escaped}.html\">
+              <p class=\"card-date\">${formatted_date}</p>
+              <h2 class=\"card-title\">${title_escaped}</h2>
+              <span class=\"card-cta\">Read post</span>
+            </a>
+          "
           done < <(jq -c 'sort_by(.date) | reverse | .[]' blog/posts/list.json)
           
-          # Update the blog/index.html with pre-rendered posts
-          # Replace the loading message and script section with pre-rendered HTML
+          # Replace the contents of <div class="card-grid"> in blog/index.html
           awk -v posts="$blog_posts_html" '
-            BEGIN { in_section=0; in_script=0; }
-            /<section class="my_main_section">/ { 
-              print; 
-              print posts;
-              in_section=1;
-              next;
-            }
-            /<\/section>/ && in_section {
+            /class="card-grid"/ {
               print;
-              in_section=0;
+              printf "%s", posts;
+              in_grid=1;
               next;
             }
-            /<script>/ {
-              in_script=1;
+            /<\/div>/ && in_grid {
+              print;
+              in_grid=0;
               next;
             }
-            /<\/script>/ && in_script {
-              in_script=0;
-              next;
-            }
-            !in_section && !in_script { print; }
+            !in_grid { print; }
           ' blog/index.html > blog/index.html.tmp
           
           mv blog/index.html.tmp blog/index.html

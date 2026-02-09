@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IsaacP Web Tools - Handy utilities and tools</title>
   <meta name="description" content="A collection of web-based tools and utilities built by Isaac Pehrson. Simple, elegant tools for productivity and fun.">
 
@@ -34,18 +34,18 @@
           <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
           <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
           <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
-          <li><a href="../blog/index.html">Blog</a></li>
-          <li><a href="./index.html" class="nav-link">Web Tools</a></li>
+          <li><a href="../blog/index.html" class="nav-link">Blog</a></li>
+          <li><a href="./index.html" class="nav-link" aria-current="page">Web Tools</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="tools-hero">
+  <section class="page-hero page-hero--compact">
     <div class="container">
       <h1>IsaacP Web Tools</h1>
-      <p>A collection of handy web-based utilities and tools. Simple, elegant, and always available in your browser.</p>
+      <p class="page-subtitle">A collection of handy web-based utilities and tools. Simple, elegant, and always available in your browser.</p>
     </div>
   </section>
 
@@ -63,7 +63,7 @@
         </div>
       </div>
 
-      <div class="tools-grid" id="tools-grid">
+      <div class="card-grid mt-xl" id="tools-grid">
         <!-- TOOLS_PLACEHOLDER -->
       </div>
     </div>
@@ -93,14 +93,14 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // === Category Filter Functionality ===
-      const toolCards = document.querySelectorAll('.tool-card');
+      const toolCards = document.querySelectorAll('.card--interactive');
       const filterButtons = document.getElementById('filter-buttons');
       const toolCount = document.getElementById('tool-count');
       
       // Extract all unique categories from tool cards
       const categories = new Set(['all']);
       toolCards.forEach(card => {
-        const tags = card.querySelectorAll('.tool-tag');
+        const tags = card.querySelectorAll('.tag');
         tags.forEach(tag => {
           categories.add(tag.textContent.trim());
         });
@@ -120,7 +120,7 @@
       
       // Update tool count display
       function updateToolCount() {
-        const visibleTools = document.querySelectorAll('.tool-card:not(.hidden)').length;
+        const visibleTools = document.querySelectorAll('.card--interactive:not(.hidden)').length;
         const totalTools = toolCards.length;
         const toolWord = visibleTools === 1 ? 'tool' : 'tools';
         toolCount.textContent = `Showing ${visibleTools} of ${totalTools} ${toolWord}`;
@@ -132,7 +132,7 @@
           if (category === 'all') {
             card.classList.remove('hidden');
           } else {
-            const tags = Array.from(card.querySelectorAll('.tool-tag')).map(tag => tag.textContent.trim());
+            const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.trim());
             if (tags.includes(category)) {
               card.classList.remove('hidden');
             } else {
