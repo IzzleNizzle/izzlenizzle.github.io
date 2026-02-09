@@ -63,11 +63,6 @@ test.describe('Homepage Structure & Content', () => {
     }
   });
 
-  test('menu toggle has aria-label', async ({ page }) => {
-    const menuToggle = page.locator('#menu-toggle');
-    await expect(menuToggle).toHaveAttribute('aria-label', 'Toggle navigation menu');
-  });
-
   // ── Hero Section ──
 
   test('hero section contains wordmark image', async ({ page }) => {

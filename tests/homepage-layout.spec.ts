@@ -19,16 +19,6 @@ test.describe('Desktop Layout', () => {
     expect(flexDirection).toBe('row');
   });
 
-  test('hamburger menu icon is not visible', async ({ page }) => {
-    const menuIcon = page.locator('.menu-icon');
-    await expect(menuIcon).not.toBeVisible();
-  });
-
-  test('menu toggle checkbox is hidden', async ({ page }) => {
-    const menuToggle = page.locator('#menu-toggle');
-    await expect(menuToggle).toBeHidden();
-  });
-
   test('hero section has min-height of 70vh', async ({ page }) => {
     const hero = page.locator('.hero');
     const minHeight = await hero.evaluate((el) => getComputedStyle(el).minHeight);
@@ -90,18 +80,12 @@ test.describe('Tablet Layout', () => {
     await page.goto('/');
   });
 
-  test('hamburger menu icon is visible', async ({ page }) => {
-    const menuIcon = page.locator('.menu-icon');
-    await expect(menuIcon).toBeVisible();
-  });
-
-  test('nav menu is hidden off-screen by default', async ({ page }) => {
+  test('nav menu is visible and stacks below logo', async ({ page }) => {
     const navMenu = page.locator('.nav-menu');
-    // The menu is positioned off-screen with right: -100%
-    const boundingBox = await navMenu.boundingBox();
-    expect(boundingBox).toBeTruthy();
-    // The element's left edge should be beyond the viewport width
-    expect(boundingBox!.x).toBeGreaterThanOrEqual(767);
+    await expect(navMenu).toBeVisible();
+
+    const flexWrap = await navMenu.evaluate((el) => getComputedStyle(el).flexWrap);
+    expect(flexWrap).toBe('wrap');
   });
 
   test('projects grid is single column', async ({ page }) => {
@@ -138,16 +122,10 @@ test.describe('Tablet Layout', () => {
     expect(minHeight).toBe('0px');
   });
 
-  test('nav menu is positioned fixed for slide-in', async ({ page }) => {
+  test('nav menu is in normal flow (not fixed)', async ({ page }) => {
     const navMenu = page.locator('.nav-menu');
     const position = await navMenu.evaluate((el) => getComputedStyle(el).position);
-    expect(position).toBe('fixed');
-  });
-
-  test('nav menu has vertical flex direction', async ({ page }) => {
-    const navMenu = page.locator('.nav-menu');
-    const flexDirection = await navMenu.evaluate((el) => getComputedStyle(el).flexDirection);
-    expect(flexDirection).toBe('column');
+    expect(position).not.toBe('fixed');
   });
 });
 
@@ -159,30 +137,18 @@ test.describe('Mobile Layout', () => {
     await page.goto('/');
   });
 
-  test('hamburger menu icon is visible', async ({ page }) => {
-    const menuIcon = page.locator('.menu-icon');
-    await expect(menuIcon).toBeVisible();
-  });
-
-  test('nav menu is hidden off-screen by default', async ({ page }) => {
+  test('nav menu is visible and wraps', async ({ page }) => {
     const navMenu = page.locator('.nav-menu');
-    const boundingBox = await navMenu.boundingBox();
-    expect(boundingBox).toBeTruthy();
-    // The element's left edge should be beyond the viewport width (375px)
-    expect(boundingBox!.x).toBeGreaterThanOrEqual(375);
+    await expect(navMenu).toBeVisible();
+
+    const flexWrap = await navMenu.evaluate((el) => getComputedStyle(el).flexWrap);
+    expect(flexWrap).toBe('wrap');
   });
 
   test('logo is smaller (32px height)', async ({ page }) => {
     const logo = page.locator('.logo');
     const height = await logo.evaluate((el) => getComputedStyle(el).height);
     expect(parseFloat(height)).toBeLessThanOrEqual(32);
-  });
-
-  test('nav menu panel is 80% width', async ({ page }) => {
-    const navMenu = page.locator('.nav-menu');
-    const width = await navMenu.evaluate((el) => getComputedStyle(el).width);
-    // 80% of 375px = 300px
-    expect(parseFloat(width)).toBeCloseTo(300, -1);
   });
 
   test('contact links stack vertically', async ({ page }) => {
