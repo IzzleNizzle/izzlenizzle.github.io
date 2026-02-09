@@ -10,6 +10,9 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- Preload LCP image for faster Largest Contentful Paint -->
+  <link rel="preload" as="image" href="assets/isaacpcodes-wordmark-framed.svg" fetchpriority="high">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +51,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <img src="assets/isaacpcodes-wordmark-framed.svg" alt="IsaacPCodes" class="hero-wordmark" width="1400" height="320">
+      <img src="assets/isaacpcodes-wordmark-framed.svg" alt="IsaacPCodes" class="hero-wordmark" width="1400" height="320" fetchpriority="high">
       <p class="hero-subtitle">Building clean, scalable software systems with a focus on thoughtful design and reliable architecture.</p>
       <div class="cta-buttons">
         <a href="#projects" class="btn btn-primary">View Projects</a>
