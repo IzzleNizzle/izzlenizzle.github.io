@@ -35,14 +35,14 @@ description: "A collection of web-based tools and utilities built by Isaac Pehrs
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // === Category Filter Functionality ===
-    const toolCards = document.querySelectorAll('.card--interactive');
+    const toolCards = document.querySelectorAll('.tool-card');
     const filterButtons = document.getElementById('filter-buttons');
     const toolCount = document.getElementById('tool-count');
     
     // Extract all unique categories from tool cards
     const categories = new Set(['all']);
     toolCards.forEach(card => {
-      const tags = card.querySelectorAll('.tag');
+      const tags = card.querySelectorAll('.tool-tag');
       tags.forEach(tag => {
         categories.add(tag.textContent.trim());
       });
@@ -62,7 +62,7 @@ description: "A collection of web-based tools and utilities built by Isaac Pehrs
     
     // Update tool count display
     function updateToolCount() {
-      const visibleTools = document.querySelectorAll('.card--interactive:not(.hidden)').length;
+      const visibleTools = document.querySelectorAll('.tool-card:not(.hidden)').length;
       const totalTools = toolCards.length;
       const toolWord = visibleTools === 1 ? 'tool' : 'tools';
       toolCount.textContent = `Showing ${visibleTools} of ${totalTools} ${toolWord}`;
@@ -74,7 +74,7 @@ description: "A collection of web-based tools and utilities built by Isaac Pehrs
         if (category === 'all') {
           card.classList.remove('hidden');
         } else {
-          const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.trim());
+          const tags = Array.from(card.querySelectorAll('.tool-tag')).map(tag => tag.textContent.trim());
           if (tags.includes(category)) {
             card.classList.remove('hidden');
           } else {
