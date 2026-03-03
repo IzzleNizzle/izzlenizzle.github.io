@@ -1,0 +1,68 @@
+name: Personalize Template
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  personalize:
+    if: ${{ github.event.repository.is_template == false }}
+    runs-on: ubuntu-latest
+    env:
+      TEMPLATE_REPO_NAME: vibe-django-template
+      TARGET_FILES: README.md
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Replace template repo name
+        id: personalize
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          template = os.environ["TEMPLATE_REPO_NAME"]
+          repo_name = os.environ["GITHUB_REPOSITORY"].split("/")[-1]
+          target_files = os.environ["TARGET_FILES"].split()
+
+          if repo_name == template:
+              print("Template repository detected; skipping.")
+              with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+                  output.write("changed=false\n")
+              raise SystemExit(0)
+
+          changed = False
+          for file_name in target_files:
+              path = Path(file_name)
+              if not path.exists():
+                  print(f"Skipping missing file: {path}")
+                  continue
+              content = path.read_text(encoding="utf-8")
+              if template not in content:
+                  continue
+              path.write_text(content.replace(template, repo_name), encoding="utf-8")
+              changed = True
+
+          with open(os.environ["GITHUB_OUTPUT"], "a") as output:
+              output.write(f"changed={'true' if changed else 'false'}\n")
+          PY
+
+      - name: Commit and push changes
+        if: steps.personalize.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add $TARGET_FILES
+          if ! git diff --staged --quiet; then
+            git commit -m "Personalize template placeholders"
+            git push origin HEAD:${GITHUB_REF#refs/heads/}
+          else
+            echo "No changes to commit"
+          fi
