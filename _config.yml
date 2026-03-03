@@ -1,0 +1,23 @@
+title: IsaacPCodes
+description: "Isaac Pehrson - Building clean, scalable software systems"
+url: https://izzlenizzle.github.io
+baseurl: ""
+
+permalink: /blog/posts/:slug/
+
+markdown: kramdown
+
+exclude:
+  - node_modules
+  - tests
+  - stories
+  - playwright-report
+  - test-results
+  - .storybook
+  - package.json
+  - package-lock.json
+  - Gemfile.lock
+  - README.md
+  - blog/README.md
+  - AGENTS.md
+  - .playwright-mcp

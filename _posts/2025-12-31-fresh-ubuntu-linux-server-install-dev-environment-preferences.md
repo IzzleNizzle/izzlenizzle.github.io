@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Fresh Ubuntu Linux Server Install: Dev Environment Preferences"
+date: 2025-12-31
+---
+
 Currently I'm using Ubuntu 24 LTS.
 
 Here are the steps i took right after the initial installation:

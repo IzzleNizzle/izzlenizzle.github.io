@@ -1,117 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog - IsaacPCodes</title>
-  <meta name="description" content="Technical writings and insights from Isaac Pehrson">
+---
+layout: default
+title: "Blog - IsaacPCodes"
+description: "Technical writings and insights from Isaac Pehrson"
+---
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<section class="page-hero">
+  <div class="container container--narrow">
+    <p class="page-eyebrow">Blog</p>
+    <h1>Blog</h1>
+    <p class="page-subtitle">Technical writings and insights on software development, systems design, and tinkering.</p>
+  </div>
+</section>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link href="../css/isaacpcodes.css" type="text/css" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="../index.html" aria-label="IsaacPCodes Home" class="logo-link">
-          <img src="../assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
-        </a>
-
-        <ul class="nav-menu">
-          <li><a href="../index.html#about" class="nav-link">About</a></li>
-          <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
-          <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
-          <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
-          <li><a href="./index.html" class="nav-link" aria-current="page">Blog</a></li>
-          <li><a href="../web-tools/index.html" class="nav-link">Web Tools</a></li>
-        </ul>
-      </nav>
+<section class="section">
+  <div class="container container--narrow">
+    <div class="card-grid">
+      {% for post in site.posts %}
+      <a class="card" href="{{ post.url | relative_url }}">
+        <p class="card-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+        <h2 class="card-title">{{ post.title }}</h2>
+        <span class="card-cta">Read post</span>
+      </a>
+      {% endfor %}
     </div>
-  </header>
-
-  <main>
-    <section class="page-hero">
-      <div class="container container--narrow">
-        <p class="page-eyebrow">Blog</p>
-        <h1>Blog</h1>
-        <p class="page-subtitle">Technical writings and insights on software development, systems design, and tinkering.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container container--narrow">
-        <div class="card-grid">
-          <a class="card" href="./posts/2025-12-26 -- Local Gitea Instance.html">
-            <p class="card-date">December 26, 2025</p>
-            <h2 class="card-title">Local Gitea Instance</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-          <a class="card" href="./posts/2025-12-17 -- Shooting for AI Agent &quot;one-shot&quot; Solutions.html">
-            <p class="card-date">December 17, 2025</p>
-            <h2 class="card-title">Shooting For Ai Agent &quot;one Shot&quot; Solutions</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-          <a class="card" href="./posts/2025-12-15 -- My Choice Visual Studio Code Extensions.html">
-            <p class="card-date">December 15, 2025</p>
-            <h2 class="card-title">My Choice Visual Studio Code Extensions</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-          <a class="card" href="./posts/2025-12-13 -- Ubuntu 22 Clipboard Manager.html">
-            <p class="card-date">December 13, 2025</p>
-            <h2 class="card-title">Ubuntu 22 Clipboard Manager</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-          <a class="card" href="./posts/2025-12-13 -- Screenshot Selection to Clipboard - Ubuntu 22.html">
-            <p class="card-date">December 13, 2025</p>
-            <h2 class="card-title">Screenshot Selection To Clipboard Ubuntu 22</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-          <a class="card" href="./posts/2025-12-13 -- Git Rid of Code For Real.html">
-            <p class="card-date">December 13, 2025</p>
-            <h2 class="card-title">Git Rid Of Code For Real</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-          <a class="card" href="./posts/2025-12-13 -- Fresh Ubuntu 22 Desktop Install - Black Screen After Login - Nvidia 3060ti.html">
-            <p class="card-date">December 13, 2025</p>
-            <h2 class="card-title">Fresh Ubuntu 22 Desktop Install Black Screen After Login Nvidia 3060ti</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-          <a class="card" href="./posts/2019-02-06 -- Adding SSH Key.html">
-            <p class="card-date">February 6, 2019</p>
-            <h2 class="card-title">Adding Ssh Key</h2>
-            <span class="card-cta">Read post</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
-        <div class="footer-links">
-          <a href="../support.html">Support</a>
-          <a href="../privacy.html">Privacy Policy</a>
-          <a href="../web-tools/index.html">Web Tools</a>
-        </div>
-        <div class="footer-badge">
-          <a href="https://wakatime.com/@32870911-52df-4de0-abe7-3ed3cf8fb97d">
-            <img src="https://wakatime.com/badge/user/32870911-52df-4de0-abe7-3ed3cf8fb97d.svg" alt="Total time coded since Feb 28 2019" />
-          </a>
-          <a class="footer-badge-link" href="https://wakatime.com/a-look-back-at-2025/32870911-52df-4de0-abe7-3ed3cf8fb97d/tvylwxgfsz" target="_blank" rel="noopener">WakaTime 2025 recap</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+  </div>
+</section>

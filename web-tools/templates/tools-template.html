@@ -1,170 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: "IsaacP Web Tools - Handy utilities and tools"
+description: "A collection of web-based tools and utilities built by Isaac Pehrson. Simple, elegant tools for productivity and fun."
+---
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IsaacP Web Tools - Handy utilities and tools</title>
-  <meta name="description" content="A collection of web-based tools and utilities built by Isaac Pehrson. Simple, elegant tools for productivity and fun.">
+<!-- Hero Section -->
+<section class="page-hero page-hero--compact">
+  <div class="container">
+    <h1>IsaacP Web Tools</h1>
+    <p class="page-subtitle">A collection of handy web-based utilities and tools. Simple, elegant, and always available in your browser.</p>
+  </div>
+</section>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link href="../css/isaacpcodes.css" type="text/css" rel="stylesheet" />
-</head>
-
-<body>
-
-  <!-- Header & Navigation -->
-  <header>
-    <div class="container">
-      <nav>
-        <a href="../index.html" aria-label="IsaacPCodes Home" class="logo-link">
-          <img src="../assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
-        </a>
-        
-        <ul class="nav-menu">
-          <li><a href="../index.html#about" class="nav-link">About</a></li>
-          <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
-          <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
-          <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
-          <li><a href="../blog/index.html" class="nav-link">Blog</a></li>
-          <li><a href="./index.html" class="nav-link" aria-current="page">Web Tools</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="page-hero page-hero--compact">
-    <div class="container">
-      <h1>IsaacP Web Tools</h1>
-      <p class="page-subtitle">A collection of handy web-based utilities and tools. Simple, elegant, and always available in your browser.</p>
-    </div>
-  </section>
-
-  <!-- Tools Section -->
-  <section class="section">
-    <div class="container">
-      <!-- Category Filter -->
-      <div class="tools-filter">
-        <div class="filter-header">
-          <h3>Filter by Category</h3>
-          <span class="filter-count" id="tool-count"></span>
-        </div>
-        <div class="filter-buttons" id="filter-buttons">
-          <button class="filter-btn active" data-filter="all">All Tools</button>
-        </div>
+<!-- Tools Section -->
+<section class="section">
+  <div class="container">
+    <!-- Category Filter -->
+    <div class="tools-filter">
+      <div class="filter-header">
+        <h3>Filter by Category</h3>
+        <span class="filter-count" id="tool-count"></span>
       </div>
-
-      <div class="card-grid mt-xl" id="tools-grid">
-        <!-- TOOLS_PLACEHOLDER -->
+      <div class="filter-buttons" id="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Tools</button>
       </div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
-        <div class="footer-links">
-          <a href="../index.html">Home</a>
-          <a href="../support.html">Support</a>
-          <a href="../privacy.html">Privacy Policy</a>
-          <a href="../blog/index.html">Blog</a>
-        </div>
-        <div class="footer-badge">
-          <a href="https://wakatime.com/@32870911-52df-4de0-abe7-3ed3cf8fb97d">
-            <img src="https://wakatime.com/badge/user/32870911-52df-4de0-abe7-3ed3cf8fb97d.svg" alt="Total time coded since Feb 28 2019" />
-          </a>
-        <a class="footer-badge-link" href="https://wakatime.com/a-look-back-at-2025/32870911-52df-4de0-abe7-3ed3cf8fb97d/tvylwxgfsz" target="_blank" rel="noopener">WakaTime 2025 recap</a>
-        </div>
-      </div>
+    <div class="card-grid mt-xl" id="tools-grid">
+      TOOLS_PLACEHOLDER
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // === Category Filter Functionality ===
-      const toolCards = document.querySelectorAll('.card--interactive');
-      const filterButtons = document.getElementById('filter-buttons');
-      const toolCount = document.getElementById('tool-count');
-      
-      // Extract all unique categories from tool cards
-      const categories = new Set(['all']);
-      toolCards.forEach(card => {
-        const tags = card.querySelectorAll('.tag');
-        tags.forEach(tag => {
-          categories.add(tag.textContent.trim());
-        });
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // === Category Filter Functionality ===
+    const toolCards = document.querySelectorAll('.card--interactive');
+    const filterButtons = document.getElementById('filter-buttons');
+    const toolCount = document.getElementById('tool-count');
+    
+    // Extract all unique categories from tool cards
+    const categories = new Set(['all']);
+    toolCards.forEach(card => {
+      const tags = card.querySelectorAll('.tag');
+      tags.forEach(tag => {
+        categories.add(tag.textContent.trim());
       });
-      
-      // Create filter buttons for each category
-      const categoriesArray = Array.from(categories).sort((a, b) => a.localeCompare(b));
-      categoriesArray.forEach(category => {
-        if (category !== 'all') {
-          const button = document.createElement('button');
-          button.className = 'filter-btn';
-          button.setAttribute('data-filter', category);
-          button.textContent = category;
-          filterButtons.appendChild(button);
-        }
-      });
-      
-      // Update tool count display
-      function updateToolCount() {
-        const visibleTools = document.querySelectorAll('.card--interactive:not(.hidden)').length;
-        const totalTools = toolCards.length;
-        const toolWord = visibleTools === 1 ? 'tool' : 'tools';
-        toolCount.textContent = `Showing ${visibleTools} of ${totalTools} ${toolWord}`;
+    });
+    
+    // Create filter buttons for each category
+    const categoriesArray = Array.from(categories).sort((a, b) => a.localeCompare(b));
+    categoriesArray.forEach(category => {
+      if (category !== 'all') {
+        const button = document.createElement('button');
+        button.className = 'filter-btn';
+        button.setAttribute('data-filter', category);
+        button.textContent = category;
+        filterButtons.appendChild(button);
       }
-      
-      // Filter tools by category
-      function filterTools(category) {
-        toolCards.forEach(card => {
-          if (category === 'all') {
+    });
+    
+    // Update tool count display
+    function updateToolCount() {
+      const visibleTools = document.querySelectorAll('.card--interactive:not(.hidden)').length;
+      const totalTools = toolCards.length;
+      const toolWord = visibleTools === 1 ? 'tool' : 'tools';
+      toolCount.textContent = `Showing ${visibleTools} of ${totalTools} ${toolWord}`;
+    }
+    
+    // Filter tools by category
+    function filterTools(category) {
+      toolCards.forEach(card => {
+        if (category === 'all') {
+          card.classList.remove('hidden');
+        } else {
+          const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.trim());
+          if (tags.includes(category)) {
             card.classList.remove('hidden');
           } else {
-            const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.trim());
-            if (tags.includes(category)) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-            }
+            card.classList.add('hidden');
           }
-        });
-        updateToolCount();
-      }
-      
-      // Add click event to filter buttons
-      filterButtons.addEventListener('click', function(e) {
-        if (e.target.classList.contains('filter-btn')) {
-          // Remove active class from all buttons
-          document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          
-          // Add active class to clicked button
-          e.target.classList.add('active');
-          
-          // Filter tools
-          const category = e.target.getAttribute('data-filter');
-          filterTools(category);
         }
       });
-      
-      // Initialize tool count
       updateToolCount();
+    }
+    
+    // Add click event to filter buttons
+    filterButtons.addEventListener('click', function(e) {
+      if (e.target.classList.contains('filter-btn')) {
+        // Remove active class from all buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        
+        // Add active class to clicked button
+        e.target.classList.add('active');
+        
+        // Filter tools
+        const category = e.target.getAttribute('data-filter');
+        filterTools(category);
+      }
     });
-  </script>
-
-</body>
-
-</html>
+    
+    // Initialize tool count
+    updateToolCount();
+  });
+</script>

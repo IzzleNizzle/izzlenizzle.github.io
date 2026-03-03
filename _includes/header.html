@@ -1,0 +1,19 @@
+<!-- Header & Navigation -->
+<header>
+  <div class="container">
+    <nav>
+      <a href="{{ '/' | relative_url }}" aria-label="IsaacPCodes Home" class="logo-link">
+        <img src="{{ '/assets/isaacpcodes-wordmark.svg' | relative_url }}" alt="IsaacPCodes" class="logo" width="1200" height="240">
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="{{ '/' | relative_url }}#about" class="nav-link">About</a></li>
+        <li><a href="{{ '/' | relative_url }}#projects" class="nav-link">Projects</a></li>
+        <li><a href="{{ '/' | relative_url }}#skills" class="nav-link">Skills</a></li>
+        <li><a href="{{ '/' | relative_url }}#contact" class="nav-link">Contact</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}" class="nav-link"{% if page.url contains '/blog' %} aria-current="page"{% endif %}>Blog</a></li>
+        <li><a href="{{ '/web-tools/' | relative_url }}" class="nav-link"{% if page.url contains '/web-tools' %} aria-current="page"{% endif %}>Web Tools</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

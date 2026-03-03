@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Git Rid of Code For Real"
+date: 2025-12-13
+---
+
 ## Describe the issue
 
 I think we've all committed by accident a secret to a git repository, and then found it to be non-trivial to remove that from the entire git history.

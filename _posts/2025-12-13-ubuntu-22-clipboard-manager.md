@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Ubuntu 22 Clipboard Manager"
+date: 2025-12-13
+---
+
 ## Describe the issue
 
 I was looking for a clipboard manager to keep a history and a list of things I've copied. I use [Clippy](https://github.com/Clipy/Clipy) for MacOs and i enjoy it's functionality.

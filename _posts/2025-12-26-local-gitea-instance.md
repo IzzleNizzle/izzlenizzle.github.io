@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Local Gitea Instance"
+date: 2025-12-26
+---
+
 Hope you had a great holiday season this year. I'm back at home and ready to get back into coding. I've setup a local Gitea instance on my development machine so that my future git work happens faster and backed it all up with Github. 
 
 ## Gitea Local Installation

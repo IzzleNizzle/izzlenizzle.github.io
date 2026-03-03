@@ -1,277 +1,207 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: "IsaacPCodes - Software Developer & Systems Builder"
+description: "Isaac Pehrson - Building clean, scalable software systems. Full-stack development, cloud architecture, and system design."
+preload_image: /assets/isaacpcodes-wordmark-framed.svg
+---
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IsaacPCodes - Software Developer & Systems Builder</title>
-  <meta name="description" content="Isaac Pehrson - Building clean, scalable software systems. Full-stack development, cloud architecture, and system design.">
+<!-- Hero Section -->
+<section class="page-hero page-hero--landing">
+  <div class="container">
+    <img src="{{ '/assets/isaacpcodes-wordmark-framed.svg' | relative_url }}" alt="IsaacPCodes" class="hero-wordmark" width="1400" height="320" fetchpriority="high">
+    <p class="page-subtitle">Building clean, scalable software systems with a focus on thoughtful design and reliable architecture.</p>
+    <div class="cta-buttons">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<!-- About Section -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">About</h2>
+    </div>
+    <div class="about-content">
+      <p>
+        I'm Isaac Pehrson, a software developer passionate about building systems that work well and make sense. 
+        I believe in clean code, thoughtful architecture, and technology that serves real human needs.
+      </p>
+      <p>
+        My work spans the full stack—from crafting intuitive frontend experiences to designing robust backend systems and cloud infrastructure. 
+        I approach each project with a systems-thinking mindset, always considering how pieces fit together and how to build for scale and maintainability.
+      </p>
+      <p>
+        When I'm not coding, you'll find me tinkering with new technologies, exploring the outdoors, or diving deep into how things work. 
+        I'm constantly learning and always excited to tackle new challenges.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- Preload LCP image for faster Largest Contentful Paint -->
-  <link rel="preload" as="image" href="assets/isaacpcodes-wordmark-framed.svg" fetchpriority="high">
+<!-- Projects Section -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="card-grid">
+      
+      <!-- Project 1: Copy Selected Tabs URLs -->
+      <article class="card">
+        <h3 class="card-title">Copy Selected Tabs URLs</h3>
+        <p class="card-description">
+          A Chrome extension that copies URLs from selected tabs in one click, streamlining tab management and sharing.
+        </p>
+        <div class="card-tags">
+          <span class="tag">Chrome Extension</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Browser APIs</span>
+        </div>
+        <div class="card-links">
+          <a href="https://chromewebstore.google.com/detail/copy-selected-tabs-urls/eoibojgifhgghnidcpapddnfbpgbdnkd" target="_blank" rel="noopener">Chrome Web Store →</a>
+        </div>
+      </article>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+      <!-- Project 2: Business Readout Assistant -->
+      <article class="card">
+        <h3 class="card-title">Business Readout Assistant</h3>
+        <p class="card-description">
+          A Single Page Application built at eBay to automate internal reporting workflows, 
+          saving agents 10-15 minutes per report through intelligent automation.
+        </p>
+        <div class="card-tags">
+          <span class="tag">React.js</span>
+          <span class="tag">ES6</span>
+          <span class="tag">Axios</span>
+          <span class="tag">XLSX</span>
+          <span class="tag">Bootstrap</span>
+          <span class="tag">PHP</span>
+        </div>
+        <div class="card-links">
+          <a href="https://izzlenizzle.github.io/ReadoutAssistant/" target="_blank" rel="noopener">View Live →</a>
+          <a href="https://github.com/IzzleNizzle/ReadoutAssistant" target="_blank" rel="noopener">Source Code →</a>
+        </div>
+      </article>
 
-  <!-- CSS -->
-  <link href="css/isaacpcodes.css" type="text/css" rel="stylesheet" />
-</head>
+      <!-- Project 3: Bazaar -->
+      <article class="card">
+        <h3 class="card-title">Bazaar</h3>
+        <p class="card-description">
+          A collaborative trading platform that enables bartering and goods exchange without cash, 
+          bringing communities together through peer-to-peer commerce.
+        </p>
+        <div class="card-tags">
+          <span class="tag">MongoDB</span>
+          <span class="tag">Express</span>
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Mongoose</span>
+        </div>
+        <div class="card-links">
+          <a href="https://stark-tundra-37570.herokuapp.com/" target="_blank" rel="noopener">View Live →</a>
+          <a href="https://github.com/IzzleNizzle/bazaar" target="_blank" rel="noopener">Source Code →</a>
+        </div>
+      </article>
 
-<body>
+      <!-- Project 4: Sk8 -->
+      <article class="card">
+        <h3 class="card-title">Sk8</h3>
+        <p class="card-description">
+          A mobile-first social platform for skaters to discover and share tricks with their local community, 
+          featuring geolocation-based content and interactive mapping.
+        </p>
+        <div class="card-tags">
+          <span class="tag">MySQL</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Express</span>
+          <span class="tag">Google Maps API</span>
+          <span class="tag">Geolocation</span>
+        </div>
+        <div class="card-links">
+          <a href="https://stark-savannah-69359.herokuapp.com/" target="_blank" rel="noopener">View Live →</a>
+          <a href="https://github.com/IzzleNizzle/SK8" target="_blank" rel="noopener">Source Code →</a>
+        </div>
+      </article>
 
-  <!-- Header & Navigation -->
-  <header>
-    <div class="container">
-      <nav>
-        <a href="#" aria-label="IsaacPCodes Home" class="logo-link">
-          <img src="assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo" width="1200" height="240">
-        </a>
-        
-        <ul class="nav-menu">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-          <li><a href="./blog/index.html" class="nav-link">Blog</a></li>
-          <li><a href="./web-tools/index.html" class="nav-link">Web Tools</a></li>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Skills & Tooling</h2>
+    </div>
+    <div class="skills-grid">
+      
+      <div class="skill-category">
+        <h3>Frontend</h3>
+        <ul class="skill-list">
+          <li>React.js & Modern JavaScript (ES6+)</li>
+          <li>HTML5 & CSS3</li>
+          <li>Responsive Design & Mobile-First</li>
+          <li>UI/UX Best Practices</li>
+          <li>Bootstrap & Modern CSS Frameworks</li>
         </ul>
-      </nav>
+      </div>
+
+      <div class="skill-category">
+        <h3>Backend</h3>
+        <ul class="skill-list">
+          <li>Node.js & Express</li>
+          <li>RESTful API Design</li>
+          <li>MongoDB & Mongoose</li>
+          <li>MySQL & SQL Databases</li>
+          <li>PHP & Server-Side Logic</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Cloud & DevOps</h3>
+        <ul class="skill-list">
+          <li>Git & GitHub Workflows</li>
+          <li>Heroku Deployment</li>
+          <li>CI/CD Pipelines</li>
+          <li>Cloud Infrastructure</li>
+          <li>System Architecture</li>
+        </ul>
+      </div>
+
+      <div class="skill-category">
+        <h3>Tooling</h3>
+        <ul class="skill-list">
+          <li>VS Code & Development Tools</li>
+          <li>npm & Package Management</li>
+          <li>Webpack & Build Tools</li>
+          <li>API Testing & Debugging</li>
+          <li>Version Control & Collaboration</li>
+        </ul>
+      </div>
+
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-
-  <!-- Hero Section -->
-  <section class="page-hero page-hero--landing">
-    <div class="container">
-      <img src="assets/isaacpcodes-wordmark-framed.svg" alt="IsaacPCodes" class="hero-wordmark" width="1400" height="320" fetchpriority="high">
-      <p class="page-subtitle">Building clean, scalable software systems with a focus on thoughtful design and reliable architecture.</p>
-      <div class="cta-buttons">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-      </div>
+<!-- Contact Section -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Get In Touch</h2>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">About</h2>
-      </div>
-      <div class="about-content">
-        <p>
-          I'm Isaac Pehrson, a software developer passionate about building systems that work well and make sense. 
-          I believe in clean code, thoughtful architecture, and technology that serves real human needs.
-        </p>
-        <p>
-          My work spans the full stack—from crafting intuitive frontend experiences to designing robust backend systems and cloud infrastructure. 
-          I approach each project with a systems-thinking mindset, always considering how pieces fit together and how to build for scale and maintainability.
-        </p>
-        <p>
-          When I'm not coding, you'll find me tinkering with new technologies, exploring the outdoors, or diving deep into how things work. 
-          I'm constantly learning and always excited to tackle new challenges.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Projects</h2>
-      </div>
-      <div class="card-grid">
-        
-        <!-- Project 1: Copy Selected Tabs URLs -->
-        <article class="card">
-          <h3 class="card-title">Copy Selected Tabs URLs</h3>
-          <p class="card-description">
-            A Chrome extension that copies URLs from selected tabs in one click, streamlining tab management and sharing.
-          </p>
-          <div class="card-tags">
-            <span class="tag">Chrome Extension</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Browser APIs</span>
-          </div>
-          <div class="card-links">
-            <a href="https://chromewebstore.google.com/detail/copy-selected-tabs-urls/eoibojgifhgghnidcpapddnfbpgbdnkd" target="_blank" rel="noopener">Chrome Web Store →</a>
-          </div>
-        </article>
-
-        <!-- Project 2: Business Readout Assistant -->
-        <article class="card">
-          <h3 class="card-title">Business Readout Assistant</h3>
-          <p class="card-description">
-            A Single Page Application built at eBay to automate internal reporting workflows, 
-            saving agents 10-15 minutes per report through intelligent automation.
-          </p>
-          <div class="card-tags">
-            <span class="tag">React.js</span>
-            <span class="tag">ES6</span>
-            <span class="tag">Axios</span>
-            <span class="tag">XLSX</span>
-            <span class="tag">Bootstrap</span>
-            <span class="tag">PHP</span>
-          </div>
-          <div class="card-links">
-            <a href="https://izzlenizzle.github.io/ReadoutAssistant/" target="_blank" rel="noopener">View Live →</a>
-            <a href="https://github.com/IzzleNizzle/ReadoutAssistant" target="_blank" rel="noopener">Source Code →</a>
-          </div>
-        </article>
-
-        <!-- Project 3: Bazaar -->
-        <article class="card">
-          <h3 class="card-title">Bazaar</h3>
-          <p class="card-description">
-            A collaborative trading platform that enables bartering and goods exchange without cash, 
-            bringing communities together through peer-to-peer commerce.
-          </p>
-          <div class="card-tags">
-            <span class="tag">MongoDB</span>
-            <span class="tag">Express</span>
-            <span class="tag">React</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Mongoose</span>
-          </div>
-          <div class="card-links">
-            <a href="https://stark-tundra-37570.herokuapp.com/" target="_blank" rel="noopener">View Live →</a>
-            <a href="https://github.com/IzzleNizzle/bazaar" target="_blank" rel="noopener">Source Code →</a>
-          </div>
-        </article>
-
-        <!-- Project 4: Sk8 -->
-        <article class="card">
-          <h3 class="card-title">Sk8</h3>
-          <p class="card-description">
-            A mobile-first social platform for skaters to discover and share tricks with their local community, 
-            featuring geolocation-based content and interactive mapping.
-          </p>
-          <div class="card-tags">
-            <span class="tag">MySQL</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">Google Maps API</span>
-            <span class="tag">Geolocation</span>
-          </div>
-          <div class="card-links">
-            <a href="https://stark-savannah-69359.herokuapp.com/" target="_blank" rel="noopener">View Live →</a>
-            <a href="https://github.com/IzzleNizzle/SK8" target="_blank" rel="noopener">Source Code →</a>
-          </div>
-        </article>
-
+    <div class="contact-content">
+      <p class="text-muted">
+        I'm always interested in hearing about new projects and opportunities. 
+        Whether you have a question or just want to say hello, feel free to reach out.
+      </p>
+      <a href="mailto:isaacpcodes@gmail.com" class="contact-email">isaacpcodes@gmail.com</a>
+      <div class="contact-links">
+        <a href="https://github.com/IzzleNizzle" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/isaac-p/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="{{ '/blog/' | relative_url }}">Blog</a>
       </div>
     </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Skills & Tooling</h2>
-      </div>
-      <div class="skills-grid">
-        
-        <div class="skill-category">
-          <h3>Frontend</h3>
-          <ul class="skill-list">
-            <li>React.js & Modern JavaScript (ES6+)</li>
-            <li>HTML5 & CSS3</li>
-            <li>Responsive Design & Mobile-First</li>
-            <li>UI/UX Best Practices</li>
-            <li>Bootstrap & Modern CSS Frameworks</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h3>Backend</h3>
-          <ul class="skill-list">
-            <li>Node.js & Express</li>
-            <li>RESTful API Design</li>
-            <li>MongoDB & Mongoose</li>
-            <li>MySQL & SQL Databases</li>
-            <li>PHP & Server-Side Logic</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h3>Cloud & DevOps</h3>
-          <ul class="skill-list">
-            <li>Git & GitHub Workflows</li>
-            <li>Heroku Deployment</li>
-            <li>CI/CD Pipelines</li>
-            <li>Cloud Infrastructure</li>
-            <li>System Architecture</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h3>Tooling</h3>
-          <ul class="skill-list">
-            <li>VS Code & Development Tools</li>
-            <li>npm & Package Management</li>
-            <li>Webpack & Build Tools</li>
-            <li>API Testing & Debugging</li>
-            <li>Version Control & Collaboration</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-      </div>
-      <div class="contact-content">
-        <p class="text-muted">
-          I'm always interested in hearing about new projects and opportunities. 
-          Whether you have a question or just want to say hello, feel free to reach out.
-        </p>
-        <a href="mailto:isaacpcodes@gmail.com" class="contact-email">isaacpcodes@gmail.com</a>
-        <div class="contact-links">
-          <a href="https://github.com/IzzleNizzle" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/isaac-p/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="./blog/index.html">Blog</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
-        <div class="footer-links">
-          <a href="support.html">Support</a>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="./web-tools/index.html">Web Tools</a>
-        </div>
-        <div class="footer-badge">
-          <a href="https://wakatime.com/@32870911-52df-4de0-abe7-3ed3cf8fb97d">
-            <img src="https://wakatime.com/badge/user/32870911-52df-4de0-abe7-3ed3cf8fb97d.svg" alt="Total time coded since Feb 28 2019" width="190" height="20" />
-          </a>
-          <a class="footer-badge-link" href="https://wakatime.com/a-look-back-at-2025/32870911-52df-4de0-abe7-3ed3cf8fb97d/tvylwxgfsz" target="_blank" rel="noopener">WakaTime 2025 recap</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-</body>
-
-</html>
+  </div>
+</section>

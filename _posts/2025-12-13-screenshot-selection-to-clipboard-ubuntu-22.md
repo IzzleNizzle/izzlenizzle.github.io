@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Screenshot Selection to Clipboard: Ubuntu 22"
+date: 2025-12-13
+---
+
 ## Describe the issue
 
 In windows its `Windows Button+Shift+S`, on MacOS it's `Command+Shift+4`.

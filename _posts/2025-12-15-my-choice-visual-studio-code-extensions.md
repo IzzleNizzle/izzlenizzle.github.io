@@ -1,3 +1,9 @@
+---
+layout: post
+title: "My Choice Visual Studio Code Extensions"
+date: 2025-12-15
+---
+
 I've been working inside Visual Studio Code (VSC) for about 6 years now, and roughly 3k hours. I'm not claiming that I've tried every single extension out there and tested each one, but I do believe that I've come across some really neat ones that I'd like to share today.
 
 So here are the active VSC extensions that I currently use today:

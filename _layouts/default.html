@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | relative_url }}">
+
+  {% if page.preload_image %}
+  <!-- Preload LCP image for faster Largest Contentful Paint -->
+  <link rel="preload" as="image" href="{{ page.preload_image | relative_url }}" fetchpriority="high">
+  {% endif %}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+
+  <!-- CSS -->
+  <link href="{{ '/css/isaacpcodes.css' | relative_url }}" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+  {% include header.html %}
+
+  <main>
+  {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+</body>
+
+</html>

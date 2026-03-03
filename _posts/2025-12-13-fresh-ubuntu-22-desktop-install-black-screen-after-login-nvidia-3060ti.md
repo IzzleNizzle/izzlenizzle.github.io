@@ -1,8 +1,14 @@
+---
+layout: post
+title: "Fresh Ubuntu 22 Desktop Install: Black Screen After Login (Nvidia 3060ti)"
+date: 2025-12-13
+---
+
 ## Describe the issue
 
 Right after the install, logging into the desktop it goes black screen right after logging in. I can see the log in screen, until i put my password in then it goes black screen
 
-Thankfully, GPT said this was a "**very common ... issue**,... The good news: it’s almost always fixable in a few minutes."
+Thankfully, GPT said this was a "**very common ... issue**,... The good news: it's almost always fixable in a few minutes."
 
 ## Solution:
 

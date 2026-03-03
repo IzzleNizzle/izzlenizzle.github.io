@@ -1,3 +1,9 @@
+---
+layout: post
+title: 'Shooting for AI Agent "One-Shot" Solutions'
+date: 2025-12-17
+---
+
 AI is no stranger to the spotlight in the last few years. But how have the tools been working for you? 
 
 I see a lot of different opinions, but the area I'd like to focus on is the "one-shot" solutions. Meaning there will be no follow up and you can expect it to work first try. Lets make sure that we set good expectations for these tools and we won't come out frustrated. 

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<section class="page-hero page-hero--post">
+  <div class="container container--narrow">
+    <div class="blog-post-header">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary blog-back-link">Back to Blog</a>
+      <h1 class="blog-post-title">{{ page.title }}</h1>
+      <div class="blog-post-meta">{{ page.date | date: "%B %-d, %Y" }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--narrow">
+    <article class="blog-post-content">
+      {{ content }}
+    </article>
+  </div>
+</section>
