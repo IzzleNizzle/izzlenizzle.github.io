@@ -37,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* leave room for sticky header so anchor targets aren’t hidden */
 }
 
 body {
