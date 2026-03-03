@@ -12,7 +12,7 @@ The site is Jekyll-based. To run it locally with CSS and layouts:
    ```bash
    bundle install --path vendor/bundle
    ```
-2. **Build and serve**: `npm run dev` (builds Jekyll, then serves `_site` at http://localhost:3000)
+2. **Dev server**: `npm run dev` (builds, serves at http://localhost:3000, and watches for changes — edit CSS/layouts and refresh to see updates)
 
 The Gemfile pins `ffi` to a version compatible with Ruby 2.6. If you use Ruby 3+, you can remove that pin.
 
