@@ -77,9 +77,9 @@
     "pricing": "free"
   },
   {
-    "title": "Vibe HEIC to PNG",
-    "description": "Convert HEIC images to PNG directly in your browser.",
-    "url": "https://vibe-heic-to-png.cap.trailfront.dev/",
+    "title": "HEIC to PNG/JPEG Converter",
+    "description": "Convert iPhone HEIC photos to PNG, JPEG, or WebP format in your browser. No uploads, all processing happens locally.",
+    "url": "./heic-converter/",
     "openInNewTab": true,
     "tags": ["Utility", "Image", "Conversion"],
     "pricing": "free"
