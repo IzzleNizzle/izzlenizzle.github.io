@@ -9,6 +9,7 @@ markdown: kramdown
 
 exclude:
   - node_modules
+  - vendor
   - tests
   - stories
   - playwright-report

@@ -5,6 +5,7 @@ build
 # Jekyll build output
 _site/
 Gemfile.lock
+vendor/
 .jekyll-cache/
 .jekyll-metadata
 

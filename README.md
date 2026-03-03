@@ -4,7 +4,19 @@
 
 My Portfolio
 
-## Testing:
+## Local development
+
+The site is Jekyll-based. To run it locally with CSS and layouts:
+
+1. **Install gems** (no sudo — installs into `vendor/bundle`):
+   ```bash
+   bundle install --path vendor/bundle
+   ```
+2. **Build and serve**: `npm run dev` (builds Jekyll, then serves `_site` at http://localhost:3000)
+
+The Gemfile pins `ffi` to a version compatible with Ruby 2.6. If you use Ruby 3+, you can remove that pin.
+
+## Testing
 
 `npx playwright install chromium`
 
