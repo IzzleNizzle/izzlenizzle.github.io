@@ -10,7 +10,7 @@ The site uses Jekyll for templating, layouts, and blog post generation. GitHub P
 
 ### Shared Layout System
 
-- **`_layouts/default.html`** - Base layout used by every page. Contains the full HTML document structure, shared `<head>` (fonts, CSS, favicon), nav via `{% include header.html %}`, and footer via `{% include footer.html %}`.
+- **`_layouts/default.html`** - Base layout used by every page. Contains the full HTML document structure, shared `<head>` (fonts, CSS, favicon), nav via {% raw %}`{% include header.html %}`{% endraw %}, and footer via {% raw %}`{% include footer.html %}`{% endraw %}.
 - **`_layouts/post.html`** - Extends `default`. Used by blog posts. Contains the post hero section with back link, title, date, and content wrapper.
 - **`_includes/header.html`** - Shared navigation (logo, nav menu with About, Projects, Skills, Contact, Blog, Web Tools).
 - **`_includes/footer.html`** - Shared footer (copyright, Support/Privacy/Web Tools links, WakaTime badge).
@@ -21,13 +21,13 @@ The site uses Jekyll for templating, layouts, and blog post generation. GitHub P
 - **Filename Convention**: `YYYY-MM-DD-slug-with-hyphens.md` (Jekyll standard)
 - **Front Matter**: Each post requires `layout: post`, `title:`, and `date:` in YAML front matter
 - **Output**: Jekyll generates blog post pages automatically based on the permalink setting in `_config.yml`
-- **Blog Index**: `/blog/index.html` uses a `{% for post in site.posts %}` Liquid loop to list all posts
+- **Blog Index**: `/blog/index.html` uses a {% raw %}`{% for post in site.posts %}`{% endraw %} Liquid loop to list all posts
 
 ### Guidelines for Contributors and AI Assistants
 
 - **DO** create new blog posts in `/_posts/` with proper front matter and filename convention
 - **DO** use the `layout: default` front matter on all pages, `layout: post` on blog posts
-- **DO** use `{{ ... | relative_url }}` filter for all internal asset and page links in layouts/includes
+- **DO** use {% raw %}`{{ ... | relative_url }}`{% endraw %} filter for all internal asset and page links in layouts/includes
 - **DO** follow the existing CSS class system from `css/isaacpcodes.css` (page-hero, card, card-grid, section, container, etc.)
 - **DO NOT** create custom build workflows for blog posts -- Jekyll handles this natively
 - **DO NOT** manually create HTML blog post files -- write markdown in `_posts/` with front matter
