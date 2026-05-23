@@ -310,6 +310,15 @@ nav {
   display: none;
 }
 
+.offerings-grid {
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
+}
+
+.offering-card {
+  position: relative;
+}
+
 /* Link cards (entire card is a clickable anchor) */
 a.card {
   display: flex;
@@ -353,6 +362,17 @@ a.card:focus {
 }
 
 /* Card children */
+.card-eyebrow {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-sm);
+  position: relative;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
 .card-title {
   font-size: 1.5rem;
   margin-bottom: var(--space-sm);
