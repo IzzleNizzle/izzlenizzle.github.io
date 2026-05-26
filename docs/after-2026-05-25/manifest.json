@@ -1,0 +1,578 @@
+{
+  "capturedAtLocalDate": "2026-05-25",
+  "siteOrigin": "https://trailfront.dev",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1200
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844
+    }
+  ],
+  "records": [
+    {
+      "url": "https://trailfront.dev/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/home-desktop.png",
+      "title": "Trailfront - Tools for the Path Ahead"
+    },
+    {
+      "url": "https://trailfront.dev/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/home-mobile.png",
+      "title": "Trailfront - Tools for the Path Ahead"
+    },
+    {
+      "url": "https://trailfront.dev/blog/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-desktop.png",
+      "title": "Blog - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/blog/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-mobile.png",
+      "title": "Blog - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/blog/index.html",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-index-html-desktop.png",
+      "title": "Blog - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/blog/index.html",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-index-html-mobile.png",
+      "title": "Blog - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/adding-ssh-key/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-adding-ssh-key-desktop.png",
+      "title": "Adding SSH Key"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/adding-ssh-key/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-adding-ssh-key-mobile.png",
+      "title": "Adding SSH Key"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/fresh-ubuntu-22-desktop-install-black-screen-after-login-nvidia-3060ti/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-fresh-ubuntu-22-desktop-install-black-screen-after-login-nvidia-3060ti-desktop.png",
+      "title": "Fresh Ubuntu 22 Desktop Install: Black Screen After Login (Nvidia 3060ti)"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/fresh-ubuntu-22-desktop-install-black-screen-after-login-nvidia-3060ti/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-fresh-ubuntu-22-desktop-install-black-screen-after-login-nvidia-3060ti-mobile.png",
+      "title": "Fresh Ubuntu 22 Desktop Install: Black Screen After Login (Nvidia 3060ti)"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/fresh-ubuntu-linux-server-install-dev-environment-preferences/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-fresh-ubuntu-linux-server-install-dev-environment-preferences-desktop.png",
+      "title": "Fresh Ubuntu Linux Server Install: Dev Environment Preferences"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/fresh-ubuntu-linux-server-install-dev-environment-preferences/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-fresh-ubuntu-linux-server-install-dev-environment-preferences-mobile.png",
+      "title": "Fresh Ubuntu Linux Server Install: Dev Environment Preferences"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/git-rid-of-code-for-real/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-git-rid-of-code-for-real-desktop.png",
+      "title": "Git Rid of Code For Real"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/git-rid-of-code-for-real/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-git-rid-of-code-for-real-mobile.png",
+      "title": "Git Rid of Code For Real"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/local-gitea-instance/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-local-gitea-instance-desktop.png",
+      "title": "Local Gitea Instance"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/local-gitea-instance/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-local-gitea-instance-mobile.png",
+      "title": "Local Gitea Instance"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/my-choice-visual-studio-code-extensions/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-my-choice-visual-studio-code-extensions-desktop.png",
+      "title": "My Choice Visual Studio Code Extensions"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/my-choice-visual-studio-code-extensions/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-my-choice-visual-studio-code-extensions-mobile.png",
+      "title": "My Choice Visual Studio Code Extensions"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/screenshot-selection-to-clipboard-ubuntu-22/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-screenshot-selection-to-clipboard-ubuntu-22-desktop.png",
+      "title": "Screenshot Selection to Clipboard: Ubuntu 22"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/screenshot-selection-to-clipboard-ubuntu-22/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-screenshot-selection-to-clipboard-ubuntu-22-mobile.png",
+      "title": "Screenshot Selection to Clipboard: Ubuntu 22"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/shooting-for-ai-agent-one-shot-solutions/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-shooting-for-ai-agent-one-shot-solutions-desktop.png",
+      "title": "Shooting for AI Agent \"One-Shot\" Solutions"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/shooting-for-ai-agent-one-shot-solutions/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-shooting-for-ai-agent-one-shot-solutions-mobile.png",
+      "title": "Shooting for AI Agent \"One-Shot\" Solutions"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/ubuntu-22-clipboard-manager/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/blog-posts-ubuntu-22-clipboard-manager-desktop.png",
+      "title": "Ubuntu 22 Clipboard Manager"
+    },
+    {
+      "url": "https://trailfront.dev/blog/posts/ubuntu-22-clipboard-manager/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/blog-posts-ubuntu-22-clipboard-manager-mobile.png",
+      "title": "Ubuntu 22 Clipboard Manager"
+    },
+    {
+      "url": "https://trailfront.dev/index.html",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/index-html-desktop.png",
+      "title": "Trailfront - Tools for the Path Ahead"
+    },
+    {
+      "url": "https://trailfront.dev/index.html",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/index-html-mobile.png",
+      "title": "Trailfront - Tools for the Path Ahead"
+    },
+    {
+      "url": "https://trailfront.dev/privacy",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/privacy-desktop.png",
+      "title": "Privacy Policy - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/privacy",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/privacy-mobile.png",
+      "title": "Privacy Policy - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/privacy.html",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/privacy-html-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/privacy.html",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/privacy-html-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/support",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/support-desktop.png",
+      "title": "Support - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/support",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/support-mobile.png",
+      "title": "Support - Trailfront"
+    },
+    {
+      "url": "https://trailfront.dev/support.html",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/support-html-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/support.html",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/support-html-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-desktop.png",
+      "title": "Trailfront Web Tools - Handy utilities and tools"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-mobile.png",
+      "title": "Trailfront Web Tools - Handy utilities and tools"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/base64-tools/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-base64-tools-desktop.png",
+      "title": "Base64 Tools - Trailfront Web Tools"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/base64-tools/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-base64-tools-mobile.png",
+      "title": "Base64 Tools - Trailfront Web Tools"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-desktop.png",
+      "title": "L337 Power Weapon Timer"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-mobile.png",
+      "title": "L337 Power Weapon Timer"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/battlecanyon",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-battlecanyon-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/battlecanyon",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-battlecanyon-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/construct",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-construct-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/construct",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-construct-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/countdown",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-countdown-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/countdown",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-countdown-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/guardian",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-guardian-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/guardian",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-guardian-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/narrows",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-narrows-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/narrows",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-narrows-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/nexus",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-nexus-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/nexus",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-nexus-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/penance",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-penance-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/penance",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-penance-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/reachthepit",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-reachthepit-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/reachthepit",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-reachthepit-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/sanctuaryctf",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-sanctuaryctf-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/sanctuaryctf",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-sanctuaryctf-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/sanctuaryslayer",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-sanctuaryslayer-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/sanctuaryslayer",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-sanctuaryslayer-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/the-pit",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-the-pit-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/the-pit",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-the-pit-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/zealot",
+      "status": 404,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-h3-power-timer-zealot-desktop.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/h3-power-timer/zealot",
+      "status": 404,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-h3-power-timer-zealot-mobile.png",
+      "title": "Page not found · GitHub Pages"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/heic-converter/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-heic-converter-desktop.png",
+      "title": "HEIC to PNG/JPEG Converter - Convert iPhone Photos"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/heic-converter/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-heic-converter-mobile.png",
+      "title": "HEIC to PNG/JPEG Converter - Convert iPhone Photos"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/index.html",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-index-html-desktop.png",
+      "title": "Trailfront Web Tools - Handy utilities and tools"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/index.html",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-index-html-mobile.png",
+      "title": "Trailfront Web Tools - Handy utilities and tools"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/note-tool/",
+      "status": 200,
+      "viewport": "desktop",
+      "size": "1440x1200",
+      "screenshot": "screenshots/web-tools-note-tool-desktop.png",
+      "title": "Trailfront Note Tool"
+    },
+    {
+      "url": "https://trailfront.dev/web-tools/note-tool/",
+      "status": 200,
+      "viewport": "mobile",
+      "size": "390x844",
+      "screenshot": "screenshots/web-tools-note-tool-mobile.png",
+      "title": "Trailfront Note Tool"
+    }
+  ]
+}

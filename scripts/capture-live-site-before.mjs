@@ -4,7 +4,8 @@ import path from 'node:path';
 
 const siteOrigin = 'https://trailfront.dev';
 const captureDate = '2026-05-25';
-const outputRoot = path.resolve(`docs/before-${captureDate}`);
+const captureLabel = process.argv[2] || 'before';
+const outputRoot = path.resolve(`docs/${captureLabel}-${captureDate}`);
 const screenshotDir = path.join(outputRoot, 'screenshots');
 
 const viewports = [
@@ -123,7 +124,7 @@ await writeFile(
 );
 
 const lines = [
-  '# Trailfront Before Screenshots',
+  `# Trailfront ${captureLabel[0].toUpperCase()}${captureLabel.slice(1)} Screenshots`,
   '',
   `Captured from ${siteOrigin} on ${captureDate}.`,
   '',
