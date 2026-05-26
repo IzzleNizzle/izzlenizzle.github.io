@@ -1,4 +1,4 @@
-import '../css/isaacpcodes.css';
+import '../css/trailfront.css';
 import { MINIMAL_VIEWPORTS } from 'storybook/viewport';
 
 export const parameters = {

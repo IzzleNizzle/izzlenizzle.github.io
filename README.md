@@ -1,8 +1,8 @@
-# izzlenizzle.github.io
+# Trailfront
 
 [![wakatime](https://wakatime.com/badge/user/32870911-52df-4de0-abe7-3ed3cf8fb97d.svg)](https://wakatime.com/@32870911-52df-4de0-abe7-3ed3cf8fb97d)
 
-My Portfolio
+Trailfront is my personal site for software projects, technical writing, and web tools.
 
 ## Local development
 
@@ -18,7 +18,9 @@ The Gemfile pins `ffi` to a version compatible with Ruby 2.6. If you use Ruby 3+
 
 ## Testing
 
-`npx playwright install chromium`
+1. Install Node dependencies: `npm install`
+2. Install Playwright's browser: `npx playwright install chromium`
+3. Run: `npm test`
 
 ## Blog Posts
 

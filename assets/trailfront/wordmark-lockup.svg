@@ -1,0 +1,32 @@
+<svg width="1400" height="420" viewBox="0 0 1400 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Trailfront</title>
+  <desc id="desc">Trailfront wordmark with mountain trail badge and the tagline Tools for the Path Ahead.</desc>
+  <defs>
+    <clipPath id="badge-clip">
+      <circle cx="210" cy="210" r="142"/>
+    </clipPath>
+  </defs>
+  <circle cx="210" cy="210" r="156" fill="#F4F1EB" stroke="#2B241E" stroke-width="12"/>
+  <g clip-path="url(#badge-clip)">
+    <rect x="58" y="58" width="304" height="304" fill="#F4F1EB"/>
+    <circle cx="216" cy="116" r="34" fill="#2B241E"/>
+    <circle cx="231" cy="104" r="31" fill="#F4F1EB"/>
+    <path d="M88 286c44-36 80-52 126-40 42 11 68-30 128-16v110H88z" fill="#5A6147"/>
+    <path d="M96 300c64-50 96-60 146-36 38 18 68-14 114-10" fill="none" stroke="#2B241E" stroke-width="8" stroke-linecap="round"/>
+    <path d="M108 250l68-96 49 96z" fill="#CDB79E" stroke="#2B241E" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M174 154l51 96h-34z" fill="#7C8A96" opacity=".86"/>
+    <path d="M214 250l72-110 72 110z" fill="#CDB79E" stroke="#2B241E" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M286 140l72 110h-42z" fill="#7C8A96" opacity=".86"/>
+    <path d="M182 248c-28 28-28 56 12 86 40 30 16 58-32 78" fill="none" stroke="#F4F1EB" stroke-width="28" stroke-linecap="round"/>
+    <path d="M182 248c-28 28-28 56 12 86 40 30 16 58-32 78" fill="none" stroke="#2B241E" stroke-width="6" stroke-linecap="round"/>
+    <path d="M106 214l-22 42h44zM106 172l-30 54h60zM106 138l-36 58h72z" fill="#5A6147" stroke="#2B241E" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M340 214l-22 42h44zM340 172l-30 54h60zM340 138l-36 58h72z" fill="#5A6147" stroke="#2B241E" stroke-width="7" stroke-linejoin="round"/>
+  </g>
+  <path d="M508 104h734" stroke="#CDB79E" stroke-width="2" opacity=".55"/>
+  <text x="508" y="226" fill="#F4F1EB"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="136" font-weight="600">Trailfront</text>
+  <text x="516" y="286" fill="#7C8A96"
+        font-family="Inter, 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="34" font-weight="700" letter-spacing="8">TOOLS FOR THE PATH AHEAD</text>
+</svg>

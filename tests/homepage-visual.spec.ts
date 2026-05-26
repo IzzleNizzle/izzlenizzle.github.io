@@ -30,7 +30,7 @@ test.describe('Visual Regression - Sections', () => {
   });
 
   test('hero section', async ({ page }) => {
-    const hero = page.locator('.hero');
+    const hero = page.locator('.page-hero--landing');
     await expect(hero).toHaveScreenshot('section-hero.png', {
       maxDiffPixelRatio: 0.01,
     });

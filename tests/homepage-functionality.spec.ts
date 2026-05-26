@@ -30,7 +30,7 @@ test.describe('Anchor Navigation', () => {
   });
 
   test('nav link "About" scrolls to about section', async ({ page }) => {
-    await page.locator('.nav-menu a[href="#about"]').click();
+    await page.locator('.nav-menu a:has-text("About")').click();
     await page.waitForTimeout(800);
 
     const aboutSection = page.locator('#about');
@@ -38,7 +38,7 @@ test.describe('Anchor Navigation', () => {
   });
 
   test('nav link "Skills" scrolls to skills section', async ({ page }) => {
-    await page.locator('.nav-menu a[href="#skills"]').click();
+    await page.locator('.nav-menu a:has-text("Skills")').click();
     await page.waitForTimeout(800);
 
     const skillsSection = page.locator('#skills');
@@ -87,7 +87,7 @@ test.describe('External Link Attributes', () => {
   });
 
   test('project links open in new tab', async ({ page }) => {
-    const projectLinks = page.locator('.project-links a[target="_blank"]');
+    const projectLinks = page.locator('#projects .card-links a[target="_blank"]');
     const count = await projectLinks.count();
     expect(count).toBeGreaterThan(0);
   });

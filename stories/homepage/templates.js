@@ -1,6 +1,7 @@
 const navLinks = [
   { text: 'About', href: '#about', className: 'nav-link' },
   { text: 'Projects', href: '#projects', className: 'nav-link' },
+  { text: 'Offerings', href: '#offerings', className: 'nav-link' },
   { text: 'Skills', href: '#skills', className: 'nav-link' },
   { text: 'Contact', href: '#contact', className: 'nav-link' },
   { text: 'Blog', href: './blog/index.html' },
@@ -119,8 +120,8 @@ export const renderHeaderNav = () => `
   <header>
     <div class="container">
       <nav>
-        <a href="#" aria-label="IsaacPCodes Home" class="logo-link">
-          <img src="assets/isaacpcodes-wordmark.svg" alt="IsaacPCodes" class="logo">
+        <a href="#" aria-label="Trailfront Home" class="logo-link">
+          <img src="assets/trailfront/wordmark.svg" alt="Trailfront" class="logo">
         </a>
 
         <ul class="nav-menu">
@@ -132,14 +133,15 @@ export const renderHeaderNav = () => `
 `;
 
 export const renderHero = () => `
-  <section class="hero">
+  <section class="page-hero page-hero--landing">
     <div class="container">
-      <img src="assets/isaacpcodes-wordmark-framed.svg" alt="IsaacPCodes" class="hero-wordmark">
-      <p class="hero-subtitle">
-        Building clean, scalable software systems with a focus on thoughtful design and reliable architecture.
+      <img src="assets/trailfront/wordmark-lockup.svg" alt="Trailfront" class="hero-wordmark">
+      <p class="page-subtitle">
+        Tools for the path ahead: practical software, reliable systems, and thoughtful utilities built by Isaac Pehrson.
       </p>
       <div class="cta-buttons">
         <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#offerings" class="btn btn-secondary">Digital Kits</a>
         <a href="#contact" class="btn btn-secondary">Get In Touch</a>
       </div>
     </div>
@@ -154,7 +156,7 @@ export const renderAbout = () => `
       </div>
       <div class="about-content">
         <p>
-          I'm Isaac Pehrson, a software developer passionate about building systems that work well and make sense.
+          I'm Isaac Pehrson, a software developer and the person behind Trailfront, passionate about building systems that work well and make sense.
           I believe in clean code, thoughtful architecture, and technology that serves real human needs.
         </p>
         <p>
@@ -176,17 +178,17 @@ export const renderProjects = () => `
       <div class="section-header">
         <h2 class="section-title">Projects</h2>
       </div>
-      <div class="projects-grid">
+      <div class="card-grid">
         ${projects
           .map(
             (project) => `
-          <article class="project-card">
-            <h3 class="project-title">${project.title}</h3>
-            <p class="project-description">${project.description}</p>
-            <div class="project-tags">
+          <article class="card">
+            <h3 class="card-title">${project.title}</h3>
+            <p class="card-description">${project.description}</p>
+            <div class="card-tags">
               ${project.tags.map((tag) => `<span class="tag">${tag}</span>`).join('')}
             </div>
-            <div class="project-links">
+            <div class="card-links">
               ${project.links
                 .map(
                   (link) =>
@@ -198,6 +200,33 @@ export const renderProjects = () => `
         `
           )
           .join('')}
+      </div>
+    </div>
+  </section>
+`;
+
+export const renderOfferings = () => `
+  <section id="offerings" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Offerings</h2>
+      </div>
+      <div class="card-grid offerings-grid">
+        <article class="card offering-card">
+          <div class="card-eyebrow">Digital Download</div>
+          <h3 class="card-title">Apple Recovery Security Kit</h3>
+          <p class="card-description">
+            A practical digital kit for organizing Apple account recovery details, security settings, and backup access notes so you can prepare before lockouts or device issues happen.
+          </p>
+          <div class="card-tags">
+            <span class="tag">Apple Account</span>
+            <span class="tag">Recovery Planning</span>
+            <span class="tag">Digital Kit</span>
+          </div>
+          <div class="card-links">
+            <a href="https://pehisaac6.gumroad.com/l/apple-recovery-security-kit" target="_blank" rel="noopener">View on Gumroad →</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -238,7 +267,7 @@ export const renderContact = () => `
           I'm always interested in hearing about new projects and opportunities.
           Whether you have a question or just want to say hello, feel free to reach out.
         </p>
-        <a href="mailto:isaacpcodes@gmail.com" class="contact-email">isaacpcodes@gmail.com</a>
+        <a href="mailto:pehisaac@gmail.com" class="contact-email">pehisaac@gmail.com</a>
         <div class="contact-links">
           ${contactLinks
             .map((link) => {
@@ -256,7 +285,7 @@ export const renderFooter = () => `
   <footer>
     <div class="container">
       <div class="footer-content">
-        <p>&copy; 2025 IsaacPCodes. Built with care.</p>
+        <p>&copy; 2025 Trailfront. Built with care.</p>
         <div class="footer-links">
           ${footerLinks.map((link) => `<a href="${link.href}">${link.label}</a>`).join('')}
         </div>
@@ -287,6 +316,7 @@ export const renderFullPage = () => `
     ${renderHero()}
     ${renderAbout()}
     ${renderProjects()}
+    ${renderOfferings()}
     ${renderSkills()}
     ${renderContact()}
   </main>

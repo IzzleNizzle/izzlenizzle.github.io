@@ -3,6 +3,7 @@ import {
   renderHero,
   renderAbout,
   renderProjects,
+  renderOfferings,
   renderSkills,
   renderContact,
   renderFooter,
@@ -53,6 +54,15 @@ Projects.parameters = {
   docs: {
     description: {
       story: 'Projects grid with cards, tags, and outbound links.',
+    },
+  },
+};
+
+export const Offerings = () => renderOfferings();
+Offerings.parameters = {
+  docs: {
+    description: {
+      story: 'Digital offering card with tags and outbound link.',
     },
   },
 };

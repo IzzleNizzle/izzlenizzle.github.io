@@ -3,6 +3,7 @@ import {
   renderHero,
   renderAbout,
   renderProjects,
+  renderOfferings,
   renderSkills,
   renderContact,
 } from './templates';
@@ -16,6 +17,7 @@ const renderNavDemo = ({ withTargets = false } = {}) => `
           ${renderHero()}
           ${renderAbout()}
           ${renderProjects()}
+          ${renderOfferings()}
           ${renderSkills()}
           ${renderContact()}
         </main>

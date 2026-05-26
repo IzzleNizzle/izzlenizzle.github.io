@@ -1,6 +1,6 @@
-# IsaacP Web Tools
+# Trailfront Web Tools
 
-This directory contains the IsaacP Web Tools page, which showcases a collection of web-based utilities and tools.
+This directory contains the Trailfront Web Tools page, which showcases a collection of web-based utilities and tools.
 
 ## Directory Structure
 
@@ -128,4 +128,4 @@ The tool cards use CSS defined in the template with the following features:
 - Arrow icon that animates on hover
 - Smooth transitions and transforms
 
-The page inherits the main portfolio styling from `css/isaacpcodes.css`.
+The page inherits the main portfolio styling from `css/trailfront.css`.

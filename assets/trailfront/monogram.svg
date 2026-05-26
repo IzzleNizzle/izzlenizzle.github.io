@@ -1,0 +1,9 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Trailfront monogram</title>
+  <rect width="256" height="256" rx="32" fill="#2B241E"/>
+  <path d="M44 104l38-42 30 42 34-52 66 52" fill="none" stroke="#CDB79E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M46 116h164" stroke="#F4F1EB" stroke-width="12" stroke-linecap="round"/>
+  <path d="M58 132h61v22H93v56H68v-56H58z" fill="#F4F1EB"/>
+  <path d="M131 132h70v22h-45v16h38v21h-38v42h-25z" fill="#CDB79E"/>
+  <path d="M116 139c-14 14-14 31 6 50 17 16 10 30-14 42" fill="none" stroke="#5A6147" stroke-width="9" stroke-linecap="round"/>
+</svg>

@@ -2,7 +2,7 @@
   "name": "izzlenizzle-github-io",
   "version": "1.0.0",
   "private": true,
-  "description": "IsaacPCodes portfolio site",
+  "description": "Trailfront portfolio and tools site",
   "scripts": {
     "dev": "bundle exec jekyll serve -p 3000",
     "test": "npx playwright test",

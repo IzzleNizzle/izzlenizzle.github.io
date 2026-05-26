@@ -8,20 +8,20 @@ test.describe('Homepage Structure & Content', () => {
   // ── Page Metadata ──
 
   test('has correct page title', async ({ page }) => {
-    await expect(page).toHaveTitle('IsaacPCodes - Software Developer & Systems Builder');
+    await expect(page).toHaveTitle('Trailfront - Tools for the Path Ahead');
   });
 
   test('has meta description', async ({ page }) => {
     const metaDescription = page.locator('meta[name="description"]');
     await expect(metaDescription).toHaveAttribute(
       'content',
-      'Isaac Pehrson - Building clean, scalable software systems. Full-stack development, cloud architecture, and system design.'
+      'Trailfront by Isaac Pehrson - practical software, web tools, and technical writing for the path ahead.'
     );
   });
 
   test('has favicon linked', async ({ page }) => {
     const favicon = page.locator('link[rel="icon"]');
-    await expect(favicon).toHaveAttribute('href', 'favicon.svg');
+    await expect(favicon).toHaveAttribute('href', '/favicon.svg');
   });
 
   test('html element has lang attribute', async ({ page }) => {
@@ -34,14 +34,14 @@ test.describe('Homepage Structure & Content', () => {
   test('header contains logo with alt text', async ({ page }) => {
     const logo = page.locator('header .logo');
     await expect(logo).toBeAttached();
-    await expect(logo).toHaveAttribute('alt', 'IsaacPCodes');
+    await expect(logo).toHaveAttribute('alt', 'Trailfront');
   });
 
-  test('navigation has 6 links with correct text', async ({ page }) => {
+  test('navigation has 7 links with correct text', async ({ page }) => {
     const navLinks = page.locator('.nav-menu li');
-    await expect(navLinks).toHaveCount(6);
+    await expect(navLinks).toHaveCount(7);
 
-    const expectedLinks = ['About', 'Projects', 'Skills', 'Contact', 'Blog', 'Web Tools'];
+    const expectedLinks = ['About', 'Projects', 'Offerings', 'Skills', 'Contact', 'Blog', 'Web Tools'];
     for (let i = 0; i < expectedLinks.length; i++) {
       await expect(navLinks.nth(i)).toContainText(expectedLinks[i]);
     }
@@ -49,12 +49,13 @@ test.describe('Homepage Structure & Content', () => {
 
   test('navigation links have correct hrefs', async ({ page }) => {
     const expectedHrefs: Record<string, string> = {
-      Projects: '#projects',
-      About: '#about',
-      Skills: '#skills',
-      Contact: '#contact',
-      Blog: './blog/index.html',
-      'Web Tools': './web-tools/index.html',
+      Projects: '/#projects',
+      About: '/#about',
+      Offerings: '/#offerings',
+      Skills: '/#skills',
+      Contact: '/#contact',
+      Blog: '/blog/',
+      'Web Tools': '/web-tools/',
     };
 
     for (const [text, href] of Object.entries(expectedHrefs)) {
@@ -68,19 +69,22 @@ test.describe('Homepage Structure & Content', () => {
   test('hero section contains wordmark image', async ({ page }) => {
     const wordmark = page.locator('.hero-wordmark');
     await expect(wordmark).toBeAttached();
-    await expect(wordmark).toHaveAttribute('alt', 'IsaacPCodes');
+    await expect(wordmark).toHaveAttribute('alt', 'Trailfront');
   });
 
   test('hero section contains subtitle text', async ({ page }) => {
-    const subtitle = page.locator('.hero-subtitle');
+    const subtitle = page.locator('.page-hero--landing .page-subtitle');
     await expect(subtitle).toContainText(
-      'Building clean, scalable software systems with a focus on thoughtful design and reliable architecture.'
+      'Tools for the path ahead: practical software, reliable systems, and thoughtful utilities built by Isaac Pehrson.'
     );
   });
 
-  test('hero has two CTA buttons with correct hrefs', async ({ page }) => {
+  test('hero has three CTA buttons with correct hrefs', async ({ page }) => {
     const viewProjects = page.locator('.cta-buttons a:has-text("View Projects")');
     await expect(viewProjects).toHaveAttribute('href', '#projects');
+
+    const digitalKits = page.locator('.cta-buttons a:has-text("Digital Kits")');
+    await expect(digitalKits).toHaveAttribute('href', '#offerings');
 
     const getInTouch = page.locator('.cta-buttons a:has-text("Get In Touch")');
     await expect(getInTouch).toHaveAttribute('href', '#contact');
@@ -104,6 +108,7 @@ test.describe('Homepage Structure & Content', () => {
   test('about section contains key content', async ({ page }) => {
     const aboutContent = page.locator('.about-content');
     await expect(aboutContent).toContainText('Isaac Pehrson');
+    await expect(aboutContent).toContainText('Trailfront');
     await expect(aboutContent).toContainText('software developer');
   });
 
@@ -118,7 +123,7 @@ test.describe('Homepage Structure & Content', () => {
   });
 
   test('projects section has exactly 4 project cards', async ({ page }) => {
-    const cards = page.locator('.project-card');
+    const cards = page.locator('#projects .card');
     await expect(cards).toHaveCount(4);
   });
 
@@ -130,7 +135,7 @@ test.describe('Homepage Structure & Content', () => {
       'Sk8',
     ];
 
-    const titles = page.locator('.project-title');
+    const titles = page.locator('#projects .card-title');
     await expect(titles).toHaveCount(4);
 
     for (let i = 0; i < expectedTitles.length; i++) {
@@ -139,7 +144,7 @@ test.describe('Homepage Structure & Content', () => {
   });
 
   test('each project card has a description', async ({ page }) => {
-    const descriptions = page.locator('.project-description');
+    const descriptions = page.locator('#projects .card-description');
     await expect(descriptions).toHaveCount(4);
 
     for (let i = 0; i < 4; i++) {
@@ -149,7 +154,7 @@ test.describe('Homepage Structure & Content', () => {
   });
 
   test('each project card has tags', async ({ page }) => {
-    const cards = page.locator('.project-card');
+    const cards = page.locator('#projects .card');
     for (let i = 0; i < 4; i++) {
       const tags = cards.nth(i).locator('.tag');
       const count = await tags.count();
@@ -158,9 +163,9 @@ test.describe('Homepage Structure & Content', () => {
   });
 
   test('each project card has at least one link', async ({ page }) => {
-    const cards = page.locator('.project-card');
+    const cards = page.locator('#projects .card');
     for (let i = 0; i < 4; i++) {
-      const links = cards.nth(i).locator('.project-links a');
+      const links = cards.nth(i).locator('.card-links a');
       const count = await links.count();
       expect(count).toBeGreaterThan(0);
     }
@@ -211,8 +216,8 @@ test.describe('Homepage Structure & Content', () => {
 
   test('contact section has email link', async ({ page }) => {
     const emailLink = page.locator('.contact-email');
-    await expect(emailLink).toHaveText('isaacpcodes@gmail.com');
-    await expect(emailLink).toHaveAttribute('href', 'mailto:isaacpcodes@gmail.com');
+    await expect(emailLink).toHaveText('pehisaac@gmail.com');
+    await expect(emailLink).toHaveAttribute('href', 'mailto:pehisaac@gmail.com');
   });
 
   test('contact section has 3 social links', async ({ page }) => {
@@ -229,7 +234,7 @@ test.describe('Homepage Structure & Content', () => {
 
   test('footer contains copyright text', async ({ page }) => {
     const footer = page.locator('footer');
-    await expect(footer).toContainText('© 2025 IsaacPCodes. Built with care.');
+    await expect(footer).toContainText('© 2025 Trailfront. Built with care.');
   });
 
   test('footer has 3 links', async ({ page }) => {
@@ -261,6 +266,6 @@ test.describe('Homepage Structure & Content', () => {
 
   test('logo link has aria-label', async ({ page }) => {
     const logoLink = page.locator('.logo-link');
-    await expect(logoLink).toHaveAttribute('aria-label', 'IsaacPCodes Home');
+    await expect(logoLink).toHaveAttribute('aria-label', 'Trailfront Home');
   });
 });

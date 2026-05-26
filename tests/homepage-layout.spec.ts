@@ -20,14 +20,14 @@ test.describe('Desktop Layout', () => {
   });
 
   test('hero section has min-height of 70vh', async ({ page }) => {
-    const hero = page.locator('.hero');
+    const hero = page.locator('.page-hero--landing');
     const minHeight = await hero.evaluate((el) => getComputedStyle(el).minHeight);
     // 70vh at 800px viewport height = 560px
     expect(parseFloat(minHeight)).toBeGreaterThanOrEqual(550);
   });
 
   test('projects grid renders multi-column', async ({ page }) => {
-    const grid = page.locator('.projects-grid');
+    const grid = page.locator('#projects .card-grid');
     const columns = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
     // Multi-column means more than one value in gridTemplateColumns
     const columnCount = columns.split(/\s+/).filter((s) => s.length > 0).length;
@@ -89,7 +89,7 @@ test.describe('Tablet Layout', () => {
   });
 
   test('projects grid is single column', async ({ page }) => {
-    const grid = page.locator('.projects-grid');
+    const grid = page.locator('#projects .card-grid');
     const columns = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
     const columnCount = columns.split(/\s+/).filter((s) => s.length > 0).length;
     expect(columnCount).toBe(1);
@@ -116,7 +116,7 @@ test.describe('Tablet Layout', () => {
   });
 
   test('hero does not enforce min-height', async ({ page }) => {
-    const hero = page.locator('.hero');
+    const hero = page.locator('.page-hero--landing');
     const minHeight = await hero.evaluate((el) => getComputedStyle(el).minHeight);
     // On tablet, min-height should be auto (0px) not 70vh
     expect(minHeight).toBe('0px');
@@ -166,7 +166,7 @@ test.describe('Mobile Layout', () => {
   });
 
   test('projects grid is single column', async ({ page }) => {
-    const grid = page.locator('.projects-grid');
+    const grid = page.locator('#projects .card-grid');
     const columns = await grid.evaluate((el) => getComputedStyle(el).gridTemplateColumns);
     const columnCount = columns.split(/\s+/).filter((s) => s.length > 0).length;
     expect(columnCount).toBe(1);

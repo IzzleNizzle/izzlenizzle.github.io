@@ -79,4 +79,4 @@ This will create a blog post with:
 - The title comes from the `title` field in the front matter
 - Blog posts are sorted by date, newest first
 - The post layout automatically includes a "Back to Blog" link, title, and formatted date
-- All styling is handled by the shared `isaacpcodes.css` design system
+- All styling is handled by the shared `trailfront.css` design system
