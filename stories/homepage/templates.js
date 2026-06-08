@@ -4,6 +4,7 @@ const navLinks = [
   { text: 'Offerings', href: '#offerings', className: 'nav-link' },
   { text: 'Skills', href: '#skills', className: 'nav-link' },
   { text: 'Contact', href: '#contact', className: 'nav-link' },
+  { text: 'Bookshelf', href: './bookshelf/index.html' },
   { text: 'Blog', href: './blog/index.html' },
   { text: 'Web Tools', href: './web-tools/index.html' },
 ];
@@ -105,6 +106,7 @@ const contactLinks = [
 const footerLinks = [
   { label: 'Support', href: 'support.html' },
   { label: 'Privacy Policy', href: 'privacy.html' },
+  { label: 'Bookshelf', href: './bookshelf/index.html' },
   { label: 'Web Tools', href: './web-tools/index.html' },
 ];
 

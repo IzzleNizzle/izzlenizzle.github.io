@@ -1,0 +1,185 @@
+---
+layout: default
+title: "Bookshelf - Trailfront"
+description: "A curated digital bookshelf of books that shaped how Isaac Pehrson thinks, builds, and lives."
+---
+
+<section class="page-hero page-hero--compact bookshelf-hero">
+  <div class="container">
+    <p class="page-eyebrow">Personal Library</p>
+    <h1>Bookshelf</h1>
+    <p class="page-subtitle">A curated collection of books that have shaped how I think, build, and live.</p>
+  </div>
+</section>
+
+<section class="section bookshelf-section" aria-labelledby="bookshelf-heading">
+  <div class="container">
+    <div class="bookshelf-intro">
+      <h2 id="bookshelf-heading" class="section-title">Influential Reads</h2>
+      <p>
+        I don't track every book I read. This is a curated list of the books that left a lasting impact on me:
+        the ones that changed a habit, clarified a principle, or gave me a better way to move through work and life.
+      </p>
+    </div>
+
+    <div class="bookshelf-controls" aria-label="Bookshelf controls">
+      <div class="bookshelf-control">
+        <label for="bookshelf-sort">Sort</label>
+        <select id="bookshelf-sort" name="bookshelf-sort">
+          <option value="influence">Most influential</option>
+          <option value="recent">Recently read</option>
+          <option value="title">Title</option>
+        </select>
+      </div>
+
+      <div class="bookshelf-control">
+        <label for="bookshelf-filter">Category</label>
+        <select id="bookshelf-filter" name="bookshelf-filter">
+          <option value="all">All categories</option>
+        </select>
+      </div>
+
+      <p class="bookshelf-count" id="bookshelf-count" aria-live="polite"></p>
+    </div>
+
+    <div class="bookshelf-grid" id="bookshelf-grid" aria-live="polite">
+      <p class="bookshelf-status" role="status">Loading bookshelf...</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dataUrl = '{{ "/data/bookshelf.json" | relative_url }}';
+    const grid = document.getElementById('bookshelf-grid');
+    const count = document.getElementById('bookshelf-count');
+    const sortSelect = document.getElementById('bookshelf-sort');
+    const filterSelect = document.getElementById('bookshelf-filter');
+    let books = [];
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, function(character) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;',
+        }[character];
+      });
+    }
+
+    function normalizeCategories(book) {
+      if (Array.isArray(book.categories)) {
+        return book.categories.filter(Boolean);
+      }
+
+      return book.category ? [book.category] : [];
+    }
+
+    function getVisibleBooks() {
+      const category = filterSelect.value;
+      const sort = sortSelect.value;
+      const filtered = books.filter(function(book) {
+        if (category === 'all') return true;
+        return normalizeCategories(book).includes(category);
+      });
+
+      return filtered.sort(function(a, b) {
+        if (sort === 'recent') {
+          return Number(b.yearRead || 0) - Number(a.yearRead || 0);
+        }
+
+        if (sort === 'title') {
+          return String(a.title || '').localeCompare(String(b.title || ''));
+        }
+
+        return Number(a.influenceRank || Number.MAX_SAFE_INTEGER) - Number(b.influenceRank || Number.MAX_SAFE_INTEGER);
+      });
+    }
+
+    function renderRating(rating) {
+      const numericRating = Number(rating);
+      if (!numericRating) return '';
+
+      return '<span class="book-rating" aria-label="' + numericRating + ' out of 5 rating">' +
+        '<span aria-hidden="true">' + '★'.repeat(Math.min(numericRating, 5)) + '</span>' +
+      '</span>';
+    }
+
+    function renderBook(book) {
+      const categories = normalizeCategories(book);
+      const coverAlt = book.coverAlt || (book.title ? book.title + ' book cover' : 'Book cover');
+
+      return '<article class="book-card card">' +
+        '<div class="book-cover-wrap">' +
+          '<img class="book-cover" src="' + escapeHtml(book.cover) + '" alt="' + escapeHtml(coverAlt) + '" loading="lazy">' +
+        '</div>' +
+        '<div class="book-content">' +
+          '<div class="book-meta">' +
+            '<span>' + escapeHtml(book.yearRead || 'Year unknown') + '</span>' +
+            renderRating(book.rating) +
+          '</div>' +
+          '<h3 class="card-title book-title">' + escapeHtml(book.title) + '</h3>' +
+          '<p class="book-author">by ' + escapeHtml(book.author) + '</p>' +
+          '<p class="card-description book-reflection">' + escapeHtml(book.summary) + '</p>' +
+          '<div class="card-tags book-categories">' +
+            categories.map(function(category) {
+              return '<span class="tag">' + escapeHtml(category) + '</span>';
+            }).join('') +
+          '</div>' +
+        '</div>' +
+      '</article>';
+    }
+
+    function updateCount(visibleBooks) {
+      const bookWord = visibleBooks.length === 1 ? 'book' : 'books';
+      count.textContent = 'Showing ' + visibleBooks.length + ' of ' + books.length + ' ' + bookWord;
+    }
+
+    function renderBooks() {
+      const visibleBooks = getVisibleBooks();
+      updateCount(visibleBooks);
+
+      if (!visibleBooks.length) {
+        grid.innerHTML = '<p class="bookshelf-status" role="status">No books match this category yet.</p>';
+        return;
+      }
+
+      grid.innerHTML = visibleBooks.map(renderBook).join('');
+    }
+
+    function populateCategories() {
+      const categories = Array.from(new Set(books.flatMap(normalizeCategories))).sort(function(a, b) {
+        return a.localeCompare(b);
+      });
+
+      categories.forEach(function(category) {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        filterSelect.appendChild(option);
+      });
+    }
+
+    fetch(dataUrl)
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error('Unable to load bookshelf data');
+        }
+        return response.json();
+      })
+      .then(function(data) {
+        books = Array.isArray(data) ? data : [];
+        populateCategories();
+        renderBooks();
+      })
+      .catch(function() {
+        count.textContent = '';
+        grid.innerHTML = '<p class="bookshelf-status" role="status">The bookshelf could not be loaded right now.</p>';
+      });
+
+    sortSelect.addEventListener('change', renderBooks);
+    filterSelect.addEventListener('change', renderBooks);
+  });
+</script>

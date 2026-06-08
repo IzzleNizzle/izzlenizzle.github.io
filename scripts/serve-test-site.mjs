@@ -110,18 +110,39 @@ createServer((request, response) => {
     return;
   }
 
-  const filePath = resolve(root, `.${normalize(requestPath)}`);
+  let filePath = resolve(root, `.${normalize(requestPath)}`);
   if (!filePath.startsWith(root)) {
     send(response, 403, 'Forbidden', 'text/plain; charset=utf-8');
     return;
   }
 
   try {
-    const stats = statSync(filePath);
+    let stats = statSync(filePath);
+    if (!stats.isFile()) {
+      filePath = resolve(filePath, 'index.html');
+      if (!filePath.startsWith(root)) {
+        send(response, 403, 'Forbidden', 'text/plain; charset=utf-8');
+        return;
+      }
+      stats = statSync(filePath);
+    }
+
     if (!stats.isFile()) {
       send(response, 404, 'Not found', 'text/plain; charset=utf-8');
       return;
     }
+
+    if (extname(filePath) === '.html') {
+      const source = readFileSync(filePath, 'utf8');
+      if (!source.startsWith('---')) {
+        send(response, 200, source, mimeTypes['.html']);
+        return;
+      }
+
+      send(response, 200, renderPage(filePath, requestPath), mimeTypes['.html']);
+      return;
+    }
+
     send(response, 200, readFileSync(filePath), mimeTypes[extname(filePath)] || 'application/octet-stream');
   } catch {
     send(response, 404, 'Not found', 'text/plain; charset=utf-8');

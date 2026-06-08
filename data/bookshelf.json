@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "cover": "/assets/books/atomic-habits.svg",
+    "coverAlt": "Custom bookshelf cover for Atomic Habits by James Clear",
+    "rating": 5,
+    "yearRead": 2024,
+    "influenceRank": 1,
+    "categories": ["Personal Development", "Psychology"],
+    "summary": "Helped me understand the difference between goals and systems."
+  },
+  {
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "cover": "/assets/books/deep-work.svg",
+    "coverAlt": "Custom bookshelf cover for Deep Work by Cal Newport",
+    "rating": 5,
+    "yearRead": 2023,
+    "influenceRank": 2,
+    "categories": ["Technology", "Business"],
+    "summary": "Changed how I think about focus and distraction."
+  }
+]

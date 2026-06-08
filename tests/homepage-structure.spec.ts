@@ -37,11 +37,11 @@ test.describe('Homepage Structure & Content', () => {
     await expect(logo).toHaveAttribute('alt', 'Trailfront');
   });
 
-  test('navigation has 7 links with correct text', async ({ page }) => {
+  test('navigation has 8 links with correct text', async ({ page }) => {
     const navLinks = page.locator('.nav-menu li');
-    await expect(navLinks).toHaveCount(7);
+    await expect(navLinks).toHaveCount(8);
 
-    const expectedLinks = ['About', 'Projects', 'Offerings', 'Skills', 'Contact', 'Blog', 'Web Tools'];
+    const expectedLinks = ['About', 'Projects', 'Offerings', 'Skills', 'Contact', 'Bookshelf', 'Blog', 'Web Tools'];
     for (let i = 0; i < expectedLinks.length; i++) {
       await expect(navLinks.nth(i)).toContainText(expectedLinks[i]);
     }
@@ -54,6 +54,7 @@ test.describe('Homepage Structure & Content', () => {
       Offerings: '/#offerings',
       Skills: '/#skills',
       Contact: '/#contact',
+      Bookshelf: '/bookshelf/',
       Blog: '/blog/',
       'Web Tools': '/web-tools/',
     };
@@ -237,13 +238,14 @@ test.describe('Homepage Structure & Content', () => {
     await expect(footer).toContainText('© 2025 Trailfront. Built with care.');
   });
 
-  test('footer has 3 links', async ({ page }) => {
+  test('footer has 4 links', async ({ page }) => {
     const footerLinks = page.locator('.footer-links a');
-    await expect(footerLinks).toHaveCount(3);
+    await expect(footerLinks).toHaveCount(4);
 
     await expect(footerLinks.nth(0)).toHaveText('Support');
     await expect(footerLinks.nth(1)).toHaveText('Privacy Policy');
-    await expect(footerLinks.nth(2)).toHaveText('Web Tools');
+    await expect(footerLinks.nth(2)).toHaveText('Bookshelf');
+    await expect(footerLinks.nth(3)).toHaveText('Web Tools');
   });
 
   test('footer has WakaTime badge', async ({ page }) => {
