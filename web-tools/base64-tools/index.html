@@ -11,6 +11,9 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
   <title>Base64 Tools - Trailfront Web Tools</title>
   <meta name="description" content="Convert images to Base64 encoding and preview Base64-encoded images. Simple, elegant tools for working with Base64 image data.">
 
@@ -37,7 +40,10 @@
     <div class="container">
       <nav>
         <a href="../../index.html" aria-label="Trailfront Home" class="logo-link">
-          <img src="../../assets/trailfront/wordmark.svg" alt="Trailfront" class="logo">
+          <picture class="logo-picture">
+            <source srcset="../../assets/trailfront/wordmark-github-dark.svg" media="(prefers-color-scheme: dark)">
+            <img src="../../assets/trailfront/wordmark-github-light.svg" alt="Trailfront" class="logo" width="1200" height="240">
+          </picture>
         </a>
         
         <ul class="nav-menu">

@@ -1,8 +1,13 @@
-<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-  <rect width="256" height="256" rx="32" fill="#2B241E"/>
-  <path d="M44 104l38-42 30 42 34-52 66 52" fill="none" stroke="#CDB79E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M46 116h164" stroke="#F4F1EB" stroke-width="12" stroke-linecap="round"/>
-  <path d="M58 132h61v22H93v56H68v-56H58z" fill="#F4F1EB"/>
-  <path d="M131 132h70v22h-45v16h38v21h-38v42h-25z" fill="#CDB79E"/>
-  <path d="M116 139c-14 14-14 31 6 50 17 16 10 30-14 42" fill="none" stroke="#5A6147" stroke-width="9" stroke-linecap="round"/>
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Trailfront</title>
+  <style>
+    .bg { fill: #f6f8fa; stroke: #d0d7de; }
+    .mark { fill: #24292f; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; stroke: #30363d; }
+      .mark { fill: #f0f6fc; }
+    }
+  </style>
+  <rect class="bg" x="16" y="16" width="224" height="224" rx="48" stroke-width="10"/>
+  <path class="mark" d="M57 61h142v34h-53v100h-36V95H57z"/>
 </svg>

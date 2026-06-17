@@ -3,7 +3,10 @@
   <div class="container">
     <nav>
       <a href="{{ '/' | relative_url }}" aria-label="Trailfront Home" class="logo-link">
-        <img src="{{ '/assets/trailfront/wordmark.svg' | relative_url }}" alt="Trailfront" class="logo" width="1200" height="240">
+        <picture class="logo-picture">
+          <source srcset="{{ '/assets/trailfront/wordmark-github-dark.svg' | relative_url }}" media="(prefers-color-scheme: dark)">
+          <img src="{{ '/assets/trailfront/wordmark-github-light.svg' | relative_url }}" alt="Trailfront" class="logo" width="1200" height="240">
+        </picture>
       </a>
       
       <ul class="nav-menu">

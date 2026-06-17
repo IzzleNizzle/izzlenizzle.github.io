@@ -2,13 +2,16 @@
 layout: default
 title: "Trailfront - Tools for the Path Ahead"
 description: "Trailfront by Isaac Pehrson - practical software, web tools, and technical writing for the path ahead."
-preload_image: /assets/trailfront/wordmark-lockup.svg
+preload_image: /assets/trailfront/wordmark-github-light.svg
 ---
 
 <!-- Hero Section -->
 <section class="page-hero page-hero--landing">
   <div class="container">
-    <img src="{{ '/assets/trailfront/wordmark-lockup.svg' | relative_url }}" alt="Trailfront" class="hero-wordmark" width="1400" height="420" fetchpriority="high">
+    <picture class="hero-wordmark-picture">
+      <source srcset="{{ '/assets/trailfront/wordmark-github-dark.svg' | relative_url }}" media="(prefers-color-scheme: dark)">
+      <img src="{{ '/assets/trailfront/wordmark-github-light.svg' | relative_url }}" alt="Trailfront" class="hero-wordmark" width="1200" height="240" fetchpriority="high">
+    </picture>
     <p class="page-subtitle">Tools for the path ahead: practical software, reliable systems, and thoughtful utilities built by Isaac Pehrson.</p>
     <div class="cta-buttons">
       <a href="#projects" class="btn btn-primary">View Projects</a>

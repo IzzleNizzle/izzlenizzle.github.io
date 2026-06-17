@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="1080" viewBox="0 0 720 1080" role="img" aria-labelledby="title desc">
   <title id="title">Deep Work custom bookshelf cover</title>
-  <desc id="desc">A minimalist Trailfront-style cover for Deep Work by Cal Newport.</desc>
+  <desc id="desc">A minimalist GitHub-style cover for Deep Work by Cal Newport.</desc>
   <defs>
     <linearGradient id="cover-bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0" stop-color="#7C8A96"/>
-      <stop offset="1" stop-color="#2B241E"/>
+      <stop offset="0" stop-color="#57606a"/>
+      <stop offset="1" stop-color="#0d1117"/>
     </linearGradient>
     <pattern id="topo" width="120" height="120" patternUnits="userSpaceOnUse">
-      <path d="M-20 70c38-30 74-30 110 0s72 30 110 0" fill="none" stroke="#CDB79E" stroke-opacity="0.14" stroke-width="4"/>
-      <path d="M-20 96c38-30 74-30 110 0s72 30 110 0" fill="none" stroke="#F4F1EB" stroke-opacity="0.09" stroke-width="3"/>
+      <path d="M-20 70c38-30 74-30 110 0s72 30 110 0" fill="none" stroke="#58a6ff" stroke-opacity="0.18" stroke-width="4"/>
+      <path d="M-20 96c38-30 74-30 110 0s72 30 110 0" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="3"/>
     </pattern>
   </defs>
   <rect width="720" height="1080" fill="url(#cover-bg)"/>
   <rect width="720" height="1080" fill="url(#topo)" opacity="0.7"/>
-  <rect x="56" y="56" width="608" height="968" rx="18" fill="none" stroke="#CDB79E" stroke-opacity="0.4" stroke-width="3"/>
-  <circle cx="548" cy="788" r="116" fill="none" stroke="#CDB79E" stroke-opacity="0.28" stroke-width="10"/>
-  <circle cx="548" cy="788" r="58" fill="none" stroke="#F4F1EB" stroke-opacity="0.18" stroke-width="6"/>
-  <path d="M116 808h382" fill="none" stroke="#CDB79E" stroke-opacity="0.38" stroke-width="10" stroke-linecap="round"/>
-  <text x="96" y="226" fill="#F4F1EB" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="86" font-weight="600" letter-spacing="0">
+  <rect x="56" y="56" width="608" height="968" rx="18" fill="none" stroke="#58a6ff" stroke-opacity="0.42" stroke-width="3"/>
+  <circle cx="548" cy="788" r="116" fill="none" stroke="#58a6ff" stroke-opacity="0.32" stroke-width="10"/>
+  <circle cx="548" cy="788" r="58" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="6"/>
+  <path d="M116 808h382" fill="none" stroke="#58a6ff" stroke-opacity="0.42" stroke-width="10" stroke-linecap="round"/>
+  <text x="96" y="226" fill="#ffffff" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="86" font-weight="600" letter-spacing="0">
     <tspan x="96" dy="0">Deep</tspan>
     <tspan x="96" dy="102">Work</tspan>
   </text>
-  <text x="96" y="436" fill="#CDB79E" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="34" font-weight="500">Cal Newport</text>
-  <text x="96" y="932" fill="#CDB79E" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="26" font-weight="500" letter-spacing="5">TRAILFRONT SHELF</text>
+  <text x="96" y="436" fill="#58a6ff" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="34" font-weight="500">Cal Newport</text>
+  <text x="96" y="932" fill="#7ee787" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="26" font-weight="500" letter-spacing="5">TRAILFRONT SHELF</text>
 </svg>
