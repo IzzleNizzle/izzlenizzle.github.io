@@ -8,6 +8,14 @@
     "pricing": "free"
   },
   {
+    "title": "Duplicate Tab Shortcut",
+    "description": "Duplicate the current Chrome tab—or every selected tab—with a keyboard shortcut.",
+    "url": "https://chromewebstore.google.com/detail/duplicate-tab-shortcut/dblabkekiddmcinbogjmpffcplncndli",
+    "openInNewTab": true,
+    "tags": ["Chrome Extension", "Productivity", "Browser"],
+    "pricing": "free"
+  },
+  {
     "title": "Note Tool",
     "description": "A simple, elegant note-taking tool that lives in your browser. Create, edit, and organize your thoughts with automatic saving.",
     "url": "./note-tool/",
